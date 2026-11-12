@@ -9,6 +9,7 @@ const sections = [
   { id: 'church-year', title: 'Church year' },
   { id: 'family', title: 'Family' },
   { id: 'sources', title: 'Sources' },
+  { id: 'pricing', title: 'Pricing' },
   { id: 'about', title: 'About' },
 ]
 

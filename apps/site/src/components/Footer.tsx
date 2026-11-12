@@ -13,10 +13,13 @@ export function Footer() {
         <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 font-medium text-stone-900">
           <Link href="/">Home</Link>
           <a href={APP_URL}>Open the app</a>
+          <Link href="/readings/">Readings</Link>
+          <Link href="/#pricing">Pricing</Link>
+          <Link href="/get/">Get the app</Link>
           <Link href={PRECENTOR_URL}>Precentor</Link>
           <Link href={HEARERS_URL}>Hearers</Link>
           <Link href={SIB_URL}>Self-Interpreting Bible</Link>
-          <Link href={KOFI_URL}>Ko-fi</Link>
+          <Link href={KOFI_URL} data-event="Ko-fi" data-event-label="footer">Ko-fi</Link>
         </nav>
         <p>Made by Luke Boyle. Free to use.</p>
       </div>

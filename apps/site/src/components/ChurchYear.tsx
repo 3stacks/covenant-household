@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from 'next/image'
 
 import { Container } from '@/components/Container'
@@ -46,6 +47,14 @@ export function ChurchYear() {
                 </div>
               ))}
             </dl>
+            <p className="mt-8">
+              <Link
+                href="/readings/"
+                className="text-base font-medium text-brand-600 hover:text-brand-800"
+              >
+                See the readings for each day of the year <span aria-hidden="true">&rarr;</span>
+              </Link>
+            </p>
           </div>
           <div className="mx-auto w-64 overflow-hidden rounded-3xl shadow-xl ring-8 ring-stone-900 md:w-72 lg:mt-20">
             <Image

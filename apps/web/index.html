@@ -7,6 +7,10 @@
     <meta name="description" content="A Reformed daily prayer book. Each day has a psalm, two readings, a Reformed writing, a hymn, a prayer and a part of the Westminster Standards." />
     <link rel="icon" href="icon.svg" type="image/svg+xml" />
     <title>Covenant Household</title>
+    <!-- Analytics on the hosted site only (packages/core/src/analytics.ts). A self-hosted copy has no /a/ route, so the loader does nothing. -->
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)};(function(){var loaded=false;function load(){if(loaded)return;loaded=true;var s=document.createElement("script");s.src="/a/boot.js";s.async=true;document.head.appendChild(s)}["pointerdown","keydown","scroll","touchstart"].forEach(function(e){window.addEventListener(e,load,{once:true,passive:true})});document.addEventListener("click",function(e){var el=e.target&&e.target.closest&&e.target.closest("[data-event]");if(!el)return;var props={path:location.pathname};if(el.dataset.eventLabel)props.label=el.dataset.eventLabel;window.plausible(el.dataset.event,{props:props})},true)})();
+    </script>
   </head>
   <body>
     <div id="root"></div>

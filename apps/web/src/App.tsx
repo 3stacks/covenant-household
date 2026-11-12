@@ -1,4 +1,5 @@
 import { KOFI } from '@daily-prayer/core/links'
+import { AppBanner } from './AppBanner.tsx'
 import { usePrefs } from './lib/prefs.ts'
 import { useRoute } from './router.ts'
 import { About } from './views/About.tsx'
@@ -12,6 +13,7 @@ export function App() {
   const [prefs, update] = usePrefs()
   return (
     <div className="app">
+      <AppBanner />
       <nav className="top">
         <a href="#/" className="brand">
           Covenant Household

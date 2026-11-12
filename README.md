@@ -213,6 +213,50 @@ No file has a writing yet.
 The research report `research/2026-11-09-landscape-reformed-suite-app-gaps.md` in the personal
 workspace lists possible sources.
 
+## Analytics
+
+The website and the web app count visits with Umami, as Hearers and lector.dev do. Umami uses no
+cookies. The app sends no text that the reader types.
+
+- A Pages Function, `functions/a/[[path]].ts`, serves `/a/`. It forwards the tracker and the events
+  to Umami, so the Umami address stays secret. The code is in `functions/_lib/analytics.ts`.
+- The loader is in `packages/core/src/analytics.ts`. The `<head>` of the web app
+  (`apps/web/index.html`) has a copy. A test makes sure that the two copies are the same.
+- The loader loads the tracker after the first input of the visitor.
+- An element with `data-event="Name"` sends that event when the visitor clicks it.
+  `data-event-label` adds a label.
+
+These are the events:
+
+| Event | Label | Where |
+| --- | --- | --- |
+| `Open app` | `hero`, `pricing`, `readings`, `get-the-app`, `get` | The buttons that open the web app |
+| `Store` | `ios`, `android` | The store badges on the website |
+| `Get the app` | | The store bar in the web app, on a phone |
+| `Ko-fi` | `pricing`, `footer` | The Ko-fi links |
+| `Sing in Precentor`, `Read in Haddington`, `Memorise in Hearers`, `Learn in Hearers` | | The links to the other apps, on the page of a day |
+
+To turn on analytics, set these secrets on the Pages project `covenant-household`:
+
+```bash
+npx wrangler pages secret put ANALYTICS_FORWARDING_URL --project-name=covenant-household
+npx wrangler pages secret put ANALYTICS_WEBSITE_ID --project-name=covenant-household
+```
+
+`ANALYTICS_FORWARDING_URL` is the Umami origin, with no path. `ANALYTICS_WEBSITE_ID` is the UUID
+of the Umami website for Covenant Household. Leave either one empty to keep analytics off.
+
+Analytics counts only `covenanthousehold.app`, `www.covenanthousehold.app` and
+`covenant-household.pages.dev`. To count another domain, set `ANALYTICS_HOSTS` to a list of hosts
+with commas between them. Branch previews, `localhost` and self-hosted copies send nothing.
+
+Wrangler takes the Pages Functions from `./functions`. Deploy from the repository root:
+
+```bash
+npm run site
+npx wrangler pages deploy apps/site/out --project-name=covenant-household
+```
+
 ## License
 
 Copyright © 2026 Luke Boyle.

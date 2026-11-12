@@ -2,16 +2,7 @@ import Link from 'next/link'
 
 import { GridPattern } from '@/components/GridPattern'
 import { SectionHeading } from '@/components/SectionHeading'
-import { HEARERS_URL, KOFI_URL, PRECENTOR_URL, SIB_URL } from '@/lib/site'
-
-function CupIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z" />
-      <path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17M8 3v2M12 3v2" />
-    </svg>
-  )
-}
+import { HEARERS_URL, PRECENTOR_URL, SIB_URL } from '@/lib/site'
 
 const apps = [
   { name: 'Precentor', href: PRECENTOR_URL, text: 'Sing the Scottish Psalter, with a player that follows each syllable.' },
@@ -32,7 +23,7 @@ export function About() {
       <div className="relative mx-auto max-w-5xl sm:px-6">
         <div className="bg-stone-50 sm:rounded-6xl">
           <div className="px-4 py-10 sm:px-10 sm:py-16 md:py-20 lg:px-20 lg:py-32">
-            <SectionHeading number="5" id="about-title">
+            <SectionHeading number="6" id="about-title">
               About
             </SectionHeading>
             <p className="mt-8 font-display text-4xl font-extrabold tracking-tight text-pretty text-stone-900 sm:text-6xl">
@@ -53,19 +44,6 @@ export function About() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-lg tracking-tight text-stone-700">
-              If Covenant Household helps you, you can support it on Ko-fi. The support
-              pays for the server and for the time to add more texts.
-            </p>
-            <p className="mt-8">
-              <Link
-                href={KOFI_URL}
-                className="inline-flex items-center text-base font-medium tracking-tight text-stone-900"
-              >
-                <CupIcon className="h-10 w-10" />
-                <span className="ml-4">Support Covenant Household on Ko-fi</span>
-              </Link>
-            </p>
           </div>
         </div>
       </div>

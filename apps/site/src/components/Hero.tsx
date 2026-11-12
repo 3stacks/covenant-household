@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 import { Button } from '@/components/Button'
 import { GridPattern } from '@/components/GridPattern'
+import { StoreButtons } from '@/components/StoreButtons'
 import { APP_URL } from '@/lib/site'
 import heroImage from '@/images/screens/day-top.png'
 
@@ -57,7 +58,7 @@ export function Hero() {
               alone or with your family.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Button href={APP_URL} color="blue">
+              <Button href={APP_URL} color="blue" data-event="Open app" data-event-label="hero">
                 Open today’s page
               </Button>
               <Button href="#family" variant="outline" color="blue">
@@ -67,6 +68,7 @@ export function Hero() {
             <p className="mt-4 text-base tracking-tight text-stone-500">
               Free. No account. Works offline.
             </p>
+            <StoreButtons className="mt-6" />
           </div>
         </div>
       </div>
