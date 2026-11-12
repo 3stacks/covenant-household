@@ -1,0 +1,12 @@
+{
+  "id": "advent-2-2",
+  "confession": {
+    "doc": "wcf",
+    "units": [
+      "wcf-1.8"
+    ]
+  },
+  "proverb": {
+    "passage": "Prov.10.19-20"
+  }
+}

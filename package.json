@@ -1,0 +1,28 @@
+{
+  "name": "daily-prayer",
+  "version": "0.1.0",
+  "description": "A Reformed daily prayer book. This folder holds the content, the build scripts and the shared code. The apps are in apps/.",
+  "type": "module",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "install:all": "npm install && npm --prefix apps/web install && npm --prefix apps/site install && npm --prefix apps/mobile install",
+    "dev": "npm run calendar && npm --prefix apps/web run dev",
+    "build": "npm run calendar && tsc --noEmit && npm --prefix apps/web run build",
+    "build:release": "npm run calendar -- --release && tsc --noEmit && npm --prefix apps/web run build",
+    "site": "npm run build:release && npm --prefix apps/site run build && node scripts/merge-site.ts",
+    "mobile": "npm run calendar -- --release && npm --prefix apps/mobile start",
+    "test": "vitest run",
+    "calendar": "node scripts/build-calendar.ts",
+    "import": "node scripts/import-1922.ts && node scripts/import-1662.ts && node scripts/import-psalter.ts",
+    "seed": "node scripts/seed-devotions.ts && node scripts/import-ryle.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

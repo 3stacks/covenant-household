@@ -1,0 +1,11 @@
+{
+  "name": "@daily-prayer/core",
+  "version": "0.1.0",
+  "description": "The church year, the data model and the loaders that the web app and the mobile app share.",
+  "type": "module",
+  "private": true,
+  "license": "UNLICENSED",
+  "exports": {
+    "./*": "./src/*.ts"
+  }
+}

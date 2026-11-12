@@ -1,0 +1,8 @@
+node_modules
+dist
+dev-dist
+.cache
+*.tsbuildinfo
+# Built by scripts/build-calendar.ts
+apps/web/public/calendar
+apps/mobile/calendar

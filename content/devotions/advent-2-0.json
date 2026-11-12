@@ -1,0 +1,14 @@
+{
+  "id": "advent-2-0",
+  "confession": {
+    "doc": "wsc",
+    "units": [
+      "wsc-3",
+      "wsc-4",
+      "wsc-5"
+    ]
+  },
+  "proverb": {
+    "passage": "Prov.10.15-16"
+  }
+}

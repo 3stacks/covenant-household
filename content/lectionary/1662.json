@@ -1,0 +1,719 @@
+{
+ "name": "The Collects, Epistles and Gospels (1662)",
+ "source": {
+  "name": "The Book of Common Prayer (1662). Transcription by Lynda Howell.",
+  "url": "http://www.eskimo.com/~lhowell/bcp1662/communion/",
+  "licence": "public-domain",
+  "note": "In the United Kingdom the Crown holds the rights in the 1662 text. Outside the United Kingdom it is in the public domain."
+ },
+ "days": {
+  "advent-1-0": {
+   "title": "The First Sunday of Advent.",
+   "epistle": "Rom.13.8-14",
+   "gospel": "Matt.21.1-13",
+   "collects": [
+    "ALMIGHTY God, give us grace that we may cast away the works of darkness, and put upon us the armour of light, now in the time of this mortal life in which thy Son Jesus Christ came to visit us in great humility; that in the last day, when he shall come again in his glorious majesty to judge both the quick and the dead, we may rise to the life immortal; through him who liveth and reigneth with thee and the Holy Ghost, one God, now and for ever. Amen."
+   ]
+  },
+  "advent-2-0": {
+   "title": "The Second Sunday in Advent.",
+   "epistle": "Rom.15.4-13",
+   "gospel": "Luke.21.25-33",
+   "collects": [
+    "BLESSED Lord, who hast caused all holy Scriptures to be written for our learning; Grant that we may in such wise hear them, read, mark, learn, and inwardly digest them, that by patience and comfort of thy holy Word, we may embrace, and ever hold fast, the blessed hope of everlasting life, which thou hast given us in our Saviour Jesus Christ. Amen."
+   ]
+  },
+  "advent-3-0": {
+   "title": "The Third Sunday in Advent.",
+   "epistle": "1Cor.4.1-5",
+   "gospel": "Matt.11.2-10",
+   "collects": [
+    "O LORD Jesu Christ, who at thy first coming didst send thy messenger to prepare thy way before thee; Grant that the ministers and stewards of thy mysteries may likewise so prepare and make ready thy way, by turning the hearts of the disobedient to the wisdom of the just, that at thy second coming to judge the world we may be found an acceptable people in thy sight, who livest and reignest with the Father and the Holy Spirit ever, one God, world without end. Amen."
+   ]
+  },
+  "advent-4-0": {
+   "title": "The Fourth Sunday in Advent.",
+   "epistle": "Phil.4.4-7",
+   "gospel": "John.1.19-28",
+   "collects": [
+    "O LORD, raise up (we pray thee) thy power, and come among us, and with great might succour us; that whereas, through our sins and wickedness, we are sore let and hindered in running the race that is set before us, thy bountiful grace and mercy may speedily help and deliver us; through the satisfaction of thy Son our Lord, to whom with thee and the Holy Ghost be honour and glory, world without end. Amen."
+   ]
+  },
+  "dec-25": {
+   "title": "The Nativity of our Lord, or the Birth-day of Christ, Commonly called Christmas-Day.",
+   "epistle": "Heb.1.1-12",
+   "gospel": "John.1.1-14",
+   "collects": [
+    "ALMIGHTY God, who hast given us thy only-begotten Son to take our nature upon him, and as at this time to be born of a pure Virgin; Grant that we being regenerate, and made thy children by adoption and grace, may daily be renewed by thy Holy Spirit; through the same our Lord Jesus Christ, who liveth and reigneth with thee and the same Spirit, ever one God, world without end. Amen."
+   ]
+  },
+  "dec-26": {
+   "title": "Saint Stephen's Day.",
+   "epistle": "Acts.7.55-60",
+   "gospel": "Matt.23.34-39",
+   "collects": [
+    "Grant, O Lord, that, in all our sufferings here upon earth for the testimony of thy truth, we may stedfastly look up to heaven, and by faith behold the glory that shall be revealed; and, being filled with the Holy Ghost, may learn to love and bless our persecutors by the example of thy first Martyr Saint Stephen, who prayed for his murderers to thee, O blessed Jesus, who standest at the right hand of God to succour all those that suffer for thee, our only Mediator and Advocate. Amen."
+   ]
+  },
+  "dec-27": {
+   "title": "Saint John the Evangelist's Day.",
+   "epistle": "1John.1.1-10",
+   "gospel": "John.21.19-25",
+   "collects": [
+    "MERCIFUL Lord, we beseech thee to cast thy bright beams of light upon thy Church, that it being enlightened by the doctrine of thy blessed Apostle and Evangelist Saint John may so walk in the light of thy truth, that it may at length attain to the light of everlasting life; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "dec-28": {
+   "title": "The Innocents' Day.",
+   "epistle": "Rev.14.1-5",
+   "gospel": "Matt.2.13-18",
+   "collects": [
+    "O ALMIGHTY God, who out of the mouths of babes and sucklings hast ordained strength, and madest infants to glorify thee by their deaths; Mortify and kill all vices in us, and so strengthen us by thy grace, that by the innocency of our lives, and constancy of our faith even unto death, we may glorify thy holy Name; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "christmas-sunday": {
+   "title": "The Sunday after Christmas-Day.",
+   "epistle": "Gal.4.1-7",
+   "gospel": "Matt.1.18-25",
+   "collects": [
+    "ALMIGHTY God, who hast given us thy only-begotten Son to take our nature upon him, and as at this time to be born of a pure Virgin; Grant that we being regenerate, and made thy children by adoption and grace, may daily be renewed by thy Holy Spirit; through the same our Lord Jesus Christ, who liveth and reigneth with thee and the same Spirit, one God, world without end. Amen."
+   ]
+  },
+  "jan-01": {
+   "title": "The Circumcision of Christ.",
+   "epistle": "Rom.4.8-14",
+   "gospel": "Luke.2.15-21",
+   "collects": [
+    "ALMIGHTY God, who madest thy blessed Son to be circumcised, and obedient to the law for man; Grant us the true Circumcision of the Spirit; that, our hearts, and all our members, being mortified from all worldly and carnal lusts, we may in all things obey thy blessed will; through the same thy Son Jesus Christ our Lord. Amen."
+   ]
+  },
+  "jan-06": {
+   "title": "The Epiphany, or the Manifestation of Christ to the Gentiles.",
+   "epistle": "Eph.3.1-12",
+   "gospel": "Matt.2.1-12",
+   "collects": [
+    "O GOD, who by the leading of a star didst manifest thy only-begotten Son to the Gentiles: Mercifully grant, that we, which know thee now by faith, may after this life have the fruition of thy glorious Godhead; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "epiphany-1-0": {
+   "title": "The First Sunday after the Epiphany.",
+   "epistle": "Rom.12.1-5",
+   "gospel": "Luke.2.41-52",
+   "collects": [
+    "O LORD, we beseech thee mercifully to receive the prayers of thy people which call upon thee; and grant that they may both perceive and know what things they ought to do, and also may have grace and power faithfully to fulfil the same; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "epiphany-2-0": {
+   "title": "The Second Sunday after the Epiphany.",
+   "epistle": "Rom.12.6-16",
+   "gospel": "John.2.1-11",
+   "collects": [
+    "ALMIGHTY and everlasting God, who dost govern all things in heaven and earth; Mercifully hear the supplications of thy people, and grant us thy peace all the days of our life; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "epiphany-3-0": {
+   "title": "The Third Sunday after the Epiphany.",
+   "epistle": "Rom.12.16-21",
+   "gospel": "Matt.8.1-13",
+   "collects": [
+    "ALMIGHTY and everlasting God, mercifully look upon our infirmities, and in all our dangers and necessities stretch forth thy right hand to help and defend us; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "epiphany-4-0": {
+   "title": "The Fourth Sunday after the Epiphany.",
+   "epistle": "Rom.13.1-7",
+   "gospel": "Matt.8.23-34",
+   "collects": [
+    "O GOD, who knowest us to be set in the midst of so many and great dangers, that by reason of the frailty of our nature we cannot always stand upright; Grant to us such strength and protection, as may support us in all dangers, and carry us through all temptations; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "epiphany-5-0": {
+   "title": "The Fifth Sunday after the Epiphany.",
+   "epistle": "Col.3.12-17",
+   "gospel": "Matt.13.24-30",
+   "collects": [
+    "O LORD, we beseech thee to keep thy Church and household continually in thy true religion; that they who do lean only upon the hope of thy heavenly grace may evermore be defended by thy mighty power; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "epiphany-6-0": {
+   "title": "The Sixth Sunday after the Epiphany.",
+   "epistle": "1John.3.1-8",
+   "gospel": "Matt.24.23-31",
+   "collects": [
+    "O GOD, whose blessed Son was manifested that he might destroy the works of the devil, and make us the sons of God, and heirs of eternal life; Grant us, we beseech thee, that, having this hope, we may purify ourselves, even as he is pure; that, when he shall appear again with power and great glory, we may be made like unto him in his eternal and glorious kingdom; where with thee, O Father, and thee, O Holy Ghost, he liveth and reigneth, ever one God, world without end. Amen."
+   ]
+  },
+  "septuagesima-0": {
+   "title": "The Sunday called Septuagesima, or the third Sunday before Lent.",
+   "epistle": "1Cor.9.24-27",
+   "gospel": "Matt.20.1-16",
+   "collects": [
+    "O LORD, we beseech thee favourably to hear the prayers of thy people; that we, who are justly punished for our offences, may be mercifully delivered by thy goodness, for the glory of thy Name; through Jesus Christ our Saviour, who liveth and reigneth with thee and the Holy Ghost, ever one God, world without end. Amen."
+   ]
+  },
+  "sexagesima-0": {
+   "title": "The Sunday called Sexagesima, or the second Sunday before Lent.",
+   "epistle": "2Cor.11.19-31",
+   "gospel": "Luke.8.4-15",
+   "collects": [
+    "O LORD God, who seest that we put not our trust in any thing that we do; Mercifully grant that by thy power we may be defended against all adversity; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "quinquagesima-0": {
+   "title": "The Sunday called Quinquagesima, or the next Sunday before Lent.",
+   "epistle": "1Cor.13.1-13",
+   "gospel": "Luke.18.31-43",
+   "collects": [
+    "O LORD, who hast taught us that all our doings without charity are nothing worth; Send thy Holy Ghost and pour into our hearts that most excellent gift of charity, the very bond of peace and of all virtues, without which whosoever liveth is counted dead before thee; Grant this for thine only Son Jesus Christ's sake. Amen."
+   ]
+  },
+  "lent-0-3": {
+   "title": "The First day of Lent, Commonly called Ash-Wednesday.",
+   "epistle": "Joel.2.12-17",
+   "gospel": "Matt.6.16-21",
+   "collects": [
+    "ALMIGHTY and everlasting God, who hatest nothing that thou hast made and dost forgive the sins of all them that are penitent; Create and make in us new and contrite hearts, that we, worthily lamenting our sins, and acknowledging our wretchedness, may obtain of thee, the God of all mercy, perfect remission and forgiveness; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "lent-1-0": {
+   "title": "The First Sunday in Lent.",
+   "epistle": "2Cor.6.1-10",
+   "gospel": "Matt.4.1-11",
+   "collects": [
+    "O LORD, who for our sake didst fast forty days and forty nights; Give us grace to use such abstinence, that, our flesh being subdued to the Spirit, we may ever obey thy godly motions in righteousness, and true holiness, to thy honour and glory, who livest and reignest with the Father and the Holy Ghost, one God, world without end. Amen."
+   ]
+  },
+  "lent-2-0": {
+   "title": "The Second Sunday in Lent.",
+   "epistle": "1Thess.4.1-8",
+   "gospel": "Matt.15.21-28",
+   "collects": [
+    "ALMIGHTY God, who seest that we have no power of ourselves to help ourselves; Keep us both outwardly in our bodies, and inwardly in our souls; that we may be defended from all adversities which may happen to the body, and from all evil thoughts which may assault and hurt the soul; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "lent-3-0": {
+   "title": "The Third Sunday in Lent.",
+   "epistle": "Eph.5.1-14",
+   "gospel": "Luke.11.14-28",
+   "collects": [
+    "WE beseech thee, Almighty God, look upon the hearty desires of thy humble servants, and stretch forth the right hand of thy Majesty, to be our defence against all our enemies; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "lent-4-0": {
+   "title": "The Fourth Sunday in Lent.",
+   "epistle": "Gal.4.21-31",
+   "gospel": "John.6.1-14",
+   "collects": [
+    "GRANT, we beseech thee, Almighty God, that we, who for our evil deeds do worthily deserve to be punished, by the comfort of thy grace may mercifully be relieved; through our Lord and Saviour Jesus Christ. Amen."
+   ]
+  },
+  "lent-5-0": {
+   "title": "The Fifth Sunday in Lent.",
+   "epistle": "Heb.9.11-15",
+   "gospel": "John.8.46-59",
+   "collects": [
+    "WE beseech thee, Almighty God, mercifully to look upon thy people; that by thy great goodness they may be governed and preserved evermore, both in body and soul; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "holy-week-0": {
+   "title": "The Sunday next before Easter.",
+   "epistle": "Phil.2.5-11",
+   "gospel": "Matt.27.1-54",
+   "collects": [
+    "ALMIGHTY and everlasting God, who, of thy tender love towards mankind, hast sent thy Son, our Savior Jesus Christ, to take upon him our flesh, and to suffer death upon the cross, that all mankind should follow the example of his great humility; Mercifully grant, that we may both follow the example of his patience, and also be made partakers of his resurrection; through the same Jesus Christ our Lord. Amen."
+   ]
+  },
+  "holy-week-1": {
+   "title": "Monday before Easter.",
+   "epistle": "Isa.63.1-19",
+   "gospel": "Mark.14.1-72"
+  },
+  "holy-week-2": {
+   "title": "Tuesday before Easter.",
+   "epistle": "Isa.50.5-11",
+   "gospel": "Mark.15.1-39"
+  },
+  "holy-week-3": {
+   "title": "Wednesday before Easter.",
+   "epistle": "Heb.9.16-28",
+   "gospel": "Luke.22.1-71"
+  },
+  "holy-week-4": {
+   "title": "Thursday before Easter.",
+   "epistle": "1Cor.11.17-34",
+   "gospel": "Luke.23.1-49"
+  },
+  "holy-week-5": {
+   "title": "Good Friday.",
+   "epistle": "Heb.10.1-25",
+   "gospel": "John.19.1-37",
+   "collects": [
+    "ALMIGHTY God, we beseech thee graciously to behold this thy family, for whom our Lord Jesus Christ was contented to be betrayed, and given up into the hands of wicked men, and to suffer death upon the cross, who now liveth and reigneth with thee and the Holy Ghost, ever one God, world without end. Amen. ALMIGHTY and everlasting God, by whose Spirit the whole body of the Church is governed and sanctified; Receive our supplications and prayers, which we offer before thee for all estates of men in thy holy Church, that every member of the same, in his vocation and ministry may truly and godly serve thee; through our Lord and Savior Jesus Christ. Amen. O MERCIFUL God, who hast made all men, and hatest nothing that thou hast made, nor wouldest the death of a sinner, but rather that he should be converted and live; Have mercy upon all Jews, Turks, Infidels, and Hereticks, and take from them all ignorance, hardness of heart, and contempt of thy Word; and so fetch them home, blessed Lord, to thy flock, that they may be saved among the remnant of the true Israelites, and be made one fold under one shepherd, Jesus Christ our Lord, who liveth and reigneth with thee and the Holy Spirit, one God, world without end. Amen."
+   ]
+  },
+  "holy-week-6": {
+   "title": "Easter-Even.",
+   "epistle": "1Pet.3.17-22",
+   "gospel": "Matt.27.57-66",
+   "collects": [
+    "GRANT, O Lord, that as we are baptized into the death of thy blessed Son our Saviour Jesus Christ, so by continual mortifying our corrupt affections we may be buried with him; and that through the grave, and gate of death, we may pass to our joyful resurrection; for his merits, who died, and was buried, and rose again for us, thy Son Jesus Christ our Lord. Amen."
+   ]
+  },
+  "easter-0-0": {
+   "title": "Easter-Day.",
+   "epistle": "Col.3.1-7",
+   "gospel": "John.20.1-10",
+   "collects": [
+    "ALMIGHTY God, who through thine only-begotten Son Jesus Christ hast overcome death, and opened unto us the gate of everlasting life; We humbly beseech thee, that, as by thy special grace preventing us thou dost put into our minds good desires, so by thy continual help we may bring the same to good effect; through Jesus Christ our Lord, who liveth and reigneth with thee and the Holy Ghost, ever one God, world without end. Amen."
+   ]
+  },
+  "easter-0-1": {
+   "title": "Monday in Easter-Week.",
+   "epistle": "Acts.10.34-43",
+   "gospel": "Luke.24.13-35",
+   "collects": [
+    "ALMIGHTY God, who through thy only-begotten Son Jesus Christ hast overcome death, and opened unto us the gate of everlasting life; We humbly beseech thee, that, as by thy special grace preventing us thou dost put into our minds good desires, so by thy continual help we may bring the same to good effect; through Jesus Christ our Lord, who liveth and reigneth with thee and the Holy Ghost, ever one God, world without end. Amen."
+   ]
+  },
+  "easter-0-2": {
+   "title": "Tuesday in Easter-Week.",
+   "epistle": "Acts.13.26-41",
+   "gospel": "Luke.24.36-48",
+   "collects": [
+    "ALMIGHTY God, who through thy only-begotten Son Jesus Christ hast overcome death, and opened unto us the gate of everlasting life; We humbly beseech thee, that, as by thy special grace preventing us thou dost put into our minds good desires, so by thy continual help we may bring the same to good effect; through Jesus Christ our Lord, who liveth and reigneth with thee and the Holy Ghost, ever one God, world without end. Amen."
+   ]
+  },
+  "easter-1-0": {
+   "title": "The First Sunday after Easter.",
+   "epistle": "1John.5.4-12",
+   "gospel": "John.20.19-23",
+   "collects": [
+    "ALMIGHTY Father, who has given thine only Son to die for our sins, and to rise again for our justification; Grant us so to put away the leaven of malice and wickedness, that we may alway serve thee in pureness of living and truth; through the merits of the same thy Son Jesus Christ our Lord. Amen."
+   ]
+  },
+  "easter-2-0": {
+   "title": "The Second Sunday after Easter.",
+   "epistle": "1Pet.2.19-25",
+   "gospel": "John.10.11-16",
+   "collects": [
+    "ALMIGHTY God, who has given thine only Son to be unto us both a sacrifice for sin, and also an ensample of godly life; Give us grace that we may always most thankfully receive that his inestimable benefit, and also daily endeavour ourselves to follow the blessed steps of his most holy life; through the same Jesus Christ our Lord. Amen."
+   ]
+  },
+  "easter-3-0": {
+   "title": "The Third Sunday after Easter.",
+   "epistle": "1Pet.2.11-17",
+   "gospel": "John.16.16-22",
+   "collects": [
+    "ALMIGHTY God, who shewest to them that be in error the light of thy truth, to the intent that they may return into the way of righteousness; Grant unto all them that are admitted into the fellowship of Christ's Religion, that they may eschew those things that are contrary to their profession, and follow all such things as are agreeable to the same; through our Lord Jesus Christ. Amen."
+   ]
+  },
+  "easter-4-0": {
+   "title": "The Fourth Sunday after Easter.",
+   "epistle": "Jas.1.17-21",
+   "gospel": "John.16.5-14",
+   "collects": [
+    "O ALMIGHTY God, who alone canst order the unruly wills and affections of sinful men; Grant unto thy people, that they may love the thing which thou commandest, and desire that which thou dost promise; that so, among the sundry and manifold changes of the world, our hearts may surely there be fixed, where true joys are to be found; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "easter-5-0": {
+   "title": "The Fifth Sunday after Easter.",
+   "epistle": "Jas.1.22-27",
+   "gospel": "John.16.23-33",
+   "collects": [
+    "O LORD, from whom all good things do come; Grant to us thy humble servants, that by thy holy inspiration we may think those things that be good, and by thy merciful guiding may perform the same; through our Lord Jesus Christ. Amen."
+   ]
+  },
+  "easter-5-4": {
+   "title": "The Ascension-Day.",
+   "epistle": "Acts.1.1-11",
+   "gospel": "Mark.16.14-20",
+   "collects": [
+    "GRANT, we beseech thee, Almighty God, that like as we do believe thy only-begotten Son our Lord Jesus Christ to have ascended into the heavens; so we may also in heart and mind thither ascend, and with him continually dwell, who liveth and reigneth with thee and the Holy Ghost, one God, world without end. Amen."
+   ]
+  },
+  "easter-6-0": {
+   "title": "Sunday after Ascension-Day.",
+   "epistle": "1Pet.4.7-11",
+   "gospel": "John.15.26-16.4",
+   "collects": [
+    "O GOD the King of glory, who hast exalted thine only Son Jesus Christ with great triumph unto thy kingdom in heaven; We beseech thee, leave us not comfortless; but send to us thine Holy Ghost to comfort us, and exalt us unto the same place whither our Saviour Christ is gone before, who liveth and reigneth with thee and the Holy Ghost, one God, world without end. Amen."
+   ]
+  },
+  "whitsun-0": {
+   "title": "Whit-Sunday.",
+   "epistle": "Acts.2.1-11",
+   "gospel": "John.14.15-31",
+   "collects": [
+    "GOD, who as at this time didst teach the hearts of thy faithful people, by the sending to them the light of thy Holy Spirit; Grant us by the same Spirit to have a right judgement in all things, and evermore to rejoice in his holy comfort; through the merits of Christ Jesus our Saviour, who liveth and reigneth with thee, in the unity of the same Spirit, one God, world without end. Amen."
+   ]
+  },
+  "whitsun-1": {
+   "title": "Monday in Whitsun-Week.",
+   "epistle": "Acts.10.34-48",
+   "gospel": "John.3.16-21",
+   "collects": [
+    "GOD, who as at this time didst teach the hearts of thy faithful people, by sending to them the light of thy Holy Spirit; Grant us by the same Spirit to have a right judgement in all things, and evermore to rejoice in his holy comfort; through the merits of Christ Jesus our Savior, who liveth and reigneth with thee, in the unity of the same Spirit, one God, world without end. Amen."
+   ]
+  },
+  "whitsun-2": {
+   "title": "Tuesday in Whitsun-Week.",
+   "epistle": "Acts.8.14-19",
+   "gospel": "John.10.1-10",
+   "collects": [
+    "GOD, who as at this time didst teach the hearts of thy faithful people, by sending to them the light of thy Holy Spirit; Grant us by the same Spirit to have a right judgement in all things, and evermore to rejoice in his holy comfort; through the merits of Christ Jesus our Savior, who liveth and reigneth with thee, in the unity of the same Spirit, one God, world without end. Amen."
+   ]
+  },
+  "trinity-0-0": {
+   "title": "Trinity-Sunday.",
+   "epistle": "Rev.4.1-11",
+   "gospel": "John.3.1-15",
+   "collects": [
+    "ALMIGHTY and everlasting God, who hast given unto us thy servants grace, by the confession of a true faith to acknowledge the glory of the eternal Trinity, and in the power of the Divine Majesty to worship the Unity; We beseech thee, that thou wouldst keep us steadfast in this faith, and evermore defend us from all adversities, who livest and reignest, one God, world without end. Amen."
+   ]
+  },
+  "trinity-1-0": {
+   "title": "The First Sunday after Trinity.",
+   "epistle": "1John.4.7-21",
+   "gospel": "Luke.16.19-31",
+   "collects": [
+    "O GOD, the strength of all them that put their trust in thee, mercifully accept our prayers; and because through the weakness of our mortal nature we can do no good thing without thee, grant us the help of thy grace, that in keeping of thy commandments we may please thee, both in will and deed; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-2-0": {
+   "title": "The Second Sunday after Trinity.",
+   "epistle": "1John.3.13-24",
+   "gospel": "Luke.14.16-24",
+   "collects": [
+    "O LORD, who never failest to help and govern them who thou dost bring up in thy stedfast fear and love; Keep us, we beseech thee, under the protection of thy good providence, and make us to have a perpetual fear and love of thy holy Name; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-3-0": {
+   "title": "The Third Sunday after Trinity.",
+   "epistle": "1Pet.5.5-11",
+   "gospel": "Luke.15.1-10",
+   "collects": [
+    "O LORD, we beseech thee mercifully to hear us; and grant that we, to whom thou hast given an hearty desire to pray, may by thy mighty aid be defended and comforted in all dangers and adversities; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-4-0": {
+   "title": "The Fourth Sunday after Trinity.",
+   "epistle": "Rom.8.18-23",
+   "gospel": "Luke.6.36-42",
+   "collects": [
+    "O GOD, the protector of all that trust in thee, without whom nothing is strong, nothing is holy; Increase and multiply upon us thy mercy; that, thou being our ruler and guide, we may so pass through things temporal, that we finally lose not the things eternal: Grant this, O heavenly Father, for Jesus Christ's sake our Lord. Amen."
+   ]
+  },
+  "trinity-5-0": {
+   "title": "The Fifth Sunday after Trinity.",
+   "epistle": "1Pet.3.8-15",
+   "gospel": "Luke.5.1-11",
+   "collects": [
+    "GRANT, O Lord, we beseech thee, that the course of this world may be so peaceably ordered by thy governance, that thy Church may joyfully serve thee in all godly quietness; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-6-0": {
+   "title": "The Sixth Sunday after Trinity.",
+   "epistle": "Rom.6.3-11",
+   "gospel": "Matt.5.20-26",
+   "collects": [
+    "O GOD, who hast prepared for them that love thee such good things as pass man's understanding; Pour into our hearts such love toward thee, that wee, loving thee above all things, may obtain thy promises, which exceed all that we can desire; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-7-0": {
+   "title": "The Seventh Sunday after Trinity.",
+   "epistle": "Rom.6.19-23",
+   "gospel": "Mark.8.1-9",
+   "collects": [
+    "LORD of all power and might, who art the author and giver of all good things; Graft in our hearts the love of thy Name, increase in us true religion, nourish us with all goodness, and of thy great mercy keep us in the same; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-8-0": {
+   "title": "The Eighth Sunday after Trinity.",
+   "epistle": "Rom.8.12-17",
+   "gospel": "Matt.7.15-21",
+   "collects": [
+    "O GOD, whose never-failing providence ordereth all things both in heaven and earth; We humbly beseech thee to put away from us all hurtful things, and to give us those things which be profitable for us; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-9-0": {
+   "title": "The Ninth Sunday after Trinity.",
+   "epistle": "1Cor.10.1-13",
+   "gospel": "Luke.16.1-9",
+   "collects": [
+    "GRANT to us, Lord, we beseech thee, the spirit to think and do always such things as be rightful; that we, who cannot do any thing that is good without thee, may by thee be enabled to live according to thy will; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-10-0": {
+   "title": "The Tenth Sunday after Trinity.",
+   "epistle": "1Cor.12.1-11",
+   "gospel": "Luke.19.41-47",
+   "collects": [
+    "LET thy merciful ears, O Lord, be open to the prayers of thy humble servants; and that they may obtain their petitions make them to ask such things as shall please thee; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-11-0": {
+   "title": "The Eleventh Sunday after Trinity.",
+   "epistle": "1Cor.15.1-11",
+   "gospel": "Luke.18.9-14",
+   "collects": [
+    "O GOD, who declarest thy almighty power most chiefly in shewing mercy and pity; Mercifully grant unto us such a measure of thy grace, that we, running the way of thy commandments, may obtain thy gracious promises, and be made partakers of thy heavenly treasure; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-12-0": {
+   "title": "The Twelfth Sunday after Trinity.",
+   "epistle": "2Cor.3.4-9",
+   "gospel": "Mark.7.31-37",
+   "collects": [
+    "ALMIGHTY and everlasting God, who art always more ready to hear than we are to pray, and art wont to give more than either we desire, or deserve; Pour down upon us the abundance of thy mercy; forgiving us those things whereof our conscience is afraid, and giving us those good things which we are not worthy to ask, but through the merits and mediation of Jesus Christ, thy Son, our Lord. Amen."
+   ]
+  },
+  "trinity-13-0": {
+   "title": "The Thirteenth Sunday after Trinity.",
+   "epistle": "Gal.3.16-22",
+   "gospel": "Luke.10.23-37",
+   "collects": [
+    "ALMIGHTY and merciful God, of whose only gift it cometh that thy faithful people do unto thee true and laudable service; Grant, we beseech thee, that we may so faithfully serve thee in this life, that we fail not finally to attain thy heavenly promises; through the merits of Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-14-0": {
+   "title": "The Fourteenth Sunday after Trinity.",
+   "epistle": "Gal.5.16-24",
+   "gospel": "Luke.17.11-19",
+   "collects": [
+    "ALMIGHTY and everlasting God, give unto us the increase of faith, hope, and charity; and, that we may obtain that which thou dost promise, make us to love that which thou dost command; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-15-0": {
+   "title": "The Fifteenth Sunday after Trinity.",
+   "epistle": "Gal.6.11-18",
+   "gospel": "Matt.6.24-34",
+   "collects": [
+    "KEEP, we beseech thee, O Lord, thy Church with thy perpetual mercy: and, because the frailty of man without thee cannot but fall, keep us ever by thy help from all things hurtful, and lead us to all things profitable to our salvation; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-16-0": {
+   "title": "The Sixteenth Sunday after Trinity.",
+   "epistle": "Eph.3.13-21",
+   "gospel": "Luke.7.11-17",
+   "collects": [
+    "O LORD, we beseech thee, let thy continual pity cleanse and defend thy Church; and, because it cannot continue in safety without thy succour, preserve it evermore by thy help and goodness; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-17-0": {
+   "title": "The Seventeenth Sunday after Trinity.",
+   "epistle": "Eph.4.1-6",
+   "gospel": "Luke.14.1-11",
+   "collects": [
+    "LORD, we pray thee that thy grace may always prevent and follow us, and make us continually to be given to all good works; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-18-0": {
+   "title": "The Eighteenth Sunday after Trinity.",
+   "epistle": "1Cor.1.4-7",
+   "gospel": "Matt.22.34-46",
+   "collects": [
+    "LORD, we beseech thee, grant thy people grace to withstand the temptations of the world, the flesh, and the devil, and with pure hearts and minds to follow thee the only God; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-19-0": {
+   "title": "The Nineteenth Sunday after Trinity.",
+   "epistle": "Eph.4.17-32",
+   "gospel": "Matt.9.1-8",
+   "collects": [
+    "O GOD, forasmuch as without thee we are not able to please thee; Mercifully grant, that thy Holy Spirit may in all things direct and rule our hearts; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-20-0": {
+   "title": "The Twentieth Sunday after Trinity.",
+   "epistle": "Eph.5.15-21",
+   "gospel": "Matt.22.1-14",
+   "collects": [
+    "O ALMIGHTY and most merciful God, of thy bountiful goodness keep us, we beseech thee, from all things that may hurt us; that we, being ready both in body and soul, may cheerfully accomplish those things that though wouldest have done; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-21-0": {
+   "title": "The Twenty-first Sunday after Trinity.",
+   "epistle": "Eph.6.10-20",
+   "gospel": "John.4.46-54",
+   "collects": [
+    "GRANT, we beseech thee, merciful Lord, to thy faithful people pardon and peace, that they may be cleansed from all their sins, and serve thee with a quiet mind; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-22-0": {
+   "title": "The Twenty-second Sunday after Trinity.",
+   "epistle": "Phil.1.3-11",
+   "gospel": "Matt.18.21-35",
+   "collects": [
+    "LORD, we beseech thee to keep thy household the Church in continual godliness; that through thy protection it may be free from all adversities, and devoutly given to serve thee in good works, to the glory of thy Name; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-23-0": {
+   "title": "The Twenty-third Sunday after Trinity.",
+   "epistle": "Phil.3.17-21",
+   "gospel": "Matt.22.15-22",
+   "collects": [
+    "O GOD, our refuge and strength, who art the author of all godliness; Be ready, we beseech thee, to hear the devout prayers of thy Church; and grant that those things which we ask faithfully we may obtain effectually; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "trinity-24-0": {
+   "title": "The Twenty-fourth Sunday after Trinity.",
+   "epistle": "Col.1.3-12",
+   "gospel": "Matt.9.18-26",
+   "collects": [
+    "O LORD, we beseech thee, absolve thy people from their offences; that through thy bountiful goodness we may all be delivered from the bands of those sins, which by our frailty we have committed: Grant this, O heavenly Father, for Jesus Christ's sake, our blessed Lord and Saviour. Amen."
+   ]
+  },
+  "trinity-25-0": {
+   "title": "The Twenty-fifth Sunday after Trinity.",
+   "epistle": "Jer.23.5-8",
+   "gospel": "John.6.5-14",
+   "collects": [
+    "STIR up, we beseech thee, O Lord, the wills of thy faithful people; that they, plenteously bringing forth the fruit of good works, may of thee be plenteously rewarded; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "holy-11-30": {
+   "title": "Saint Andrew's Day.",
+   "epistle": "Rom.10.9-21",
+   "gospel": "Matt.4.18-22",
+   "collects": [
+    "ALMIGHTY God, who didst give such grace unto thy holy Apostle Saint Andrew, that he readily obeyed the calling of thy Son Jesus Christ, and followed him without delay; Grant unto us all, that we, being called by thy holy Word, may forthwith give up ourselves obediently to fulfil the holy commandments; through the same Jesus Christ our Lord. Amen."
+   ]
+  },
+  "holy-12-21": {
+   "title": "Saint Thomas the Apostle.",
+   "epistle": "Eph.2.19-22",
+   "gospel": "John.20.24-31",
+   "collects": [
+    "ALMIGHTY and everliving God, who for the more confirmation of the faith didst suffer thy holy Apostle Thomas to be doubtful in thy Son's resurrection; Grant us so perfectly, and without all doubt, to believe in thy Son Jesus Christ, that our faith in thy sight may never be reproved. Hear us, O Lord, through the same Jesus Christ, to whom, with thee and the Holy Ghost, be all honour and glory, now and for evermore. Amen."
+   ]
+  },
+  "holy-01-25": {
+   "title": "The Conversion of Saint Paul.",
+   "epistle": "Acts.9.1-22",
+   "gospel": "Matt.19.27-30",
+   "collects": [
+    "O GOD, who, through the preaching of the blessed Apostle Saint Paul, hast caused the light of the Gospel to shine throughout the world; Grant, we beseech thee, that we, having his wonderful conversion in remembrance, may shew forth our thankfulness unto thee for the same, by following the holy doctrine which he taught; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "holy-02-02": {
+   "title": "The Presentation of Christ in the Temple, Commonly Called, The Purification of Saint Mary the Virgin.",
+   "epistle": "Mal.3.1",
+   "gospel": "Luke.2.22-40",
+   "collects": [
+    "ALMIGHTY and everliving God, we humbly beseech thy Majesty, that, as thy only-begotten Son was this day presented in the temple in substance of our flesh, so we may be presented unto thee with pure and clean hearts, by the same thy Son Jesus Christ our Lord. Amen."
+   ]
+  },
+  "holy-02-24": {
+   "title": "Saint Matthias's Day.",
+   "epistle": "Acts.1.15-26",
+   "gospel": "Matt.11.25-30",
+   "collects": [
+    "O ALMIGHTY God, who into the place of the traitor Judas didst choose thy faithful servant Matthias to be of the number of the twelve Apostles; Grant that thy Church, being alway preserved from false Apostles, may be ordered and guided by faithful and true pastors; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "holy-03-25": {
+   "title": "The Annunciation of the Blessed Virgin Mary.",
+   "epistle": "Isa.7.10-15",
+   "gospel": "Luke.1.26-38",
+   "collects": [
+    "WE beseech thee, O Lord, pour thy grace into our hearts; that, as we have known the incarnation of thy Son Jesus Christ by the message of an angel, so by his cross and passion we may be brought unto the glory of his resurrection; through the same Jesus Christ our Lord. Amen."
+   ]
+  },
+  "holy-04-25": {
+   "title": "Saint Mark's Day.",
+   "epistle": "Eph.4.7-16",
+   "gospel": "John.15.1-11",
+   "collects": [
+    "O ALMIGHTY God, who hast instructed thy holy Church with the heavenly doctrine of thy Evangelist Saint Mark; Give us grace, that, being not like children carried away with every blast of vain doctrine, we may be established in the truth of thy holy Gospel; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "holy-05-01": {
+   "title": "Saint Philip and Saint James's Day.",
+   "epistle": "Jas.1.1-12",
+   "gospel": "John.14.1-14",
+   "collects": [
+    "O ALMIGHTY God, whom truly to know is everlasting life; Grant us perfectly to know thy Son Jesus Christ to be the way, the truth, and the life; that, following the steps of thy holy Apostles, Saint Philip and Saint James, we may stedfastly walk in the way that leadeth to eternal life; through the same thy Son Jesus Christ our Lord. Amen."
+   ]
+  },
+  "holy-06-11": {
+   "title": "Saint Barnabas the Apostle.",
+   "epistle": "Acts.11.22-30",
+   "gospel": "John.15.12-16",
+   "collects": [
+    "O LORD God Almighty, who didst endue thy holy Apostle Barnabas with singular gifts of the Holy Ghost; Leave us not, we beseech thee, destitute of thy manifold gifts, nor yet of grace to use them alway to thy honour and glory; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "holy-06-24": {
+   "title": "Saint John Baptist's Day.",
+   "epistle": "Isa.40.1-11",
+   "gospel": "Luke.1.57-80",
+   "collects": [
+    "ALMIGHTY God, by whose providence thy servant John Baptist was wonderfully born, and sent to prepare the way of they Son our Saviour, by preaching of repentance; Make us so to follow his doctrine and holy life, that we may truly repent according to his preaching; and after his example constantly speak the truth, boldly rebuke vice, and patiently suffer for the truth's sake; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "holy-06-29": {
+   "title": "Saint Peter's Day.",
+   "epistle": "Acts.12.1-11",
+   "gospel": "Matt.16.13-19",
+   "collects": [
+    "O ALMIGHTY God, who by thy Son Jesus Christ didst give to thy Apostle Saint Peter many excellent gifts, and commandest him earnestly to feed thy flock; Make, we beseech thee, all Bishops and Pastors diligently to preach thy holy Word, and the people obediently to follow the same, that they may receive the crown of everlasting glory; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "holy-07-25": {
+   "title": "Saint James the Apostle.",
+   "epistle": "Acts.11.27-12.3",
+   "gospel": "Matt.20.20-28",
+   "collects": [
+    "GRANT, O merciful God, that as thine holy Apostle Saint James, leaving his father and all that he had, without delay was obedient unto the calling of thy Son Jesus Christ, and followed him; so we, forsaking all worldly and carnal affections, may be evermore ready to follow thy holy commandments; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "holy-08-24": {
+   "title": "Saint Bartholomew the Apostle.",
+   "epistle": "Acts.5.12-16",
+   "gospel": "Luke.22.24-30",
+   "collects": [
+    "O ALMIGHTY and everlasting God, who didst give to thine Apostle Bartholomew grace truly to believe and to preach thy Word; Grant, we beseech thee, unto thy Church, to love that Word which he believed, and both to preach and receive the same; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "holy-09-21": {
+   "title": "Saint Matthew the Apostle.",
+   "epistle": "2Cor.4.1-6",
+   "gospel": "Matt.9.9-13",
+   "collects": [
+    "O ALMIGHTY God, who by thy blessed Son didst call Matthew from the receipt of custom to be an Apostle and Evangelist; Grant us grace to forsake all covetous desires, and inordinate love of riches, and to follow the same thy Son Jesus Christ, who liveth and reigneth with thee and the Holy Ghost, one God, world without end. Amen."
+   ]
+  },
+  "holy-09-29": {
+   "title": "Saint Michael and all Angels.",
+   "epistle": "Rev.12.7-12",
+   "gospel": "Matt.18.1-10",
+   "collects": [
+    "O EVERLASTING God, who hast ordained and constituted the services of Angels and men in a wonderful order; Mercifully grant, that as thy holy Angels alway do thee service in heaven, so by thy appointment they may succour and defend us on earth; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "holy-10-18": {
+   "title": "Saint Luke the Evangelist.",
+   "epistle": "2Tim.4.5-15",
+   "gospel": "Luke.10.1-7",
+   "collects": [
+    "ALMIGHTY God, who calledst Luke the Physician, whose praise is in the Gospel, to be an Evangelist, and Physician of the soul; May it please thee, that, by the wholesome medicines of the doctrine delivered by him, all the diseases of our souls may be healed; through the merits of thy Son Jesus Christ our Lord. Amen."
+   ]
+  },
+  "holy-10-28": {
+   "title": "Saint Simon and Saint Jude, Apostles.",
+   "epistle": "Jude.1.1-8",
+   "gospel": "John.15.17-27",
+   "collects": [
+    "O ALMIGHTY God, who hast built thy Church upon the foundation of the Apostles and Prophets, Jesus Christ himself being the head corner-stone; Grant us so to be joined together in unity of spirit by their doctrine, that we may be made an holy temple acceptable unto thee; through Jesus Christ our Lord. Amen."
+   ]
+  },
+  "holy-11-01": {
+   "title": "All Saints' Day.",
+   "epistle": "Rev.7.2-12",
+   "gospel": "Matt.5.1-12",
+   "collects": [
+    "O ALMIGHTY God, who hast knit together thine elect in one communion and fellowship, in the mystical body of thy Son Christ our Lord; Grant us grace so to follow thy blessed Saints in all virtuous and godly living, that we may come to those unspeakable joys, which thou hast prepared for them that unfeignedly love thee; through Jesus Christ our Lord. Amen."
+   ]
+  }
+ }
+}

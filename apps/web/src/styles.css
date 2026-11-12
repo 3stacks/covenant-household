@@ -1,0 +1,491 @@
+:root {
+  --bg: #faf8f4;
+  --card: #ffffff;
+  --ink: #1f1d1a;
+  --muted: #6b655c;
+  --line: #e6e1d8;
+  --accent: #5a3e1b;
+  --accent-soft: #f1e9dc;
+  --sample: #9a3412;
+  --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171512;
+    --card: #201d19;
+    --ink: #ece7df;
+    --muted: #a39b8f;
+    --line: #36312a;
+    --accent: #d9b37a;
+    --accent-soft: #2e271e;
+    --sample: #fb923c;
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.55 var(--sans);
+}
+
+a {
+  color: var(--accent);
+}
+
+.app {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+}
+
+nav.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+nav.top .brand {
+  font: 700 1.15rem var(--serif);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+header.date {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr 2.5rem;
+  align-items: center;
+  text-align: center;
+  margin: 8px 0 16px;
+}
+
+header.date h1 {
+  font: 600 1.5rem/1.25 var(--serif);
+  margin: 0;
+}
+
+.step {
+  font-size: 1.75rem;
+  text-decoration: none;
+  line-height: 1;
+  padding: 8px;
+}
+
+.commemoration {
+  text-align: center;
+  font-family: var(--serif);
+  margin: 0 0 16px;
+}
+
+.label {
+  font: 600 0.7rem var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-right: 6px;
+}
+
+.part {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin: 12px 0;
+}
+
+.part h2 {
+  font: 600 0.75rem var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+.part h3 {
+  font: 600 1.15rem/1.3 var(--serif);
+  margin: 0 0 4px;
+}
+
+.line + .line {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+}
+
+.ref {
+  font: 600 1.1rem var(--serif);
+  margin: 0;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 0;
+}
+
+.links a {
+  font-size: 0.85rem;
+  text-decoration: none;
+  background: var(--accent-soft);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+.byline {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0 0 8px;
+}
+
+.tag {
+  margin-left: 8px;
+  font-size: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 1px 8px;
+}
+
+.text p,
+.stanzas {
+  font: 1.05rem/1.65 var(--serif);
+}
+
+.text p {
+  margin: 0 0 10px;
+}
+
+.stanzas {
+  padding-left: 1.5rem;
+}
+
+.stanzas li {
+  margin-bottom: 10px;
+}
+
+.stanzas span {
+  display: block;
+}
+
+.note,
+.muted {
+  color: var(--muted);
+}
+
+.note {
+  font-size: 0.9rem;
+  margin: 8px 0 0;
+}
+
+.source {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 10px 0 0;
+}
+
+.sample {
+  color: var(--sample);
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 32px 0;
+}
+
+.small {
+  font-size: 0.85rem;
+}
+
+.settings h1 {
+  font: 600 1.5rem var(--serif);
+}
+
+.option {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.option span {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  font-size: 0.85rem;
+  margin-top: 32px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 12px;
+}
+
+.church-day {
+  font: italic 1rem var(--serif);
+  color: var(--accent);
+  margin: 4px 0 0;
+}
+
+.lectionary {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+.reading + .reading {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--line);
+}
+
+.reading h3 .label {
+  vertical-align: middle;
+}
+
+.scripture {
+  font: 1.05rem/1.7 var(--serif);
+  margin: 0;
+}
+
+.scripture sup {
+  font: 600 0.65rem var(--sans);
+  color: var(--muted);
+  margin-right: 2px;
+}
+
+.scripture .chapter {
+  display: block;
+  font: 600 0.75rem var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 10px 0 4px;
+}
+
+.part .links {
+  margin-top: 12px;
+}
+
+.unit + .unit {
+  margin-top: 12px;
+}
+
+.unit-head {
+  margin: 0;
+  font: 600 1rem var(--serif);
+}
+
+.unit-ref {
+  color: var(--accent);
+  margin-right: 8px;
+}
+
+.unit-text {
+  font: 1.05rem/1.65 var(--serif);
+  margin: 4px 0 0;
+}
+
+.about h1 {
+  font: 600 1.5rem var(--serif);
+}
+
+.about h2 {
+  font: 600 1.1rem var(--serif);
+  margin-top: 28px;
+}
+
+.credits dt {
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.credits dd {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+footer {
+  flex-wrap: wrap;
+}
+
+.more {
+  margin-top: 14px;
+  border-top: 1px dashed var(--line);
+  padding-top: 10px;
+}
+
+.more summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.more[open] summary {
+  margin-bottom: 8px;
+}
+
+/* The summary already names the additional reading. */
+.more .reading h3 {
+  display: none;
+}
+
+.propers-title {
+  font: italic 0.95rem var(--serif);
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+.lectionary {
+  margin-top: 24px;
+}
+
+.about ol,
+.about ul {
+  padding-left: 1.25rem;
+}
+
+.about li {
+  margin-bottom: 6px;
+}
+
+.nav-links {
+  font-size: 0.95rem;
+}
+
+/* The date heading opens the calendar. */
+.to-calendar {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 4px 6px;
+}
+
+.to-calendar:hover,
+.to-calendar:focus-visible {
+  background: var(--accent-soft);
+}
+
+.cal-hint {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--accent);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 1px 10px;
+  margin-top: 6px;
+}
+
+/* The calendar */
+.calendar .week {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--season, var(--line));
+  border-radius: 12px;
+  margin: 12px 0;
+  overflow: hidden;
+}
+
+.calendar .week h2 {
+  font: 600 1rem/1.3 var(--serif);
+  margin: 0;
+  padding: 12px 14px 8px;
+}
+
+.calendar .season {
+  display: block;
+  font: 600 0.7rem var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+
+.calendar .days {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.calendar .days a {
+  display: grid;
+  grid-template-columns: 3.25rem 1fr;
+  gap: 8px;
+  padding: 8px 14px;
+  border-top: 1px solid var(--line);
+  color: inherit;
+  text-decoration: none;
+}
+
+.calendar .days a:hover {
+  background: var(--accent-soft);
+}
+
+.calendar .num {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+}
+
+.calendar .num span {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.calendar .what {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  min-width: 0;
+}
+
+.calendar .sunday .name {
+  font: 600 0.95rem var(--serif);
+}
+
+.calendar .name {
+  font-family: var(--serif);
+}
+
+.calendar .holy {
+  color: var(--accent);
+}
+
+.calendar .person {
+  color: var(--muted);
+}
+
+.calendar .today a {
+  background: var(--accent-soft);
+}
+
+.calendar .today .num strong {
+  color: var(--accent);
+}
+
+/* A mark for each season. Reformed churches do not keep the colours of the
+   church year, so these are only to tell the seasons apart. */
+.season-advent { --season: #5b4a8b; }
+.season-christmas, .season-easter { --season: #c9a227; }
+.season-epiphany, .season-trinity { --season: #4f7a52; }
+.season-pre-lent, .season-lent, .season-holy-week { --season: #7a3b3b; }
+.season-whitsun { --season: #b5482c; }

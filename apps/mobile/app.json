@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "Daily Prayer",
+    "slug": "daily-prayer",
+    "scheme": "dailyprayer",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "backgroundColor": "#faf8f4",
+    "ios": {
+      "bundleIdentifier": "com.lukeboyle.dailyprayer",
+      "supportsTablet": true,
+      "config": { "usesNonExemptEncryption": false }
+    },
+    "android": {
+      "package": "com.lukeboyle.dailyprayer",
+      "adaptiveIcon": {
+        "backgroundColor": "#5a3e1b",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "output": "single"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-web-browser",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 160,
+          "backgroundColor": "#faf8f4",
+          "dark": { "image": "./assets/splash-icon.png", "backgroundColor": "#171512" }
+        }
+      ]
+    ],
+    "experiments": { "typedRoutes": true }
+  }
+}

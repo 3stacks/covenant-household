@@ -1,0 +1,672 @@
+{
+ "name": "The Psalter, as it is appointed to be read (1662)",
+ "source": {
+  "name": "The Book of Common Prayer (1662). Transcription by Lynda Howell.",
+  "url": "http://www.eskimo.com/~lhowell/bcp1662/info/reading_psalt.html",
+  "licence": "public-domain"
+ },
+ "days": {
+  "1": {
+   "morning": [
+    {
+     "psalm": 1
+    },
+    {
+     "psalm": 2
+    },
+    {
+     "psalm": 3
+    },
+    {
+     "psalm": 4
+    },
+    {
+     "psalm": 5
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 6
+    },
+    {
+     "psalm": 7
+    },
+    {
+     "psalm": 8
+    }
+   ]
+  },
+  "2": {
+   "morning": [
+    {
+     "psalm": 9
+    },
+    {
+     "psalm": 10
+    },
+    {
+     "psalm": 11
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 12
+    },
+    {
+     "psalm": 13
+    },
+    {
+     "psalm": 14
+    }
+   ]
+  },
+  "3": {
+   "morning": [
+    {
+     "psalm": 15
+    },
+    {
+     "psalm": 16
+    },
+    {
+     "psalm": 17
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 18
+    }
+   ]
+  },
+  "4": {
+   "morning": [
+    {
+     "psalm": 19
+    },
+    {
+     "psalm": 20
+    },
+    {
+     "psalm": 21
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 22
+    },
+    {
+     "psalm": 23
+    }
+   ]
+  },
+  "5": {
+   "morning": [
+    {
+     "psalm": 24
+    },
+    {
+     "psalm": 25
+    },
+    {
+     "psalm": 26
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 27
+    },
+    {
+     "psalm": 28
+    },
+    {
+     "psalm": 29
+    }
+   ]
+  },
+  "6": {
+   "morning": [
+    {
+     "psalm": 30
+    },
+    {
+     "psalm": 31
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 32
+    },
+    {
+     "psalm": 33
+    },
+    {
+     "psalm": 34
+    }
+   ]
+  },
+  "7": {
+   "morning": [
+    {
+     "psalm": 35
+    },
+    {
+     "psalm": 36
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 37
+    }
+   ]
+  },
+  "8": {
+   "morning": [
+    {
+     "psalm": 38
+    },
+    {
+     "psalm": 39
+    },
+    {
+     "psalm": 40
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 41
+    },
+    {
+     "psalm": 42
+    },
+    {
+     "psalm": 43
+    }
+   ]
+  },
+  "9": {
+   "morning": [
+    {
+     "psalm": 44
+    },
+    {
+     "psalm": 45
+    },
+    {
+     "psalm": 46
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 47
+    },
+    {
+     "psalm": 48
+    },
+    {
+     "psalm": 49
+    }
+   ]
+  },
+  "10": {
+   "morning": [
+    {
+     "psalm": 50
+    },
+    {
+     "psalm": 51
+    },
+    {
+     "psalm": 52
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 53
+    },
+    {
+     "psalm": 54
+    },
+    {
+     "psalm": 55
+    }
+   ]
+  },
+  "11": {
+   "morning": [
+    {
+     "psalm": 56
+    },
+    {
+     "psalm": 57
+    },
+    {
+     "psalm": 58
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 59
+    },
+    {
+     "psalm": 60
+    },
+    {
+     "psalm": 61
+    }
+   ]
+  },
+  "12": {
+   "morning": [
+    {
+     "psalm": 62
+    },
+    {
+     "psalm": 63
+    },
+    {
+     "psalm": 64
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 65
+    },
+    {
+     "psalm": 66
+    },
+    {
+     "psalm": 67
+    }
+   ]
+  },
+  "13": {
+   "morning": [
+    {
+     "psalm": 68
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 69
+    },
+    {
+     "psalm": 70
+    }
+   ]
+  },
+  "14": {
+   "morning": [
+    {
+     "psalm": 71
+    },
+    {
+     "psalm": 72
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 73
+    },
+    {
+     "psalm": 74
+    }
+   ]
+  },
+  "15": {
+   "morning": [
+    {
+     "psalm": 75
+    },
+    {
+     "psalm": 76
+    },
+    {
+     "psalm": 77
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 78
+    }
+   ]
+  },
+  "16": {
+   "morning": [
+    {
+     "psalm": 79
+    },
+    {
+     "psalm": 80
+    },
+    {
+     "psalm": 81
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 82
+    },
+    {
+     "psalm": 83
+    },
+    {
+     "psalm": 84
+    },
+    {
+     "psalm": 85
+    }
+   ]
+  },
+  "17": {
+   "morning": [
+    {
+     "psalm": 86
+    },
+    {
+     "psalm": 87
+    },
+    {
+     "psalm": 88
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 89
+    }
+   ]
+  },
+  "18": {
+   "morning": [
+    {
+     "psalm": 90
+    },
+    {
+     "psalm": 91
+    },
+    {
+     "psalm": 92
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 93
+    },
+    {
+     "psalm": 94
+    }
+   ]
+  },
+  "19": {
+   "morning": [
+    {
+     "psalm": 95
+    },
+    {
+     "psalm": 96
+    },
+    {
+     "psalm": 97
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 98
+    },
+    {
+     "psalm": 99
+    },
+    {
+     "psalm": 100
+    },
+    {
+     "psalm": 101
+    }
+   ]
+  },
+  "20": {
+   "morning": [
+    {
+     "psalm": 102
+    },
+    {
+     "psalm": 103
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 104
+    }
+   ]
+  },
+  "21": {
+   "morning": [
+    {
+     "psalm": 105
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 106
+    }
+   ]
+  },
+  "22": {
+   "morning": [
+    {
+     "psalm": 107
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 108
+    },
+    {
+     "psalm": 109
+    }
+   ]
+  },
+  "23": {
+   "morning": [
+    {
+     "psalm": 110
+    },
+    {
+     "psalm": 111
+    },
+    {
+     "psalm": 112
+    },
+    {
+     "psalm": 113
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 114
+    },
+    {
+     "psalm": 115
+    }
+   ]
+  },
+  "24": {
+   "morning": [
+    {
+     "psalm": 116
+    },
+    {
+     "psalm": 117
+    },
+    {
+     "psalm": 118
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 119,
+     "verses": [
+      1,
+      32
+     ]
+    }
+   ]
+  },
+  "25": {
+   "morning": [
+    {
+     "psalm": 119,
+     "verses": [
+      33,
+      72
+     ]
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 119,
+     "verses": [
+      73,
+      104
+     ]
+    }
+   ]
+  },
+  "26": {
+   "morning": [
+    {
+     "psalm": 119,
+     "verses": [
+      105,
+      144
+     ]
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 119,
+     "verses": [
+      145,
+      176
+     ]
+    }
+   ]
+  },
+  "27": {
+   "morning": [
+    {
+     "psalm": 120
+    },
+    {
+     "psalm": 121
+    },
+    {
+     "psalm": 122
+    },
+    {
+     "psalm": 123
+    },
+    {
+     "psalm": 124
+    },
+    {
+     "psalm": 125
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 126
+    },
+    {
+     "psalm": 127
+    },
+    {
+     "psalm": 128
+    },
+    {
+     "psalm": 129
+    },
+    {
+     "psalm": 130
+    },
+    {
+     "psalm": 131
+    }
+   ]
+  },
+  "28": {
+   "morning": [
+    {
+     "psalm": 132
+    },
+    {
+     "psalm": 133
+    },
+    {
+     "psalm": 134
+    },
+    {
+     "psalm": 135
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 136
+    },
+    {
+     "psalm": 137
+    },
+    {
+     "psalm": 138
+    }
+   ]
+  },
+  "29": {
+   "morning": [
+    {
+     "psalm": 139
+    },
+    {
+     "psalm": 140
+    },
+    {
+     "psalm": 141
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 142
+    },
+    {
+     "psalm": 143
+    }
+   ]
+  },
+  "30": {
+   "morning": [
+    {
+     "psalm": 144
+    },
+    {
+     "psalm": 145
+    },
+    {
+     "psalm": 146
+    }
+   ],
+   "evening": [
+    {
+     "psalm": 147
+    },
+    {
+     "psalm": 148
+    },
+    {
+     "psalm": 149
+    },
+    {
+     "psalm": 150
+    }
+   ]
+  }
+ }
+}
