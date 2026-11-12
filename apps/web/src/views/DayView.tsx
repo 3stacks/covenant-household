@@ -245,7 +245,7 @@ function Lesson({ lesson }: { lesson: LessonText }) {
       {lesson.parts.map((p) => (
         <Passage key={p.passage} text={p} />
       ))}
-      {lesson.apocrypha && <p className="note">The 1922 table also allows {lesson.apocrypha}, from the Apocrypha.</p>}
+      {lesson.apocrypha && <p className="note">In place of {lesson.apocrypha}. The 1922 table appoints that lesson from the Apocrypha.</p>}
     </>
   )
 }

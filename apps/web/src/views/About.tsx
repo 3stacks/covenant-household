@@ -39,8 +39,9 @@ export function About() {
         <dt>The Apocrypha</dt>
         <dd>
           On some weekdays the 1922 table appoints a lesson from the Apocrypha. The Apocrypha is not part of the canon of
-          Scripture (Westminster Confession 1.3), so the app does not read it. When the table gives another lesson, the app
-          reads that lesson.
+          Scripture (Westminster Confession 1.3), so the app reads a canonical lesson in its place. Each canonical lesson
+          comes from the book that the Apocrypha book copies or describes. For example, Proverbs is in place of
+          Ecclesiasticus, and Daniel is in place of 1 Maccabees.
         </dd>
         <dt>Bible text</dt>
         <dd>

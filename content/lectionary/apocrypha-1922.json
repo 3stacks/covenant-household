@@ -1,0 +1,87 @@
+{
+ "about": "Canonical lessons in place of the 1922 lessons from the Apocrypha (WCF 1.3). Each group takes the canonical book that the Apocrypha book copies or describes. Where possible, a group uses chapters that the 1922 table does not read.",
+ "groups": [
+  {
+   "apocrypha": "Wisdom 2 (Holy Week)",
+   "reason": "Wisdom 2 tells how the ungodly plot against the righteous man. Jeremiah 11 and 12 tell the plot against Jeremiah, 'like a lamb … brought to the slaughter'.",
+   "days": { "holy-week-2": { "evening": ["Jer.11.18-12.6"] } }
+  },
+  {
+   "apocrypha": "Song of the Three Children (Rogation Wednesday)",
+   "reason": "The Song calls on the weather and the earth to praise God. Job 37 shows God in the rain, the snow and the wind.",
+   "days": { "easter-5-3": { "evening": ["Job.37"] } }
+  },
+  {
+   "apocrypha": "Wisdom 1, 7 and 9 (Whitsun week)",
+   "reason": "These chapters praise the Spirit of wisdom, and Wisdom 9 is the prayer of Solomon for wisdom. The canonical lessons are the Spirit on the elders, the promise of the Spirit, and the prayer of Solomon in 1 Kings 3.",
+   "days": {
+    "whitsun-1": { "evening": ["Num.11.16-29"] },
+    "whitsun-2": { "evening": ["Isa.44.1-8"] },
+    "whitsun-3": { "evening": ["1Kgs.3.5-15"] }
+   }
+  },
+  {
+   "apocrypha": "1 Maccabees (Trinity 15 and 16)",
+   "reason": "In 1 Maccabees, Antiochus defiles the temple. The faithful fight him and make the temple clean again. The lessons finish Esther, which the Sunday before reads. Then Daniel 8 and 11 foretell Antiochus. Then 2 Chronicles tells the battles of Jehoshaphat. It also tells how Hezekiah and Josiah made the temple clean again.",
+   "days": {
+    "trinity-15-4": { "morning": ["Esth.8"], "evening": ["Esth.9.1-19"] },
+    "trinity-15-5": { "morning": ["Esth.9.20-10.3"], "evening": ["Dan.8.1-14"] },
+    "trinity-15-6": { "morning": ["Dan.8.15-27"], "evening": ["Dan.11.1-20"] },
+    "trinity-16-1": { "morning": ["Dan.11.21-35"], "evening": ["Dan.11.36-45"] },
+    "trinity-16-2": { "morning": ["2Chr.20.1-13"], "evening": ["2Chr.20.14-30"] },
+    "trinity-16-3": { "morning": ["2Chr.29.1-19"], "evening": ["2Chr.29.20-36"] },
+    "trinity-16-4": { "morning": ["2Chr.30"], "evening": ["2Chr.31"] },
+    "trinity-16-5": { "morning": ["2Chr.32.1-23"], "evening": ["2Chr.33.1-20"] },
+    "trinity-16-6": { "morning": ["2Chr.34"], "evening": ["2Chr.35.1-19"] }
+   }
+  },
+  {
+   "apocrypha": "Ecclesiasticus (Trinity 23 to 25)",
+   "reason": "Ecclesiasticus is a book of proverbs. On these Sundays the table reads Proverbs. So the weekdays read the chapters of Proverbs between the Sunday lessons, in order. Job 28 and Job 34 and 35 ask where a man can find wisdom.",
+   "days": {
+    "trinity-23-1": { "morning": ["Prov.1.1-19"], "evening": ["Prov.3.1-12"] },
+    "trinity-23-2": { "morning": ["Prov.3.13-26"], "evening": ["Prov.3.27-35"] },
+    "trinity-23-3": { "morning": ["Prov.4.1-13"], "evening": ["Prov.4.14-27"] },
+    "trinity-23-4": { "morning": ["Prov.5"], "evening": ["Prov.6.1-19"] },
+    "trinity-23-5": { "morning": ["Prov.6.20-35"], "evening": ["Prov.7"] },
+    "trinity-23-6": { "morning": ["Job.28.1-11"], "evening": ["Job.28.12-28"] },
+    "trinity-24-1": { "morning": ["Prov.9"], "evening": ["Prov.10.1-16"] },
+    "trinity-24-2": { "morning": ["Prov.10.17-32"], "evening": ["Prov.11.1-15"] },
+    "trinity-24-3": { "morning": ["Prov.11.16-31"], "evening": ["Prov.12.1-14"] },
+    "trinity-24-4": { "morning": ["Prov.12.15-28"], "evening": ["Prov.14.1-15"] },
+    "trinity-24-5": { "morning": ["Prov.14.16-30"], "evening": ["Job.34.1-15"] },
+    "trinity-24-6": { "morning": ["Job.34.16-37"], "evening": ["Job.35"] },
+    "trinity-25-1": { "morning": ["Prov.15.18-33"], "evening": ["Prov.16.1-16"] },
+    "trinity-25-2": { "morning": ["Prov.16.17-33"], "evening": ["Prov.17"] },
+    "trinity-25-3": { "morning": ["Prov.18"], "evening": ["Prov.19"] },
+    "trinity-25-4": { "morning": ["Prov.20.1-15"], "evening": ["Prov.20.16-30"] },
+    "trinity-25-5": { "morning": ["Prov.21"], "evening": ["Prov.22.1-16"] },
+    "trinity-25-6": { "morning": ["Prov.22.17-29"], "evening": ["Prov.23.1-14"] }
+   }
+  },
+  {
+   "apocrypha": "Tobit, Baruch and 2 Maccabees (Trinity 26)",
+   "reason": "Tobit 4 is a father's counsel to his son, and Proverbs 31 is a mother's counsel to hers. Tobit 13 praises the new Jerusalem, as Nehemiah 12 does. Baruch claims to be the scribe of Jeremiah, and laments Jerusalem. So the lessons are Jeremiah 45 and three chapters of Lamentations, with Deuteronomy 30, which Baruch 3 quotes. In 2 Maccabees, Jews die rather than eat unclean food, and they hope in the resurrection. Daniel 1, 3 and 12 show the same faith.",
+   "days": {
+    "trinity-26-1": { "morning": ["Prov.31.1-9"], "evening": ["Neh.12.27-43"] },
+    "trinity-26-2": { "morning": ["Jer.45"], "evening": ["Lam.5"] },
+    "trinity-26-3": { "morning": ["Lam.2"], "evening": ["Deut.30.11-20"] },
+    "trinity-26-4": { "morning": ["Lam.4"], "evening": ["Isa.27"] },
+    "trinity-26-5": { "morning": ["Dan.1"], "evening": ["Dan.3.1-18"] },
+    "trinity-26-6": { "morning": ["Dan.3.19-30"], "evening": ["Dan.12"] }
+   }
+  },
+  {
+   "apocrypha": "Wisdom of Solomon (the week before Advent)",
+   "reason": "The table reads the Wisdom of Solomon here. These lessons read the proverbs of Solomon that 'the men of Hezekiah copied out' (Proverbs 25 to 31). Then Job 36 and Malachi 3 and 4 tell the end of the righteous and the wicked, as Wisdom 3 to 5 does, before Advent.",
+   "days": {
+    "next-before-advent-1": { "morning": ["Prov.24.1-22"], "evening": ["Prov.25"] },
+    "next-before-advent-2": { "morning": ["Prov.26"], "evening": ["Prov.27"] },
+    "next-before-advent-3": { "morning": ["Prov.28"], "evening": ["Prov.29"] },
+    "next-before-advent-4": { "morning": ["Prov.30"], "evening": ["Prov.31.10-31"] },
+    "next-before-advent-5": { "morning": ["Job.36.1-21"], "evening": ["Job.36.22-33"] },
+    "next-before-advent-6": { "morning": ["Mal.3.13-18"], "evening": ["Mal.4"] }
+   }
+  }
+ ]
+}

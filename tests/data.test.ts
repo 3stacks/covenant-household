@@ -125,9 +125,10 @@ describe('church year (1662)', () => {
     expect(day(2027, 2, 24).holyDay).toBe('holy-02-24')
   })
 
-  it('has lessons, a collect and propers for every day of 300 years', () => {
+  it('has lessons, a collect, propers and devotions for every day of 300 years', () => {
     const lessons = content<Lectionary>('lectionary/1922.json').days
     const collects = content<Collects>('lectionary/1662.json').days
+    const devotions = new Set(readdirSync(new URL('../content/devotions', import.meta.url)).map((f) => f.replace(/\.json$/, '')))
     const ids = new Set(allLessonIds())
     const seen = new Set<string>()
     const missing = new Set<string>()
@@ -135,13 +136,21 @@ describe('church year (1662)', () => {
       const x = churchDay(d)
       seen.add(x.id)
       if (!ids.has(x.id)) expect.fail(`${d.toDateString()} → unknown id ${x.id}`)
-      if (!lessons[x.id]) missing.add(x.id)
+      if (!lessons[x.id]) missing.add(`lessons ${x.id}`)
+      if (!devotions.has(x.id)) missing.add(`devotions ${x.id}`)
       if (!collects[x.collect]?.collects) expect.fail(`${d.toDateString()} → no collect ${x.collect}`)
       if (x.propers && !collects[x.propers]) expect.fail(`${d.toDateString()} → no propers ${x.propers}`)
     }
     expect([...ids].filter((id) => !seen.has(id))).toEqual([])
-    // The transcription has no row for the Saturday after the Fifth Sunday in Lent.
-    expect([...missing]).toEqual(['lent-5-6'])
+    expect([...missing]).toEqual([])
+  })
+
+  it('reads a canonical lesson in place of each Apocrypha lesson', () => {
+    const lessons = content<Lectionary>('lectionary/1922.json').days
+    const empty = Object.entries(lessons).flatMap(([id, d]) =>
+      (['morning', 'evening'] as const).filter((o) => d[o]?.first.apocrypha && !d[o]!.first.passages.length).map((o) => `${id} ${o}`),
+    )
+    expect(empty).toEqual([])
   })
 })
 

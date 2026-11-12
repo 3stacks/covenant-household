@@ -34,9 +34,9 @@ export function Sources() {
         <p className="mt-8 text-lg tracking-tight text-stone-700">
           The Prayer Book tables also give lessons from the Apocrypha. The
           Westminster Confession (1.3) says that these books are not part of the
-          canon of Scripture. Daily Prayer uses the canonical lesson that the
-          tables give in their place. When the tables give no such lesson, the
-          page shows a note.
+          canon of Scripture. Daily Prayer reads a canonical lesson in their
+          place. Each lesson comes from the book that the Apocrypha book copies
+          or describes, for example Proverbs in place of Ecclesiasticus.
         </p>
       </Container>
     </section>

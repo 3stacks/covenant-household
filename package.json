@@ -4,7 +4,7 @@
   "description": "A Reformed daily prayer book. This folder holds the content, the build scripts and the shared code. The apps are in apps/.",
   "type": "module",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "AGPL-3.0-only",
   "scripts": {
     "install:all": "npm install && npm --prefix apps/web install && npm --prefix apps/site install && npm --prefix apps/mobile install",
     "dev": "npm run calendar && npm --prefix apps/web run dev",

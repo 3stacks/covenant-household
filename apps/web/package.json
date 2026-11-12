@@ -4,7 +4,7 @@
   "description": "The web app (a PWA) of Daily Prayer.",
   "type": "module",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "AGPL-3.0-only",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",

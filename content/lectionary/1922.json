@@ -4803,6 +4803,37 @@
     }
    }
   },
+  "lent-5-6": {
+   "label": "Saturday",
+   "morning": {
+    "first": {
+     "passages": [
+      "Num.22.36-23.26"
+     ],
+     "alternatives": []
+    },
+    "second": {
+     "passages": [
+      "John.13"
+     ],
+     "alternatives": []
+    }
+   },
+   "evening": {
+    "first": {
+     "passages": [
+      "Num.23.27-24.25"
+     ],
+     "alternatives": []
+    },
+    "second": {
+     "passages": [
+      "2Tim.4"
+     ],
+     "alternatives": []
+    }
+   }
+  },
   "holy-week-0": {
    "label": "Palm Sunday",
    "morning": {
@@ -4891,7 +4922,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Jer.11.18-12.6"
+     ],
      "alternatives": [],
      "apocrypha": "Wisdom 2:1; 12"
     },
@@ -6324,7 +6357,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Job.37"
+     ],
      "alternatives": [],
      "apocrypha": "Song of Three Children 29-37"
     },
@@ -6723,7 +6758,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Num.11.16-29"
+     ],
      "alternatives": [],
      "apocrypha": "Wisdom 1:1-7"
     },
@@ -6753,7 +6790,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Isa.44.1-8"
+     ],
      "alternatives": [],
      "apocrypha": "Wisdom 7:15"
     },
@@ -6783,7 +6822,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "1Kgs.3.5-15"
+     ],
      "alternatives": [],
      "apocrypha": "Wisdom 9"
     },
@@ -10523,7 +10564,9 @@
    "label": "Thursday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Esth.8"
+     ],
      "alternatives": [],
      "apocrypha": "1 Macc. 1:1-19"
     },
@@ -10536,7 +10579,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Esth.9.1-19"
+     ],
      "alternatives": [],
      "apocrypha": "1 Macc. 1:20-40"
     },
@@ -10552,7 +10597,9 @@
    "label": "Friday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Esth.9.20-10.3"
+     ],
      "alternatives": [],
      "apocrypha": "1 Maccabees 1:41"
     },
@@ -10565,7 +10612,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Dan.8.1-14"
+     ],
      "alternatives": [],
      "apocrypha": "1 Maccabees 2:1-28"
     },
@@ -10581,7 +10630,9 @@
    "label": "Saturday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Dan.8.15-27"
+     ],
      "alternatives": [],
      "apocrypha": "1 Maccabees 2:29-48"
     },
@@ -10594,7 +10645,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Dan.11.1-20"
+     ],
      "alternatives": [],
      "apocrypha": "1 Maccabees 2:49"
     },
@@ -10653,7 +10706,9 @@
    "label": "Monday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Dan.11.21-35"
+     ],
      "alternatives": [],
      "apocrypha": "1 Macc. 3:1-26"
     },
@@ -10666,7 +10721,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Dan.11.36-45"
+     ],
      "alternatives": [],
      "apocrypha": "1 Macc. 3:27-41"
     },
@@ -10682,7 +10739,9 @@
    "label": "Tuesday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "2Chr.20.1-13"
+     ],
      "alternatives": [],
      "apocrypha": "1 Maccabees 3:42"
     },
@@ -10695,7 +10754,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "2Chr.20.14-30"
+     ],
      "alternatives": [],
      "apocrypha": "1 Maccabees 4:1-25"
     },
@@ -10711,7 +10772,9 @@
    "label": "Wednesday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "2Chr.29.1-19"
+     ],
      "alternatives": [],
      "apocrypha": "1 Maccabees 4:26-35"
     },
@@ -10724,7 +10787,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "2Chr.29.20-36"
+     ],
      "alternatives": [],
      "apocrypha": "1 Maccabees 4:36"
     },
@@ -10740,7 +10805,9 @@
    "label": "Thursday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "2Chr.30"
+     ],
      "alternatives": [],
      "apocrypha": "1 Maccabees 6:1-17"
     },
@@ -10753,7 +10820,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "2Chr.31"
+     ],
      "alternatives": [],
      "apocrypha": "1 Maccabees 6:18-47"
     },
@@ -10769,7 +10838,9 @@
    "label": "Friday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "2Chr.32.1-23"
+     ],
      "alternatives": [],
      "apocrypha": "1 Maccabees 7:1-20"
     },
@@ -10782,7 +10853,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "2Chr.33.1-20"
+     ],
      "alternatives": [],
      "apocrypha": "1 Maccabees 7:21"
     },
@@ -10798,7 +10871,9 @@
    "label": "Saturday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "2Chr.34"
+     ],
      "alternatives": [],
      "apocrypha": "1 Maccabees 9:1-22"
     },
@@ -10811,7 +10886,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "2Chr.35.1-19"
+     ],
      "alternatives": [],
      "apocrypha": "1 Maccabees 13:41"
     },
@@ -12246,7 +12323,9 @@
    "label": "Monday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.1.1-19"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclus 1:1-10"
     },
@@ -12259,7 +12338,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.3.1-12"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclus 1:11"
     },
@@ -12275,7 +12356,9 @@
    "label": "Tuesday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.3.13-26"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 2"
     },
@@ -12288,7 +12371,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.3.27-35"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 3:17-29"
     },
@@ -12304,7 +12389,9 @@
    "label": "Wednesday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.4.1-13"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 4:11-28"
     },
@@ -12317,7 +12404,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.4.14-27"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 4:29"
     },
@@ -12333,7 +12422,9 @@
    "label": "Thursday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.5"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 6:14-31"
     },
@@ -12346,7 +12437,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.6.1-19"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 7:27"
     },
@@ -12362,7 +12455,9 @@
    "label": "Friday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.6.20-35"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 10:6-8, 12-24"
     },
@@ -12375,7 +12470,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.7"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 11:7-28"
     },
@@ -12391,7 +12488,9 @@
    "label": "Saturday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Job.28.1-11"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 14:20"
     },
@@ -12404,7 +12503,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Job.28.12-28"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 15:11"
     },
@@ -12464,7 +12565,9 @@
    "label": "Monday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.9"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclus 16:17"
     },
@@ -12477,7 +12580,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.10.1-16"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclus 17:1-24"
     },
@@ -12493,7 +12598,9 @@
    "label": "Tuesday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.10.17-32"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 18:1-14"
     },
@@ -12506,7 +12613,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.11.1-15"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 19:13"
     },
@@ -12522,7 +12631,9 @@
    "label": "Wednesday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.11.16-31"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 21:1-17"
     },
@@ -12535,7 +12646,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.12.1-14"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 22:6-22"
     },
@@ -12551,7 +12664,9 @@
    "label": "Thursday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.12.15-28"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 22:27"
     },
@@ -12564,7 +12679,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.14.1-15"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 24:1-22"
     },
@@ -12580,7 +12697,9 @@
    "label": "Friday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.14.16-30"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 24:23"
     },
@@ -12593,7 +12712,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Job.34.1-15"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 27:30"
     },
@@ -12609,7 +12730,9 @@
    "label": "Saturday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Job.34.16-37"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 31:1-11"
     },
@@ -12622,7 +12745,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Job.35"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 34:9"
     },
@@ -12681,7 +12806,9 @@
    "label": "Monday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.15.18-33"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclus 35"
     },
@@ -12694,7 +12821,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.16.1-16"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclus 37:7-15"
     },
@@ -12710,7 +12839,9 @@
    "label": "Tuesday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.16.17-33"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 38:1-14"
     },
@@ -12723,7 +12854,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.17"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 38:24"
     },
@@ -12739,7 +12872,9 @@
    "label": "Wednesday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.18"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 39:1-11"
     },
@@ -12752,7 +12887,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.19"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 39:13"
     },
@@ -12768,7 +12905,9 @@
    "label": "Thursday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.20.1-15"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 42:15"
     },
@@ -12781,7 +12920,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.20.16-30"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 43:1-12"
     },
@@ -12797,7 +12938,9 @@
    "label": "Friday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.21"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 43:13"
     },
@@ -12810,7 +12953,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.22.1-16"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 50:1-24"
     },
@@ -12826,7 +12971,9 @@
    "label": "Saturday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.22.17-29"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 51:1-12"
     },
@@ -12839,7 +12986,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.23.1-14"
+     ],
      "alternatives": [],
      "apocrypha": "Ecclesiasticus 51:13"
     },
@@ -12898,7 +13047,9 @@
    "label": "Monday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.31.1-9"
+     ],
      "alternatives": [],
      "apocrypha": "Tobit 4:5-19"
     },
@@ -12911,7 +13062,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Neh.12.27-43"
+     ],
      "alternatives": [],
      "apocrypha": "Tobit 13"
     },
@@ -12927,7 +13080,9 @@
    "label": "Tuesday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Jer.45"
+     ],
      "alternatives": [],
      "apocrypha": "Baruch 1:15"
     },
@@ -12940,7 +13095,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Lam.5"
+     ],
      "alternatives": [],
      "apocrypha": "Baruch 2:11"
     },
@@ -12956,7 +13113,9 @@
    "label": "Wednesday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Lam.2"
+     ],
      "alternatives": [],
      "apocrypha": "Baruch 3:1-8"
     },
@@ -12969,7 +13128,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Deut.30.11-20"
+     ],
      "alternatives": [],
      "apocrypha": "Baruch 3:9"
     },
@@ -12985,7 +13146,9 @@
    "label": "Thursday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Lam.4"
+     ],
      "alternatives": [],
      "apocrypha": "Baruch 4:21-30"
     },
@@ -12998,7 +13161,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Isa.27"
+     ],
      "alternatives": [],
      "apocrypha": "Baruch 4:36"
     },
@@ -13014,7 +13179,9 @@
    "label": "Friday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Dan.1"
+     ],
      "alternatives": [],
      "apocrypha": "2 Macc. 4:7-17"
     },
@@ -13027,7 +13194,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Dan.3.1-18"
+     ],
      "alternatives": [],
      "apocrypha": "2 Macc. 6:12"
     },
@@ -13043,7 +13212,9 @@
    "label": "Saturday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Dan.3.19-30"
+     ],
      "alternatives": [],
      "apocrypha": "2 Maccabees 7:1-19"
     },
@@ -13056,7 +13227,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Dan.12"
+     ],
      "alternatives": [],
      "apocrypha": "2 Maccabees 7:20-41"
     },
@@ -13120,7 +13293,9 @@
    "label": "Monday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.24.1-22"
+     ],
      "alternatives": [],
      "apocrypha": "Wisdom1"
     },
@@ -13133,7 +13308,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.25"
+     ],
      "alternatives": [],
      "apocrypha": "Wisdom2"
     },
@@ -13149,7 +13326,9 @@
    "label": "Tuesday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.26"
+     ],
      "alternatives": [],
      "apocrypha": "Wisdom 3:1-9"
     },
@@ -13162,7 +13341,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.27"
+     ],
      "alternatives": [],
      "apocrypha": "Wisdom 4:7"
     },
@@ -13178,7 +13359,9 @@
    "label": "Wednesday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.28"
+     ],
      "alternatives": [],
      "apocrypha": "Wisdom 5:1-16"
     },
@@ -13191,7 +13374,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.29"
+     ],
      "alternatives": [],
      "apocrypha": "Wisdom 6:1-21"
     },
@@ -13207,7 +13392,9 @@
    "label": "Thursday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.30"
+     ],
      "alternatives": [],
      "apocrypha": "Wisdom 7:15"
     },
@@ -13220,7 +13407,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Prov.31.10-31"
+     ],
      "alternatives": [],
      "apocrypha": "Wisdom 8:5-18"
     },
@@ -13236,7 +13425,9 @@
    "label": "Friday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Job.36.1-21"
+     ],
      "alternatives": [],
      "apocrypha": "Wisdom 8:21"
     },
@@ -13249,7 +13440,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Job.36.22-33"
+     ],
      "alternatives": [],
      "apocrypha": "Wisdom 10:15"
     },
@@ -13265,7 +13458,9 @@
    "label": "Saturday",
    "morning": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Mal.3.13-18"
+     ],
      "alternatives": [],
      "apocrypha": "Wisdom 11:21"
     },
@@ -13278,7 +13473,9 @@
    },
    "evening": {
     "first": {
-     "passages": [],
+     "passages": [
+      "Mal.4"
+     ],
      "alternatives": [],
      "apocrypha": "Wisdom 12:12-21"
     },

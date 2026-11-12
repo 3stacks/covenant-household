@@ -40,5 +40,5 @@
   },
   "private": true,
   "description": "The iOS and Android app of Daily Prayer, made with Expo (React Native).",
-  "license": "UNLICENSED"
+  "license": "AGPL-3.0-only"
 }

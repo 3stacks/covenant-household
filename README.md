@@ -93,15 +93,21 @@ transcription. `scripts/import-1922.ts` lists each correction with its reason.
 ### The Apocrypha
 
 On 83 weekday lessons the 1922 table appoints a lesson from the Apocrypha. The Apocrypha is not part
-of the canon of Scripture (Westminster Confession 1.3). When the table gives another lesson, the app
-reads that lesson. Otherwise the page shows the reference and a note, and no text. Most of these
-lessons are in the weeks after the Fifteenth, Sixteenth and Twenty-third to Twenty-sixth Sundays after
-Trinity, and in the week before Advent.
+of the canon of Scripture (Westminster Confession 1.3). The app reads a canonical lesson in its place.
+The page shows the canonical lesson, with a note that gives the Apocrypha reference.
+
+`content/lectionary/apocrypha-1922.json` gives each canonical lesson. Each group of lessons comes from
+the book that the Apocrypha book copies or describes, and the file gives the reason for each group.
+Where possible, a group uses chapters that the 1922 table does not read. Most of these lessons are in
+the weeks after the Fifteenth, Sixteenth and Twenty-third to Twenty-sixth Sundays after Trinity, and
+in the week before Advent.
+
+`scripts/import-1922.ts` puts the canonical lessons into `1922.json`. If an Apocrypha lesson has no
+canonical lesson in the file, the script reports a problem. If the file names a day that has no
+Apocrypha lesson, the script also reports a problem.
 
 ### Known gaps
 
-- The transcription has no row for the Saturday after the Fifth Sunday in Lent. The page says that
-  the table has no lesson for that day.
 - The 1922 lessons for the saints' days (Part X of the table) are not imported.
 
 ## The parts of a devotions file
@@ -206,3 +212,14 @@ No file has a writing yet.
 
 The research report `research/2026-11-09-landscape-reformed-suite-app-gaps.md` in the personal
 workspace lists possible sources.
+
+## License
+
+Copyright © 2026 Luke Boyle.
+
+Licensed under the **GNU Affero General Public License v3.0** (AGPLv3). See [LICENSE](LICENSE). You
+can use, self-host, study, change and share Daily Prayer. If you run a changed version as a network
+service, you must give its users the source of that version. See AGPL section 13.
+
+The texts in the calendar keep their own licences. The section "The text of the readings" gives the
+source of each text.

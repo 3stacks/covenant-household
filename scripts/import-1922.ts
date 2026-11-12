@@ -140,10 +140,30 @@ const verseCount = (code: string, chapter: number) => kjv.get(code)?.[chapter - 
 const days: Record<string, LessonDay> = {}
 const problems: string[] = []
 
+/** The canonical lessons that the app reads in place of the Apocrypha lessons. */
+interface Substitutes {
+  groups: { apocrypha: string; reason: string; days: Record<string, Partial<Record<'morning' | 'evening', string[]>>> }[]
+}
+const substitutes = new Map<string, string[]>()
+for (const g of (JSON.parse(readFileSync(join(root, 'content/lectionary/apocrypha-1922.json'), 'utf8')) as Substitutes).groups)
+  for (const [id, offices] of Object.entries(g.days)) for (const [office, passages] of Object.entries(offices)) substitutes.set(`${id} ${office}`, passages!)
+const usedSubstitutes = new Set<string>()
+
+/** Put the canonical substitute into an Apocrypha lesson that has no canonical "or" lesson. */
+function substitute(id: string, office: 'morning' | 'evening', l: Lesson | undefined) {
+  if (!l?.apocrypha || l.passages.length) return
+  const key = `${id} ${office}`
+  const passages = substitutes.get(key)
+  if (!passages) return problems.push(`${key}: ${l.apocrypha} has no canonical substitute in apocrypha-1922.json`)
+  l.passages = passages
+  usedSubstitutes.add(key)
+}
+
 for (const part of PARTS) {
   const html = await page(part)
   let week: string | undefined = part === 'epiphany' ? 'epiphany-0' : undefined
-  for (const row of html.matchAll(/<TR[^>]*>([\s\S]*?)<\/TR>/gi)) {
+  // The last row of a table can have no </TR>. The table end closes it.
+  for (const row of html.matchAll(/<TR[^>]*>([\s\S]*?)(?=<\/TR>|<TR[\s>]|<\/TABLE>)/gi)) {
     const cells = [...row[1].matchAll(/<TD[^>]*>([\s\S]*?)<\/TD>/gi)].map((c) => c[1])
     if (cells.length < 5) continue
     const label = decode(cells[0]).replace(/^\*\s*|\s*\*$/g, '')
@@ -187,12 +207,16 @@ for (const part of PARTS) {
     const day: LessonDay = { label }
     if (first[0] && second[0]) day.morning = { first: lesson(first[0]), second: lesson(second[0]) }
     if (first[1] && second[1]) day.evening = { first: lesson(first[1]), second: lesson(second[1]) }
+    substitute(id, 'morning', day.morning?.first)
+    substitute(id, 'evening', day.evening?.first)
     if (swapped) day.note = 'The transcription has these lessons in other columns. The importer sorted them by testament.'
     if (!day.morning) problems.push(`${where}: no morning lessons`)
     if (days[id]) problems.push(`${where}: a second row for this id`)
     days[id] = day
   }
 }
+
+for (const key of substitutes.keys()) if (!usedSubstitutes.has(key)) problems.push(`${key}: apocrypha-1922.json has a substitute, but the table has no Apocrypha lesson here`)
 
 const lectionary: Lectionary = {
   name: 'The Revised Tables of Lessons (1922)',
@@ -207,11 +231,12 @@ const lectionary: Lectionary = {
 const apocrypha = Object.entries(days).flatMap(([id, d]) =>
   [d.morning?.first, d.evening?.first]
     .filter((l): l is Lesson => !!l?.apocrypha)
-    .map((l) => `${id}: ${l.apocrypha}${l.passages.length ? ` (the app reads ${l.passages.join(', ')})` : ' (no canonical lesson)'}`),
+    .map((l) => `${id}: ${l.apocrypha}${l.passages.length ? ` (the app reads ${l.passages.join(', ')} in its place)` : ' (no canonical lesson)'}`),
 )
 
 mkdirSync(join(root, 'content/lectionary'), { recursive: true })
 writeFileSync(join(root, 'content/lectionary/1922.json'), JSON.stringify(lectionary, null, 1) + '\n')
 console.log(`1922: ${Object.keys(days).length} days. ${apocrypha.length} first lessons from the Apocrypha.`)
 for (const p of problems) console.warn(`problem: ${p}`)
+if (problems.length) process.exitCode = 1
 if (process.argv.includes('--apocrypha')) for (const a of apocrypha) console.log(`apocrypha: ${a}`)
