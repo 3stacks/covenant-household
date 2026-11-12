@@ -32,3 +32,13 @@ export const memoriseInHearers = (id: PassageId) => `${HEARERS_APP}#/add/${id}`
 export const learnInHearers = (doc: ConfessionDoc, unitId: string) => `${HEARERS_APP}#/unit/${doc}/${unitId}`
 
 export const KOFI = 'https://ko-fi.com/lukeboyle'
+
+// The store pages of the mobile app. Each one is empty until the app is in that
+// store. The website and the web app show a store button only for a store with
+// an address.
+/** For example "https://apps.apple.com/app/id1234567890". */
+export const APP_STORE_URL = ''
+/** The number in the App Store address. Safari uses it for the Smart App Banner. */
+export const APP_STORE_ID = ''
+/** "https://play.google.com/store/apps/details?id=com.lukeboyle.covenanthousehold" when the app is live. */
+export const GOOGLE_PLAY_URL = ''

@@ -1,8 +1,9 @@
-import { type Metadata } from 'next'
+import { type Metadata, type Viewport } from 'next'
 import { EB_Garamond, Inter } from 'next/font/google'
 import clsx from 'clsx'
 
-import { SITE_URL } from '@/lib/site'
+import { ANALYTICS_LOADER } from '@daily-prayer/core/analytics'
+import { APP_STORE_ID, OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/site'
 import '@/styles/tailwind.css'
 
 const inter = Inter({
@@ -19,13 +20,43 @@ const garamond = EB_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
   title: {
-    default: 'Covenant Household: a Reformed daily prayer book',
+    default: 'Covenant Household: a Reformed daily prayer book for family worship',
     template: '%s | Covenant Household',
   },
-  description:
-    'A psalm to sing, two lessons from Scripture and a prayer for each day of the church year. Use it alone or with your family. Free, with no account.',
-  icons: { icon: '/app/icon.svg' },
+  description: SITE_DESCRIPTION,
+  keywords: [
+    'family worship',
+    'daily prayer',
+    'Reformed',
+    'Book of Common Prayer',
+    '1662 collects',
+    'daily lectionary',
+    'Scottish Psalter',
+    'church year',
+    'family devotions',
+  ],
+  authors: [{ name: 'Luke Boyle' }],
+  creator: 'Luke Boyle',
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    siteName: SITE_NAME,
+    locale: 'en_AU',
+    url: '/',
+    title: 'Covenant Household: a Reformed daily prayer book',
+    description: SITE_DESCRIPTION,
+    images: [OG_IMAGE],
+  },
+  twitter: { card: 'summary_large_image' },
+  robots: { index: true, follow: true },
+  // The Smart App Banner in Safari on iPhone, when the app is in the App Store.
+  ...(APP_STORE_ID ? { itunes: { appId: APP_STORE_ID } } : {}),
+}
+
+export const viewport: Viewport = {
+  themeColor: '#5a3e1b',
 }
 
 export default function RootLayout({
@@ -42,6 +73,10 @@ export default function RootLayout({
         garamond.variable,
       )}
     >
+      <head>
+        {/* Anonymous visit counts. See functions/_lib/analytics.ts. */}
+        <script dangerouslySetInnerHTML={{ __html: ANALYTICS_LOADER }} />
+      </head>
       <body className="flex min-h-full flex-col">{children}</body>
     </html>
   )

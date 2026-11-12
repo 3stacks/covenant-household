@@ -9,9 +9,10 @@ const nextConfig = {
   output: 'export',
   trailingSlash: true,
   images: { unoptimized: true },
-  // The contents section reads the app's public/data/index.json.
-  turbopack: { root: path.join(__dirname, '..') },
-  outputFileTracingRoot: path.join(__dirname, '..'),
+  // The readings pages use the shared code in packages/core and the calendar
+  // in apps/web/public/calendar/, so the root is the repository root.
+  turbopack: { root: path.join(__dirname, '../..') },
+  outputFileTracingRoot: path.join(__dirname, '../..'),
 }
 
 module.exports = nextConfig
