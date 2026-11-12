@@ -40,7 +40,7 @@ export function About() {
               No advertisements, no accounts, no cookies.
             </p>
             <p className="mt-4 text-lg tracking-tight text-stone-700">
-              Luke Boyle makes Daily Prayer. It is one of a set of free apps for
+              Luke Boyle makes Covenant Household. It is one of a set of free apps for
               the Reformed churches:
             </p>
             <ul role="list" className="mt-6 space-y-4">
@@ -54,7 +54,7 @@ export function About() {
               ))}
             </ul>
             <p className="mt-6 text-lg tracking-tight text-stone-700">
-              If Daily Prayer helps you, you can support it on Ko-fi. The support
+              If Covenant Household helps you, you can support it on Ko-fi. The support
               pays for the server and for the time to add more texts.
             </p>
             <p className="mt-8">
@@ -63,7 +63,7 @@ export function About() {
                 className="inline-flex items-center text-base font-medium tracking-tight text-stone-900"
               >
                 <CupIcon className="h-10 w-10" />
-                <span className="ml-4">Support Daily Prayer on Ko-fi</span>
+                <span className="ml-4">Support Covenant Household on Ko-fi</span>
               </Link>
             </p>
           </div>

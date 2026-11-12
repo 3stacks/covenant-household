@@ -37,7 +37,7 @@ export function Hero() {
             <Image
               className="w-full"
               src={heroImage}
-              alt="Daily Prayer on a phone: the Twenty-fourth Sunday after Trinity, with Psalm 75 from the Scottish Psalter"
+              alt="Covenant Household on a phone: the Twenty-fourth Sunday after Trinity, with Psalm 75 from the Scottish Psalter"
               priority
             />
           </div>
@@ -52,7 +52,7 @@ export function Hero() {
               Pray with the church, every day.
             </h1>
             <p className="mt-4 text-3xl text-stone-600">
-              Daily Prayer gives you a psalm to sing, two lessons from
+              Covenant Household gives you a psalm to sing, two lessons from
               Scripture and a prayer for each day of the church year. Use it
               alone or with your family.
             </p>

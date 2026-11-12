@@ -7,7 +7,6 @@ import { DayView } from './views/DayView.tsx'
 import { HowToUse } from './views/HowToUse.tsx'
 import { Settings } from './views/Settings.tsx'
 
-// "Daily Prayer" is a working name.
 export function App() {
   const route = useRoute()
   const [prefs, update] = usePrefs()
@@ -15,7 +14,7 @@ export function App() {
     <div className="app">
       <nav className="top">
         <a href="#/" className="brand">
-          Daily Prayer
+          Covenant Household
         </a>
         <span className="nav-links">
           <a href="#/how">How to use</a>

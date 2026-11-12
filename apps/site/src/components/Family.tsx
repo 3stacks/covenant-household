@@ -25,7 +25,7 @@ export function Family() {
         <p className="mt-4 text-lg tracking-tight text-stone-700">
           The Westminster Directory for Family Worship (1647) asks each family to
           pray, to sing praise and to read the Scriptures each day. The head of
-          the family leads. Daily Prayer gives you the order and the text.
+          the family leads. Covenant Household gives you the order and the text.
         </p>
       </Container>
       <Container size="md" className="mt-16">

@@ -65,7 +65,7 @@ export function About() {
 
       <h2>Support</h2>
       <p>
-        Daily Prayer is free and has no advertisements. If it helps you, you can support it on{' '}
+        Covenant Household is free and has no advertisements. If it helps you, you can support it on{' '}
         <a href={KOFI} data-event="Ko-fi">
           Ko-fi
         </a>

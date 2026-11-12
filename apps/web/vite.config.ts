@@ -12,8 +12,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['icon.svg'],
       manifest: {
-        name: 'Daily Prayer',
-        short_name: 'Daily Prayer',
+        name: 'Covenant Household',
+        short_name: 'Household',
         description: 'A Reformed daily prayer book.',
         theme_color: '#5a3e1b',
         background_color: '#faf8f4',

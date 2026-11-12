@@ -1,6 +1,6 @@
-# Daily Prayer for iOS and Android
+# Covenant Household for iOS and Android
 
-The mobile app of Daily Prayer. It uses Expo (SDK 58), React Native and Expo Router. It shows the
+The mobile app of Covenant Household. It uses Expo (SDK 58), React Native and Expo Router. It shows the
 same pages as the web app in `apps/web/`. It gets the church year, the data model and the links
 from `packages/core/`.
 
@@ -36,7 +36,7 @@ npx expo export --platform ios --platform android   # the bundles must compile
 | `/calendar/2026-11` | The church year, by month. It scrolls to today. |
 | `/settings`, `/about`, `/how` | The text pages |
 
-The paths are the same as the web app. The deep link `dailyprayer://day/2026-11-10` opens a
+The paths are the same as the web app. The deep link `covenanthousehold://day/2026-11-10` opens a
 date.
 
 ## Build for the stores
@@ -57,5 +57,5 @@ Git does not keep the calendar. Before each build, the `eas-build-post-install` 
 `scripts/build-calendar.ts --release`. That script downloads the Bible, confession and psalm
 text from Hearers and Precentor.
 
-The app id is `com.lukeboyle.dailyprayer` on both stores. You cannot change it after the first
+The app id is `com.lukeboyle.covenanthousehold` on both stores. You cannot change it after the first
 release, so make sure that it is correct before step 4.

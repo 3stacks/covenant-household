@@ -20,8 +20,8 @@ const garamond = EB_Garamond({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Daily Prayer: a Reformed daily prayer book',
-    template: '%s | Daily Prayer',
+    default: 'Covenant Household: a Reformed daily prayer book',
+    template: '%s | Covenant Household',
   },
   description:
     'A psalm to sing, two lessons from Scripture and a prayer for each day of the church year. Use it alone or with your family. Free, with no account.',

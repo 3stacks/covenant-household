@@ -39,6 +39,6 @@
     "eas-build-post-install": "npm run calendar"
   },
   "private": true,
-  "description": "The iOS and Android app of Daily Prayer, made with Expo (React Native).",
+  "description": "The iOS and Android app of Covenant Household, made with Expo (React Native).",
   "license": "AGPL-3.0-only"
 }

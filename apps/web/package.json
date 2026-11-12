@@ -1,7 +1,7 @@
 {
   "name": "daily-prayer-web",
   "version": "0.1.0",
-  "description": "The web app (a PWA) of Daily Prayer.",
+  "description": "The web app (a PWA) of Covenant Household.",
   "type": "module",
   "private": true,
   "license": "AGPL-3.0-only",

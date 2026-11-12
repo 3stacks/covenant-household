@@ -29,8 +29,8 @@ export default function Layout() {
           headerBackButtonDisplayMode: 'minimal',
           contentStyle: { backgroundColor: c.bg },
         }}>
-        <Stack.Screen name="index" options={{ title: 'Daily Prayer' }} />
-        <Stack.Screen name="day/[date]" options={{ title: 'Daily Prayer', animation: 'fade' }} />
+        <Stack.Screen name="index" options={{ title: 'Covenant Household' }} />
+        <Stack.Screen name="day/[date]" options={{ title: 'Covenant Household', animation: 'fade' }} />
         <Stack.Screen name="calendar/index" options={{ title: 'Calendar' }} />
         <Stack.Screen name="calendar/[month]" options={{ title: 'Calendar', animation: 'fade' }} />
         <Stack.Screen name="settings" options={{ title: 'Settings' }} />

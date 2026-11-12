@@ -36,7 +36,7 @@ export function ChurchYear() {
             </p>
             <p className="mt-4 text-lg tracking-tight text-stone-700">
               This is not a plan to read the whole Bible in a year. If you use
-              such a plan, Daily Prayer goes well with it.
+              such a plan, Covenant Household goes well with it.
             </p>
             <dl className="mt-8 space-y-4">
               {seasons.map(([name, text]) => (

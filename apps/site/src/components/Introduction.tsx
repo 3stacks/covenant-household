@@ -20,7 +20,7 @@ export function Introduction() {
           read from the Apocrypha.
         </p>
         <p className="mt-4">
-          Daily Prayer keeps the calendar of the Book of Common Prayer. It reads
+          Covenant Household keeps the calendar of the Book of Common Prayer. It reads
           only the canonical Scriptures. You sing the psalm from the Scottish
           Psalter of 1650.
         </p>

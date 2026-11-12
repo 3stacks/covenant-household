@@ -1,6 +1,6 @@
-# Daily Prayer
+# Covenant Household
 
-A Reformed daily prayer book. "Daily Prayer" is a working name.
+A Reformed daily prayer book for family worship. "As for me and my house, we will serve the LORD" (Joshua 24:15).
 
 Each day has the psalms, two Bible lessons, the collect, and on Sundays and feasts the Epistle and
 Gospel. It can also have a proverb, a Reformed writing, a hymn, a prayer and a part of the confession. Each part links to the
@@ -218,7 +218,7 @@ workspace lists possible sources.
 Copyright © 2026 Luke Boyle.
 
 Licensed under the **GNU Affero General Public License v3.0** (AGPLv3). See [LICENSE](LICENSE). You
-can use, self-host, study, change and share Daily Prayer. If you run a changed version as a network
+can use, self-host, study, change and share Covenant Household. If you run a changed version as a network
 service, you must give its users the source of that version. See AGPL section 13.
 
 The texts in the calendar keep their own licences. The section "The text of the readings" gives the

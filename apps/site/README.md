@@ -1,6 +1,6 @@
-# Daily Prayer homepage
+# Covenant Household homepage
 
-The homepage of Daily Prayer. Next.js builds a static export to `out/`. Run
+The homepage of Covenant Household. Next.js builds a static export to `out/`. Run
 `npm run site` at the repository root to build the web app and the homepage
 together. That command puts the app in `out/app/`.
 

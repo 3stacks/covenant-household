@@ -1,5 +1,5 @@
 // The paths of the app. The web app puts them after "#". The mobile app uses
-// them as screen paths and as deep links (dailyprayer://day/2026-11-10).
+// them as screen paths and as deep links (covenanthousehold://day/2026-11-10).
 //   /                   today
 //   /day/2026-11-10     a date
 //   /settings           the settings
