@@ -1,0 +1,13 @@
+{
+  "bg": ["#6b4a22", "#2a1d0c"],
+  "accent": "#f1e9dc",
+  "ink": "#ffffff",
+  "sub": "#efe4d2",
+  "motif": "rule",
+  "panels": [
+    { "title": "Morning and\nevening worship", "body": "The psalm, the lessons and the prayer\nfor each day of the church year.", "shot": "raw/today.png" },
+    { "title": "A catechism for\nthe household", "body": "A few questions each day,\nfrom the Reformed confessions.", "shot": "raw/household.png" },
+    { "title": "The year\nof the church", "body": "Each Sunday and its week, and days\nto remember the Reformers.", "shot": "raw/calendar.png" },
+    { "title": "Your Bible,\nyour language", "body": "The King James Version or the BSB.\nThe Statenvertaling in Nederlands.", "shot": "raw/bible.png" }
+  ]
+}
