@@ -108,10 +108,9 @@ No account is needed. Open the app, choose a language and a Bible, and the readi
 | Play feature graphic | 1024 × 500 | Required. `store/feature-graphic.png` |
 | Play icon | 512 × 512 | Required. `store/play-icon.png` |
 
-Take the screenshots on the iPhone 16 Pro Max simulator. Suggested screens:
+The screenshots are in `store/screenshots/`. They show these screens:
 
 1. Today: morning worship, with the psalm
-2. A lesson with the full text
-3. Evening worship
-4. The calendar of the church year
-5. The welcome: choose a language and a Bible
+2. For the household: questions of the Larger Catechism
+3. The calendar of the church year
+4. The welcome: choose a Bible
