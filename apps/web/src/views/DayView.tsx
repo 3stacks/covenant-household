@@ -1,10 +1,11 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react'
 import { addDays, type LoadedDay } from '@daily-prayer/core/calendar'
-import { DOC_NAMES, DOC_SHORT, psalmLabel, psalmTitle, SIB_NOTES, unitLabel } from '@daily-prayer/core/labels'
+import { DOC_NAMES, DOC_SHORT, SIB_NOTES, unitLabel } from '@daily-prayer/core/labels'
 import { learnInHearers, memoriseInHearers, psalmPassage, readInHaddington, singPsalm } from '@daily-prayer/core/links'
-import { bibleById, DEFAULT_BIBLE, passageTitle, type Bible } from '@daily-prayer/core/bibles'
+import { bibleById, DEFAULT_BIBLE, passageTitle, psalmHeading, PSALTERS, psalmShortLabel, type Bible } from '@daily-prayer/core/bibles'
+import { verseRange } from '@daily-prayer/core/passage'
 import type { Prefs } from '@daily-prayer/core/prefs'
-import type { ConfessionDoc, ConfessionUnitText, Hymn, LessonText, PassageText, Paragraph, PsalmPortion, PsalmReading, Source, Writing } from '@daily-prayer/core/types'
+import type { PassageId, ConfessionDoc, ConfessionUnitText, Hymn, LessonText, PassageText, Paragraph, PsalmPortion, PsalmReading, Source, Writing } from '@daily-prayer/core/types'
 import { calendar } from '../lib/calendar.ts'
 import { calendarHref, dayHref } from '../router.ts'
 
@@ -52,6 +53,7 @@ export function DayView({ date, today, prefs }: { date: Date; today: boolean; pr
           {person.title && <span className="muted">, {person.title}</span>}
         </p>
       )}
+      <MemoriseSelection />
       {shown.state === 'loading' && <p className="empty">Loading…</p>}
       {shown.state === 'error' && <p className="empty">The readings did not load. Check the connection, then try again.</p>}
       {day && (
@@ -102,7 +104,7 @@ export function DayView({ date, today, prefs }: { date: Date; today: boolean; pr
 
           <p className="lectionary">
             Lessons: <SourceName source={day.sources.lessons} /> · Collect, Epistle and Gospel: the Book of Common Prayer
-            (1662) · Psalms: the 1662 order, sung from the 1650 Psalter · Bible: {bible.name}
+            (1662) · Psalms: the 1662 order, sung from {PSALTERS[bible.language].name} · Bible: {bible.name}
           </p>
         </BibleContext.Provider>
       )}
@@ -135,6 +137,48 @@ function DateHeader({ date, today, churchDay }: { date: Date; today: boolean; ch
         ›
       </a>
     </header>
+  )
+}
+
+/**
+ * The verses of a selection inside one reading, as a passage. A stanza of a
+ * metrical psalm gives the Bible verses that it covers.
+ */
+function selectedPassage(): PassageId | undefined {
+  const sel = document.getSelection()
+  if (!sel || sel.isCollapsed || sel.rangeCount === 0) return undefined
+  const range = sel.getRangeAt(0)
+  const at = (n: Node | null) => (n instanceof Element ? n : n?.parentElement)?.closest<HTMLElement>('.reading[data-book]')
+  const reading = at(range.startContainer)
+  if (!reading || reading !== at(range.endContainer)) return undefined
+  const book = reading.dataset.book!
+  const verses: { chapter: number; verse: number }[] = []
+  for (const el of reading.querySelectorAll<HTMLElement>('[data-verse], [data-verses]')) {
+    if (!range.intersectsNode(el)) continue
+    if (el.dataset.verse) verses.push({ chapter: +el.dataset.chapter!, verse: +el.dataset.verse })
+    else for (const v of el.dataset.verses!.split(' ')) verses.push({ chapter: +reading.dataset.chapter!, verse: +v })
+  }
+  if (!verses.length) return undefined
+  const order = (v: { chapter: number; verse: number }) => v.chapter * 1000 + v.verse
+  verses.sort((a, b) => order(a) - order(b))
+  return verseRange(book, verses[0], verses[verses.length - 1])
+}
+
+/** After the reader selects verses, a bar offers to memorise them in Hearers. */
+function MemoriseSelection() {
+  const [passage, setPassage] = useState<PassageId>()
+  useEffect(() => {
+    const update = () => setPassage(selectedPassage())
+    document.addEventListener('selectionchange', update)
+    return () => document.removeEventListener('selectionchange', update)
+  }, [])
+  if (!passage) return null
+  return (
+    <div className="memorise-bar" role="region" aria-label="Memorise the selection">
+      <a href={memoriseInHearers(passage)} target="_blank" rel="noopener" data-event="Memorise in Hearers" data-event-label="selection">
+        Memorise {passageTitle(passage)} in Hearers
+      </a>
+    </div>
   )
 }
 
@@ -182,13 +226,14 @@ function Out({ href, children, event }: { href?: string; children: ReactNode; ev
 
 /** The psalms of one office in the 1662 order. Sing the first. The others are closed. */
 function PsalmSection({ when, psalms }: { when: string; psalms: PsalmReading[] }) {
+  const { language } = useContext(BibleContext)
   if (!psalms.length) return null
   const [first, ...rest] = psalms
   return (
     <Section title="Psalms">
       <Psalm reading={first} />
       {rest.length > 0 && (
-        <More summary={`More psalms ${when}: ${rest.map((p) => psalmLabel(p.portion)).join(', ')}`}>
+        <More summary={`More psalms ${when}: ${rest.map((p) => psalmShortLabel(p, language)).join(', ')}`}>
           {rest.map((p) => (
             <Psalm key={key(p.portion)} reading={p} />
           ))}
@@ -224,21 +269,23 @@ function PrayerSection({ collect, prayer }: { collect?: LoadedDay['collect']; pr
 function Psalm({ reading }: { reading: PsalmReading }) {
   const { portion, text } = reading
   const passage = psalmPassage(portion)
+  const { language } = useContext(BibleContext)
+  const psalter = PSALTERS[language]
   return (
-    <div className="reading">
-      <h3>{psalmTitle(portion)}</h3>
+    <div className="reading" data-book="Ps" data-chapter={portion.psalm}>
+      <h3>{psalmHeading(reading, language)}</h3>
       <ol className="stanzas">
         {text.stanzas.map((s) => (
-          <li key={s.number} value={s.number}>
+          <li key={s.number} value={s.number} data-verses={s.verses.length ? s.verses.join(' ') : undefined}>
             {s.lines.map((line, i) => (
               <span key={i}>{line}</span>
             ))}
           </li>
         ))}
       </ol>
-      <p className="source">The Psalms of David in Metre (1650)</p>
+      <p className="source">{psalter.name}</p>
       <Links>
-        <Out href={singPsalm(portion)} event="Sing in Precentor">
+        <Out href={psalter.precentor ? singPsalm(portion) : undefined} event="Sing in Precentor">
           Sing in Precentor
         </Out>
         <Out href={readInHaddington(passage)} event="Read in Haddington">
@@ -286,7 +333,7 @@ function Passage({ text, label, note }: { text: PassageText; label?: string; not
   const id = text.passage
   const bible = useContext(BibleContext)
   return (
-    <div className="reading">
+    <div className="reading" data-book={id.split('.')[0]}>
       <h3>
         {label && <span className="label">{label}</span>}
         {passageTitle(id, bible.language)}
@@ -295,7 +342,7 @@ function Passage({ text, label, note }: { text: PassageText; label?: string; not
         {text.verses.map((v, i) => {
           const newChapter = i > 0 && v.chapter !== text.verses[i - 1].chapter
           return (
-            <span key={`${v.chapter}.${v.verse}`}>
+            <span key={`${v.chapter}.${v.verse}`} data-chapter={v.chapter} data-verse={v.verse}>
               {newChapter && <span className="chapter">Chapter {v.chapter}</span>}
               <sup>{v.verse}</sup>
               {v.text}{' '}

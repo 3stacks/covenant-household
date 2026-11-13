@@ -15,7 +15,8 @@
     "test": "vitest run",
     "calendar": "node scripts/build-calendar.ts",
     "import": "node scripts/import-1922.ts && node scripts/import-1662.ts && node scripts/import-psalter.ts",
-    "seed": "node scripts/seed-devotions.ts && node scripts/import-ryle.ts"
+    "seed": "node scripts/seed-devotions.ts && node scripts/import-ryle.ts",
+    "import:psalter-1773": "node scripts/import-psalter-1773.ts"
   },
   "devDependencies": {
     "@types/node": "^26.6.5",

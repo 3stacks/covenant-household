@@ -51,3 +51,35 @@ describe('the parsers', () => {
     await expect(passageText('Gen.1.1-4', { book, doc: async () => ({ units: [] }), psalm: async () => ({ stanzas: [] }) })).rejects.toThrow('has 3 verses')
   })
 })
+
+describe('a selection of verses', () => {
+  it('gives a passage in either order, in one chapter or across two', async () => {
+    const { verseRange } = await import('../packages/core/src/passage.ts')
+    expect(verseRange('Ps', { chapter: 139, verse: 4 }, { chapter: 139, verse: 3 })).toBe('Ps.139.3-4')
+    expect(verseRange('John', { chapter: 3, verse: 16 }, { chapter: 3, verse: 16 })).toBe('John.3.16')
+    expect(verseRange('Gen', { chapter: 1, verse: 30 }, { chapter: 2, verse: 3 })).toBe('Gen.1.30-2.3')
+  })
+})
+
+describe('the psalter of 1773', () => {
+  it('reads the stanzas of the DBNL text without the page breaks or the pause marks', async () => {
+    const { parse1773 } = await import('../scripts/import-psalter-1773.ts')
+    const xml =
+      'Het boek der psalmen.</head><div type="psalcap"><interpGrp><interp type="primair" value="bibpsal001"/></interpGrp>' +
+      '<head>§1</head>\n<lg type="poem"><l>Welzalig hij, die <pb ed="fol." n="1r"/>in der boozen raad</l><l><hi rend="centreren">PAUZE.</hi></l><l>1. PAUZE.</l></lg>' +
+      '<div type="chapter"><interpGrp><interp type="primair" value="bibpsal000"/></interpGrp><head>§1</head><lg type="poem"><l>Een gezang</l></lg>'
+    expect(parse1773(xml)).toEqual({ 1: [{ number: 1, lines: ['Welzalig hij, die in der boozen raad'] }] })
+  })
+
+  it('heads a Dutch psalm with its stanzas, and takes each stanza of a whole psalm', async () => {
+    const { psalmHeading, psalmShortLabel } = await import('../packages/core/src/bibles.ts')
+    const { psalmText } = await import('../packages/core/src/resolve.ts')
+    const reading = { portion: { psalm: 119, verses: [33, 72] as [number, number] }, text: { stanzas: [{ number: 17, verses: [33, 34], lines: [] }, { number: 36, verses: [71, 72], lines: [] }] } }
+    expect(psalmHeading(reading, 'nl')).toBe('Psalm 119, vers 17–36')
+    expect(psalmShortLabel(reading, 'nl')).toBe('119: 17–36')
+    expect(psalmHeading(reading, 'en')).toBe('Psalm 119, verses 33–72')
+    const psalm = { stanzas: [0, 1, 2].map((n) => ({ number: n, biblical_verses: [], lines: [{ text: { reading: `r${n}` } }] })) }
+    const text = await psalmText({ psalm: 18 }, { book: async () => [], doc: async () => ({ units: [] }), psalm: async () => psalm })
+    expect(text.stanzas.map((s) => s.number)).toEqual([0, 1, 2])
+  })
+})

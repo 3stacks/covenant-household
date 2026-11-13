@@ -74,9 +74,10 @@ export async function passageText(id: PassageId, sources: Sources): Promise<Pass
 export async function psalmText(portion: PsalmPortion, sources: Sources): Promise<PsalmText> {
   const key = `${String(portion.psalm).padStart(3, '0')}${portion.secondVersion ? 'b' : ''}`
   const psalm = await sources.psalm(key)
+  // A whole psalm takes each stanza. A part takes the stanzas of its verses.
   const [first, last] = portion.verses ?? [1, Infinity]
   const stanzas = psalm.stanzas
-    .filter((s) => s.biblical_verses.some((v) => v >= first && v <= last))
+    .filter((s) => !portion.verses || s.biblical_verses.some((v) => v >= first && v <= last))
     .map((s) => ({ number: s.number, verses: s.biblical_verses, lines: s.lines.map((l) => l.text.reading) }))
   if (stanzas.length === 0) throw new Error(`Psalm ${portion.psalm} has no stanza for verses ${first}–${last}.`)
   return { stanzas }

@@ -51,3 +51,14 @@ export function formatPassageId(id: PassageId): string {
   const p = parsePassage(id)
   return p ? formatPassage(p) : id
 }
+
+/**
+ * The passage from one verse to another: "Ps.23.1-3", "Gen.1.30-2.3", "John.3.16".
+ * The order of the two verses does not matter.
+ */
+export function verseRange(code: string, a: { chapter: number; verse: number }, b: { chapter: number; verse: number }): PassageId {
+  const [from, to] = a.chapter < b.chapter || (a.chapter === b.chapter && a.verse <= b.verse) ? [a, b] : [b, a]
+  if (from.chapter === to.chapter && from.verse === to.verse) return `${code}.${from.chapter}.${from.verse}`
+  if (from.chapter === to.chapter) return `${code}.${from.chapter}.${from.verse}-${to.verse}`
+  return `${code}.${from.chapter}.${from.verse}-${to.chapter}.${to.verse}`
+}
