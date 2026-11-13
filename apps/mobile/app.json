@@ -15,7 +15,8 @@
         "usesNonExemptEncryption": false
       },
       "infoPlist": {
-        "CFBundleDisplayName": "Household"
+        "CFBundleDisplayName": "Household",
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
