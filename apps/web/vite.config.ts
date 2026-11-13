@@ -29,7 +29,7 @@ export default defineConfig({
           {
             urlPattern: ({ url }) => url.pathname.includes('/calendar/') && !url.pathname.endsWith('index.json'),
             handler: 'StaleWhileRevalidate',
-            options: { cacheName: 'days', expiration: { maxEntries: 400 } },
+            options: { cacheName: 'days', expiration: { maxEntries: 1200 } },
           },
         ],
       },

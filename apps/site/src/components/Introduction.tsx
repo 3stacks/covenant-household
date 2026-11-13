@@ -26,7 +26,7 @@ export function Introduction() {
         </p>
         <ul role="list" className="mt-8 space-y-3">
           {[
-            'The full text of each psalm and each lesson, in the King James Version',
+            'The full text of each psalm and each lesson. Read the lessons in the King James Version, the Berean Standard Bible or the Dutch Statenvertaling',
             'Sing the psalm in Precentor, with the tune in four parts',
             'Read each lesson with the notes of the Self-Interpreting Bible',
             'Add a verse to your memory work in Hearers',

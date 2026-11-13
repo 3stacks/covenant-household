@@ -5,15 +5,21 @@ import { DEFAULT_PREFS, parsePrefs, PREFS_KEY, type Prefs } from '@daily-prayer/
 // The settings stay on the device.
 
 type PrefsValue = [Prefs, (change: Partial<Prefs>) => void]
+const LoadedContext = createContext(false)
 const PrefsContext = createContext<PrefsValue>([DEFAULT_PREFS, () => {}])
 
 export function PrefsProvider({ children }: { children: ReactNode }) {
   const [prefs, setPrefs] = useState(DEFAULT_PREFS)
+  const [loaded, setLoaded] = useState(false)
   useEffect(() => {
     AsyncStorage.getItem(PREFS_KEY).then(
-      (raw) => setPrefs(parsePrefs(raw)),
+      (raw) => {
+        setPrefs(parsePrefs(raw))
+        setLoaded(true)
+      },
       () => {
         // Storage failed. Use the defaults.
+        setLoaded(true)
       },
     )
   }, [])
@@ -26,7 +32,14 @@ export function PrefsProvider({ children }: { children: ReactNode }) {
       return next
     })
   }, [])
-  return <PrefsContext.Provider value={[prefs, update]}>{children}</PrefsContext.Provider>
+  return (
+    <LoadedContext.Provider value={loaded}>
+      <PrefsContext.Provider value={[prefs, update]}>{children}</PrefsContext.Provider>
+    </LoadedContext.Provider>
+  )
 }
 
 export const usePrefs = () => useContext(PrefsContext)
+
+/** False until the stored settings are read. */
+export const usePrefsLoaded = () => useContext(LoadedContext)

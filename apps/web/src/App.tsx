@@ -7,6 +7,7 @@ import { CalendarView } from './views/CalendarView.tsx'
 import { DayView } from './views/DayView.tsx'
 import { HowToUse } from './views/HowToUse.tsx'
 import { Settings } from './views/Settings.tsx'
+import { Welcome } from './views/Welcome.tsx'
 
 export function App() {
   const route = useRoute()
@@ -25,7 +26,9 @@ export function App() {
         </span>
       </nav>
       <main>
-        {route.view === 'settings' ? (
+        {!prefs.onboarded ? (
+          <Welcome prefs={prefs} update={update} />
+        ) : route.view === 'settings' ? (
           <Settings prefs={prefs} update={update} />
         ) : route.view === 'about' ? (
           <About />

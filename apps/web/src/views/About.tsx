@@ -47,6 +47,18 @@ export function About() {
         <dd>
           The King James Version, from the <a href="https://hearers.app">Hearers</a> data. Hearers takes it from{' '}
           <a href="https://github.com/scrollmapper/bible_databases">scrollmapper/bible_databases</a>. Public domain.
+          Choose another translation in Settings:
+          <ul>
+            <li>
+              The <a href="https://berean.bible">Berean Standard Bible</a>. Its publishers dedicated it to the public domain
+              on 30 April 2023.
+            </li>
+            <li>
+              The Statenvertaling (1637), in the text of the 1888 edition. The transcription is by the{' '}
+              <a href="https://github.com/Isidore-Guild/statenvertaling">Isidore Guild</a>, under CC0. The app leaves out
+              the notes.
+            </li>
+          </ul>
         </dd>
         <dt>Psalms</dt>
         <dd>

@@ -19,6 +19,19 @@ export async function getJson(url: string): Promise<unknown> {
   return JSON.parse(text)
 }
 
+/** A text file, with a local copy in .cache/sources/. */
+export async function getText(url: string): Promise<string> {
+  const file = join(cache, url.replace(/^https?:\/\//, ''))
+  if (existsSync(file)) return readFileSync(file, 'utf8')
+  if (offline) throw new Error(`Not in the cache: ${url}`)
+  const r = await fetch(url)
+  if (!r.ok) throw new Error(`${url}: ${r.status}`)
+  const text = await r.text()
+  mkdirSync(dirname(file), { recursive: true })
+  writeFileSync(file, text)
+  return text
+}
+
 export const HEARERS_DATA = 'https://hearers.app/app/data'
 export const PRECENTOR_CORPUS = 'https://precentor.app/corpus'
 

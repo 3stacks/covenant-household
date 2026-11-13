@@ -32,8 +32,16 @@ export interface HearersDoc {
 }
 
 export interface Sources {
-  /** The KJV text of a book: chapters, then verses. Index 0 is chapter 1, verse 1. */
+  /**
+   * The text of a book in KJV verse numbers: chapters, then verses. Index 0 is
+   * chapter 1, verse 1. Another translation has "" for a verse that it leaves out.
+   */
   book(code: string): Promise<string[][]>
+  /**
+   * The name of a translation other than the KJV. Then a verse past the end of
+   * a chapter, or a verse with no text, is left out, not an error.
+   */
+  translation?: string
   doc(id: ConfessionDoc): Promise<HearersDoc>
   /** A psalm by its Precentor key, for example "023" or "124b". */
   psalm(key: string): Promise<PrecentorPsalm>
@@ -43,15 +51,23 @@ export async function passageText(id: PassageId, sources: Sources): Promise<Pass
   const p = parsePassage(id)
   if (!p) throw new Error(`"${id}" is not a valid passage.`)
   const chapters = await sources.book(p.book.code)
+  const bible = sources.translation ?? 'the KJV'
   const verses: VerseText[] = []
   for (let c = p.c1; c <= p.c2; c++) {
     const chapter = chapters[c - 1]
-    if (!chapter) throw new Error(`${id}: the KJV has no chapter ${c}.`)
+    if (!chapter) throw new Error(`${id}: ${bible} has no chapter ${c}.`)
     const first = p.v1 && c === p.c1 ? p.v1 : 1
-    const last = p.v2 && c === p.c2 ? p.v2 : chapter.length
-    if (last > chapter.length) throw new Error(`${id}: ${p.book.name} ${c} has ${chapter.length} verses.`)
-    for (let v = first; v <= last; v++) verses.push({ chapter: c, verse: v, text: chapter[v - 1] })
+    let last = p.v2 && c === p.c2 ? p.v2 : chapter.length
+    if (last > chapter.length) {
+      if (!sources.translation) throw new Error(`${id}: ${p.book.name} ${c} has ${chapter.length} verses.`)
+      last = chapter.length
+    }
+    for (let v = first; v <= last; v++) {
+      const text = chapter[v - 1]
+      if (text || !sources.translation) verses.push({ chapter: c, verse: v, text })
+    }
   }
+  if (verses.length === 0) throw new Error(`${id}: ${bible} has no text for this passage.`)
   return { passage: id, verses }
 }
 

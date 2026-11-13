@@ -11,6 +11,7 @@
 // The text comes from the published data of the other apps, so the ids and keys
 // always match the links:
 //   KJV and confession text: https://hearers.app/app/data/
+//   BSB and Statenvertaling: see scripts/bibles.ts
 //   1650 Psalter text:       https://precentor.app/corpus/psalms/
 // Downloads stay in .cache/sources/ (not in git).
 //
@@ -22,6 +23,8 @@ import { fileURLToPath } from 'node:url'
 import { resolveCollects, resolveDevotions, resolveLessons, resolvePsalter, type Sources } from '../packages/core/src/resolve.ts'
 import type { CalendarIndex, Collects, Commemoration, Devotions, Lectionary, Psalter } from '../packages/core/src/types.ts'
 import { validateCommemoration, validateDevotions, type Problem } from '../packages/core/src/validate.ts'
+import { BIBLES, bibleDir } from '../packages/core/src/bibles.ts'
+import { bibleBook } from './bibles.ts'
 import { getJson, HEARERS_DATA, kjvBook, PRECENTOR_CORPUS } from './cache.ts'
 
 const root = fileURLToPath(new URL('..', import.meta.url))
@@ -97,10 +100,15 @@ async function add(path: string, make: () => Promise<unknown>) {
   }
 }
 
-for (const [id, day] of Object.entries(lectionary.days)) await add(`lessons/${id}.json`, () => resolveLessons(id, day, sources))
-for (const [id, day] of Object.entries(collects.days)) await add(`collects/${id}.json`, () => resolveCollects(id, day, sources))
+// The readings, once in each translation. The KJV files are at the root.
+for (const bible of BIBLES) {
+  const dir = bibleDir(bible.id)
+  const s: Sources = bible.id === 'kjv' ? sources : { ...sources, book: (code) => bibleBook(bible.id as 'bsb' | 'sv', code), translation: `the ${bible.abbr}` }
+  for (const [id, day] of Object.entries(lectionary.days)) await add(`${dir}lessons/${id}.json`, () => resolveLessons(id, day, s))
+  for (const [id, day] of Object.entries(collects.days)) await add(`${dir}collects/${id}.json`, () => resolveCollects(id, day, s))
+  for (const [id, d] of devotions) await add(`${dir}devotions/${id}.json`, () => resolveDevotions(d, s))
+}
 for (const [day, psalms] of Object.entries(psalter.days)) await add(`psalter/${day}.json`, () => resolvePsalter(+day, psalms, sources))
-for (const [id, d] of devotions) await add(`devotions/${id}.json`, () => resolveDevotions(d, sources))
 for (const [date, c] of commemorations) await add(`commemorations/${date}.json`, async () => c)
 
 if (errors) {

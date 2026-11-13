@@ -6,7 +6,7 @@ const sources = [
   ['The collects, Epistles and Gospels', 'The Book of Common Prayer (1662).'],
   ['The order of the psalms', 'The Book of Common Prayer (1662). It reads all 150 psalms in a month.'],
   ['The psalms to sing', 'The Scottish Psalter (1650), from the open-1650 data.'],
-  ['The Scripture text', 'The King James Version.'],
+  ['The Scripture text', 'The King James Version. In Settings, choose the Berean Standard Bible, or the Dutch Statenvertaling (1637).'],
 ]
 
 export function Sources() {

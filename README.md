@@ -132,8 +132,20 @@ apps, so the ids always match the links:
 | Text | Source | Licence |
 | --- | --- | --- |
 | Bible (KJV) | `https://hearers.app/app/data/kjv/` | Public domain |
+| Berean Standard Bible (BSB) | `https://bereanbible.com/bsb.txt` | Public domain since 30 April 2023 |
+| Statenvertaling (SV), 1888 text | `STV.xml` of `github.com/Isidore-Guild/statenvertaling` | Public domain. The transcription is CC0. |
 | Confessions and catechisms | `https://hearers.app/app/data/docs/` | See the note below |
 | 1650 Psalter | `https://precentor.app/corpus/psalms/` | Public domain text, CC0 transcription |
+
+The reader chooses the Bible in Settings, or on the welcome screen at the first launch. The calendar
+has a copy of the lessons, the collects and the devotions in each translation. The KJV copy is at the
+root of the calendar. Each other copy is in `bible/<id>/`. `packages/core/src/bibles.ts` lists the
+translations.
+
+`scripts/bibles.ts` reads the BSB and the Statenvertaling in the KJV verse numbers. It
+removes the notes and the markup of the Statenvertaling. Where the BSB leaves out a verse, for example
+Matthew 17:21, the page leaves out that verse. The psalms, the collects and the rest of the app stay in
+English.
 
 The build keeps a copy of each download in `.cache/sources/`. Use `--offline` to build from that copy
 only.
