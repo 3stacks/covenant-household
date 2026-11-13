@@ -5,7 +5,8 @@
 
 import { bookByCode } from './books.ts'
 import { parsePassage } from './passage.ts'
-import type { PassageId } from './types.ts'
+import { psalmLabel, psalmTitle } from './labels.ts'
+import type { PassageId, PsalmReading } from './types.ts'
 
 export type BibleId = 'kjv' | 'bsb' | 'sv'
 export type Language = 'en' | 'nl'
@@ -99,4 +100,38 @@ export function passageTitle(id: PassageId, language: Language = 'en'): string {
   if (p.v1 === 0) return p.c1 === p.c2 ? `${book} ${p.c1}` : `${book} ${p.c1}–${p.c2}`
   if (p.c1 === p.c2) return p.v1 === p.v2 ? `${book} ${p.c1}:${p.v1}` : `${book} ${p.c1}:${p.v1}–${p.v2}`
   return `${book} ${p.c1}:${p.v1}–${p.c2}:${p.v2}`
+}
+
+/** The metrical psalter of each language. */
+export interface Psalter {
+  name: string
+  url?: string
+  /** Precentor can play the tunes of this psalter. */
+  precentor: boolean
+}
+
+export const PSALTERS: Record<Language, Psalter> = {
+  en: { name: 'The Psalms of David in Metre (1650)', url: 'https://precentor.app', precentor: true },
+  nl: { name: 'Psalmberijming van 1773', url: 'https://www.dbnl.org/titels/titel.php?id=_boe008boek01', precentor: false },
+}
+
+/** The stanzas of a psalm reading: "1–16". */
+const stanzaRange = (r: PsalmReading) => {
+  const s = r.text.stanzas
+  return s.length > 1 ? `${s[0].number}–${s[s.length - 1].number}` : `${s[0].number}`
+}
+
+/**
+ * The heading of a psalm reading. A Dutch psalter counts its stanzas ("verzen"),
+ * not the Bible verses: "Psalm 119, vers 1–16".
+ */
+export function psalmHeading(r: PsalmReading, language: Language = 'en'): string {
+  if (language !== 'nl') return psalmTitle(r.portion)
+  return r.portion.verses ? `Psalm ${r.portion.psalm}, vers ${stanzaRange(r)}` : `Psalm ${r.portion.psalm}`
+}
+
+/** The short label of a psalm reading: "119:1–32", or "119: 1–16" for stanzas. */
+export function psalmShortLabel(r: PsalmReading, language: Language = 'en'): string {
+  if (language !== 'nl') return psalmLabel(r.portion)
+  return r.portion.verses ? `${r.portion.psalm}: ${stanzaRange(r)}` : String(r.portion.psalm)
 }

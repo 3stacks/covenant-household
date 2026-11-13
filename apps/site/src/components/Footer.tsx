@@ -21,7 +21,13 @@ export function Footer() {
           <Link href={SIB_URL}>Self-Interpreting Bible</Link>
           <Link href={KOFI_URL} data-event="Ko-fi" data-event-label="footer">Ko-fi</Link>
         </nav>
-        <p>Made by Luke Boyle. Free to use.</p>
+        <p>
+          Made by{' '}
+          <a href="https://lukeboyle.com" className="font-medium text-stone-900 hover:text-brand-700">
+            Luke Boyle
+          </a>
+          . Free forever.
+        </p>
       </div>
     </footer>
   )

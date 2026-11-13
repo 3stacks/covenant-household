@@ -1,8 +1,8 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react'
 import { addDays, type LoadedDay } from '@daily-prayer/core/calendar'
-import { DOC_NAMES, DOC_SHORT, psalmLabel, psalmTitle, SIB_NOTES, unitLabel } from '@daily-prayer/core/labels'
+import { DOC_NAMES, DOC_SHORT, SIB_NOTES, unitLabel } from '@daily-prayer/core/labels'
 import { learnInHearers, memoriseInHearers, psalmPassage, readInHaddington, singPsalm } from '@daily-prayer/core/links'
-import { bibleById, DEFAULT_BIBLE, passageTitle, type Bible } from '@daily-prayer/core/bibles'
+import { bibleById, DEFAULT_BIBLE, passageTitle, psalmHeading, PSALTERS, psalmShortLabel, type Bible } from '@daily-prayer/core/bibles'
 import { verseRange } from '@daily-prayer/core/passage'
 import type { Prefs } from '@daily-prayer/core/prefs'
 import type { PassageId, ConfessionDoc, ConfessionUnitText, Hymn, LessonText, PassageText, Paragraph, PsalmPortion, PsalmReading, Source, Writing } from '@daily-prayer/core/types'
@@ -104,7 +104,7 @@ export function DayView({ date, today, prefs }: { date: Date; today: boolean; pr
 
           <p className="lectionary">
             Lessons: <SourceName source={day.sources.lessons} /> · Collect, Epistle and Gospel: the Book of Common Prayer
-            (1662) · Psalms: the 1662 order, sung from the 1650 Psalter · Bible: {bible.name}
+            (1662) · Psalms: the 1662 order, sung from {PSALTERS[bible.language].name} · Bible: {bible.name}
           </p>
         </BibleContext.Provider>
       )}
@@ -226,13 +226,14 @@ function Out({ href, children, event }: { href?: string; children: ReactNode; ev
 
 /** The psalms of one office in the 1662 order. Sing the first. The others are closed. */
 function PsalmSection({ when, psalms }: { when: string; psalms: PsalmReading[] }) {
+  const { language } = useContext(BibleContext)
   if (!psalms.length) return null
   const [first, ...rest] = psalms
   return (
     <Section title="Psalms">
       <Psalm reading={first} />
       {rest.length > 0 && (
-        <More summary={`More psalms ${when}: ${rest.map((p) => psalmLabel(p.portion)).join(', ')}`}>
+        <More summary={`More psalms ${when}: ${rest.map((p) => psalmShortLabel(p, language)).join(', ')}`}>
           {rest.map((p) => (
             <Psalm key={key(p.portion)} reading={p} />
           ))}
@@ -268,21 +269,23 @@ function PrayerSection({ collect, prayer }: { collect?: LoadedDay['collect']; pr
 function Psalm({ reading }: { reading: PsalmReading }) {
   const { portion, text } = reading
   const passage = psalmPassage(portion)
+  const { language } = useContext(BibleContext)
+  const psalter = PSALTERS[language]
   return (
     <div className="reading" data-book="Ps" data-chapter={portion.psalm}>
-      <h3>{psalmTitle(portion)}</h3>
+      <h3>{psalmHeading(reading, language)}</h3>
       <ol className="stanzas">
         {text.stanzas.map((s) => (
-          <li key={s.number} value={s.number} data-verses={s.verses.join(' ')}>
+          <li key={s.number} value={s.number} data-verses={s.verses.length ? s.verses.join(' ') : undefined}>
             {s.lines.map((line, i) => (
               <span key={i}>{line}</span>
             ))}
           </li>
         ))}
       </ol>
-      <p className="source">The Psalms of David in Metre (1650)</p>
+      <p className="source">{psalter.name}</p>
       <Links>
-        <Out href={singPsalm(portion)} event="Sing in Precentor">
+        <Out href={psalter.precentor ? singPsalm(portion) : undefined} event="Sing in Precentor">
           Sing in Precentor
         </Out>
         <Out href={readInHaddington(passage)} event="Read in Haddington">

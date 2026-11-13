@@ -59,7 +59,9 @@ export default function About() {
       <Credit term="Psalms">
         The Psalms of David in Metre (1650), from the <A href="https://precentor.app">Precentor</A> data. Precentor takes it
         from <A href="https://github.com/kadencartwright/open-1650">open-1650</A> by Kaden Cartwright. The text is public
-        domain. The transcription is CC0.
+        domain. The transcription is CC0. With the Statenvertaling, the app sings the Psalmberijming van 1773, from the 1774
+        printing. The text is in the <A href="https://www.dbnl.org/titels/titel.php?id=_boe008boek01">DBNL</A> (KB,
+        national library). The text is public domain.
       </Credit>
       <Credit term="Confessions and catechisms">
         From the <A href="https://hearers.app">Hearers</A> data. Hearers takes them from{' '}

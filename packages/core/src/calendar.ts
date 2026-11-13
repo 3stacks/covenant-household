@@ -71,8 +71,9 @@ export function createCalendar(load: CalendarLoader): Calendar {
   async function loadDay(date: Date, bible: BibleId = DEFAULT_BIBLE): Promise<LoadedDay> {
     const church = churchDay(date)
     const index = await loadIndex()
-    // The lessons, the collects (with the Epistle and Gospel) and the devotions
-    // (with the proverb) have a copy in each translation.
+    // The lessons, the collects (with the Epistle and Gospel), the devotions
+    // (with the proverb) and the psalter have a copy in each translation. The
+    // psalter is the metrical psalter of the language of the translation.
     const text = bibleDir(bible)
     const maybe = <T>(list: string[], id: string | undefined, dir: string) =>
       id && list.includes(id) ? getJson<T>(`${dir === 'commemorations' ? '' : text}${dir}/${id}.json`) : Promise.resolve(undefined)
@@ -82,7 +83,7 @@ export function createCalendar(load: CalendarLoader): Calendar {
       church.propers && church.propers !== church.collect
         ? maybe<CollectsFile>(index.collects, church.propers, 'collects')
         : Promise.resolve(undefined),
-      getJson<PsalterFile>(`psalter/${psalterDay(date)}.json`),
+      getJson<PsalterFile>(`${text}psalter/${psalterDay(date)}.json`),
       maybe<DevotionsFile>(index.devotions, church.id, 'devotions'),
       maybe<Commemoration>(index.commemorations, dateKey(date), 'commemorations'),
     ])

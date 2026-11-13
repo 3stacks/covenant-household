@@ -133,6 +133,7 @@ apps, so the ids always match the links:
 | --- | --- | --- |
 | Bible (KJV) | `https://hearers.app/app/data/kjv/` | Public domain |
 | Berean Standard Bible (BSB) | `https://bereanbible.com/bsb.txt` | Public domain since 30 April 2023 |
+| Psalmberijming van 1773, 1774 printing | DBNL, `_boe008boek01`. `npm run import:psalter-1773` writes `content/psalter/1773.json` | Public domain |
 | Statenvertaling (SV), 1888 text | `STV.xml` of `github.com/Isidore-Guild/statenvertaling` | Public domain. The transcription is CC0. |
 | Confessions and catechisms | `https://hearers.app/app/data/docs/` | See the note below |
 | 1650 Psalter | `https://precentor.app/corpus/psalms/` | Public domain text, CC0 transcription |
