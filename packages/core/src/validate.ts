@@ -12,9 +12,6 @@ export interface Problem {
 
 const LICENCES: Licence[] = ['public-domain', 'CC0', 'CC-BY-4.0', 'permission', 'sample']
 const DOCS: ConfessionDoc[] = ['wcf', 'wlc', 'wsc', 'hc', 'bc', 'dort']
-// The Heidelberg Catechism and Belgic Confession texts in Hearers look like modern
-// translations under copyright. Hearers must replace them before a release can use them.
-const NOT_FOR_RELEASE: ConfessionDoc[] = ['hc', 'bc']
 const LESSON_IDS = new Set(allLessonIds())
 const DAYS_IN_MONTH = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
@@ -122,7 +119,6 @@ export function validateDevotions(day: unknown, opts: { release?: boolean } = {}
           if (typeof u !== 'string' || !UNIT_ID[doc].test(u)) fail(`confession.units[${i}]`, `"${u}" is not a ${doc} unit id.`)
         })
       }
-      if (opts.release && NOT_FOR_RELEASE.includes(doc)) fail('confession.doc', 'The Hearers text of this document is not cleared for release yet.')
     }
   }
 

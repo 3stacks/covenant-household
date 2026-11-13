@@ -178,12 +178,13 @@ describe('validation', () => {
     expect(validateDevotions(bad).map((p) => p.path)).toEqual(['id', 'proverb.passage', 'hymn', 'confession.units[0]'])
   })
 
-  it('rejects sample text, and the Heidelberg and Belgic texts, only in a release', () => {
+  it('rejects sample text only in a release, and accepts the Heidelberg and Belgic texts', () => {
     const sample = { id: 'advent-2-3', prayer: { text: ['x'], source: { name: 'S', licence: 'sample' } } }
     expect(validateDevotions(sample)).toEqual([])
     expect(validateDevotions(sample, { release: true }).map((p) => p.path)).toEqual(['prayer.source.licence'])
     const hc = { id: 'advent-2-3', confession: { doc: 'hc', units: ['hc-1'] } }
-    expect(validateDevotions(hc, { release: true }).map((p) => p.path)).toEqual(['confession.doc'])
+    // Hearers now has the public-domain text of Schaff (1877), so a release can use it.
+    expect(validateDevotions(hc, { release: true })).toEqual([])
   })
 
   it('checks commemorations', () => {
