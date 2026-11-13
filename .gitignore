@@ -6,3 +6,4 @@ dev-dist
 # Built by scripts/build-calendar.ts
 apps/web/public/calendar
 apps/mobile/calendar
+google-service-account.json

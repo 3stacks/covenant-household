@@ -30,7 +30,7 @@ const plans = [
     features: [
       'Everything in Free',
       'On the web: give any amount on Ko-fi',
-      'In the iPhone and Android apps: one purchase in the app',
+      'In the iPhone and Android apps: a purchase in the app (coming soon)',
       'A supporter badge in the app',
     ],
     action: { href: KOFI_URL, label: 'Support on Ko-fi', event: 'Ko-fi' },

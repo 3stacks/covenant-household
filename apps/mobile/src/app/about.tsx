@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Platform, StyleSheet, Text, View } from 'react-native'
 import { KOFI } from '@daily-prayer/core/links'
 import { A, H2, Li, P, Page } from '../components/Prose.tsx'
 import { useColors } from '../lib/theme.ts'
@@ -70,8 +70,15 @@ export default function About() {
       <Credit term="Writings, hymns and prayers">Each one names its source on the page.</Credit>
 
       <H2>Support</H2>
+      {/* The App Store does not allow a link to outside payments, so iOS does not show it. */}
       <P>
-        Covenant Household is free and has no advertisements. If it helps you, you can support it on <A href={KOFI}>Ko-fi</A>.
+        Covenant Household is free and has no advertisements.
+        {Platform.OS !== 'ios' && (
+          <>
+            {' '}
+            If it helps you, you can support it on <A href={KOFI}>Ko-fi</A>.
+          </>
+        )}
       </P>
     </Page>
   )

@@ -16,6 +16,7 @@ export function Footer() {
           <Link href="/readings/">Readings</Link>
           <Link href="/#pricing">Pricing</Link>
           <Link href="/get/">Get the app</Link>
+          <Link href="/privacy/">Privacy</Link>
           <Link href={PRECENTOR_URL}>Precentor</Link>
           <Link href={HEARERS_URL}>Hearers</Link>
           <Link href={SIB_URL}>Self-Interpreting Bible</Link>
