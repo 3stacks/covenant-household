@@ -1,5 +1,5 @@
 import { router } from 'expo-router'
-import { StyleSheet, Text, View } from 'react-native'
+import { Platform, StyleSheet, Text, View } from 'react-native'
 import { HADDINGTON, KOFI, PRECENTOR } from '@daily-prayer/core/links'
 import { open } from '../lib/open.ts'
 import { useColors } from '../lib/theme.ts'
@@ -25,7 +25,8 @@ export function Footer() {
         {link('Precentor', () => open(PRECENTOR))}
         {link('Hearers', () => open(HEARERS))}
         {link('Self-Interpreting Bible', () => open(HADDINGTON))}
-        {link('Support on Ko-fi', () => open(KOFI))}
+        {/* The App Store does not allow a link to outside payments, so iOS does not show it. */}
+        {Platform.OS !== 'ios' && link('Support on Ko-fi', () => open(KOFI))}
       </View>
     </View>
   )
