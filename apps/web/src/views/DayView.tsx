@@ -1,31 +1,41 @@
-import { useEffect, useState, type ReactNode } from 'react'
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react'
 import { addDays, type LoadedDay } from '@daily-prayer/core/calendar'
 import { DOC_NAMES, DOC_SHORT, psalmLabel, psalmTitle, SIB_NOTES, unitLabel } from '@daily-prayer/core/labels'
 import { learnInHearers, memoriseInHearers, psalmPassage, readInHaddington, singPsalm } from '@daily-prayer/core/links'
-import { formatPassageId } from '@daily-prayer/core/passage'
+import { bibleById, DEFAULT_BIBLE, passageTitle, type Bible } from '@daily-prayer/core/bibles'
 import type { Prefs } from '@daily-prayer/core/prefs'
 import type { ConfessionDoc, ConfessionUnitText, Hymn, LessonText, PassageText, Paragraph, PsalmPortion, PsalmReading, Source, Writing } from '@daily-prayer/core/types'
 import { calendar } from '../lib/calendar.ts'
 import { calendarHref, dayHref } from '../router.ts'
 
-type Load = { state: 'loading' } | { state: 'ready'; day: LoadedDay } | { state: 'error' }
+/** A day in one translation. The page shows "Loading" until the day is in the translation of the settings. */
+type Load = { state: 'loading' } | { state: 'ready'; day: LoadedDay; bible: string } | { state: 'error'; bible: string }
+
+/** The translation of the readings on this page. */
+const BibleContext = createContext<Bible>(bibleById(DEFAULT_BIBLE)!)
 
 export function DayView({ date, today, prefs }: { date: Date; today: boolean; prefs: Prefs }) {
   const [load, setLoad] = useState<Load>({ state: 'loading' })
   useEffect(() => {
     let live = true
-    calendar.loadDay(date).then(
-      (day) => live && setLoad({ state: 'ready', day }),
-      () => live && setLoad({ state: 'error' }),
+    const bible = prefs.bible
+    calendar.loadDay(date, bible).then(
+      (day) => live && setLoad({ state: 'ready', day, bible }),
+      () => live && setLoad({ state: 'error', bible }),
     )
     return () => {
       live = false
     }
-  }, [date])
+  }, [date, prefs.bible])
 
-  const day = load.state === 'ready' ? load.day : undefined
+  const shown: Load = load.state !== 'loading' && load.bible !== prefs.bible ? { state: 'loading' } : load
+  const day = shown.state === 'ready' ? shown.day : undefined
   const person = prefs.commemoration ? day?.commemoration : undefined
   const dev = day?.devotions
+  const bible = bibleById(prefs.bible) ?? bibleById(DEFAULT_BIBLE)!
+  const morningRef = useRef<HTMLElement>(null)
+  const eveningRef = useRef<HTMLElement>(null)
+  const jump = (el: HTMLElement | null) => el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
   return (
     <article className={`day season-${day?.church.season ?? 'none'}`}>
@@ -42,66 +52,59 @@ export function DayView({ date, today, prefs }: { date: Date; today: boolean; pr
           {person.title && <span className="muted">, {person.title}</span>}
         </p>
       )}
-      {load.state === 'loading' && <p className="empty">Loading…</p>}
-      {load.state === 'error' && <p className="empty">The readings did not load. Check the connection, then try again.</p>}
+      {shown.state === 'loading' && <p className="empty">Loading…</p>}
+      {shown.state === 'error' && <p className="empty">The readings did not load. Check the connection, then try again.</p>}
       {day && (
-        <>
-          <Section title="Psalmody">
-            {/* The first psalm of Morning Prayer. The other psalms of the day are optional. */}
-            {day.psalter.morning[0] && <Psalm reading={day.psalter.morning[0]} />}
-            <MorePsalms morning={day.psalter.morning.slice(1)} evening={day.psalter.evening} />
-          </Section>
+        <BibleContext.Provider value={bible}>
+          <nav className="offices" aria-label="Morning and evening worship">
+            <button type="button" onClick={() => jump(morningRef.current)}>
+              Morning
+            </button>
+            <button type="button" onClick={() => jump(eveningRef.current)}>
+              Evening
+            </button>
+          </nav>
 
-          <LessonSection title="Old Testament" morning={day.lessons?.morning?.first} evening={day.lessons?.evening?.first} />
-          <LessonSection title="New Testament" morning={day.lessons?.morning?.second} evening={day.lessons?.evening?.second} />
+          <Office title="Morning worship" ref={morningRef}>
+            <PsalmSection when="this morning" psalms={day.psalter.morning} />
+            <LessonSection title="Old Testament" lesson={day.lessons?.morning?.first} />
+            <LessonSection title="New Testament" lesson={day.lessons?.morning?.second} />
+            {day.propers && (day.propers.epistle || day.propers.gospel) && (
+              <Section title="Epistle and Gospel">
+                <p className="propers-title">{day.propers.title.replace(/\.$/, '')}</p>
+                {day.propers.epistle && <Passage text={day.propers.epistle} label="The Epistle" />}
+                {day.propers.gospel && <Passage text={day.propers.gospel} label="The Gospel" />}
+              </Section>
+            )}
+            <PrayerSection collect={day.collect} prayer={dev?.prayer} />
+          </Office>
 
-          {day.propers && (day.propers.epistle || day.propers.gospel) && (
-            <Section title="Epistle and Gospel">
-              <p className="propers-title">{day.propers.title.replace(/\.$/, '')}</p>
-              {day.propers.epistle && <Passage text={day.propers.epistle} label="The Epistle" />}
-              {day.propers.gospel && <Passage text={day.propers.gospel} label="The Gospel" />}
-            </Section>
-          )}
+          <Office title="Evening worship" ref={eveningRef}>
+            <PsalmSection when="this evening" psalms={day.psalter.evening} />
+            <LessonSection title="Old Testament" lesson={day.lessons?.evening?.first} />
+            <LessonSection title="New Testament" lesson={day.lessons?.evening?.second} />
+            <PrayerSection collect={day.collect} />
+          </Office>
 
-          {prefs.proverb && dev?.proverb && dev.texts.proverb && (
-            <Section title="Proverb">
-              <Passage text={dev.texts.proverb} note={dev.proverb.note} />
-            </Section>
-          )}
-
-          {dev?.writing && <WritingSection label="Writing" writing={dev.writing} />}
-
-          {dev?.hymn && <HymnSection hymn={dev.hymn} />}
-
-          {(day.collect?.collects || dev?.prayer) && (
-            <Section title="Prayer">
-              {day.collect?.collects && (
-                <>
-                  <h3>The Collect</h3>
-                  <p className="byline">{day.collect.title.replace(/\.$/, '')}</p>
-                  <Paragraphs text={day.collect.collects} />
-                  <p className="source">The Book of Common Prayer (1662)</p>
-                </>
+          {((prefs.proverb && dev?.proverb) || dev?.writing || dev?.hymn || dev?.confession || person?.writing) && (
+            <Office title="For the household">
+              {prefs.proverb && dev?.proverb && dev.texts.proverb && (
+                <Section title="Proverb">
+                  <Passage text={dev.texts.proverb} note={dev.proverb.note} />
+                </Section>
               )}
-              {dev?.prayer && (
-                <div className="reading">
-                  {dev.prayer.title && <h3>{dev.prayer.title}</h3>}
-                  <Paragraphs text={dev.prayer.text} />
-                  <SourceLine source={dev.prayer.source} />
-                </div>
-              )}
-            </Section>
+              {dev?.writing && <WritingSection label="Writing" writing={dev.writing} />}
+              {dev?.hymn && <HymnSection hymn={dev.hymn} />}
+              {dev?.confession && dev.texts.confession && <ConfessionSection doc={dev.confession.doc} units={dev.texts.confession} />}
+              {person?.writing && <WritingSection label={`About ${person.name}`} writing={person.writing} />}
+            </Office>
           )}
-
-          {dev?.confession && dev.texts.confession && <ConfessionSection doc={dev.confession.doc} units={dev.texts.confession} />}
-
-          {person?.writing && <WritingSection label={`About ${person.name}`} writing={person.writing} />}
 
           <p className="lectionary">
             Lessons: <SourceName source={day.sources.lessons} /> · Collect, Epistle and Gospel: the Book of Common Prayer
-            (1662) · Psalms: the 1662 order, sung from the 1650 Psalter
+            (1662) · Psalms: the 1662 order, sung from the 1650 Psalter · Bible: {bible.name}
           </p>
-        </>
+        </BibleContext.Provider>
       )}
     </article>
   )
@@ -132,6 +135,16 @@ function DateHeader({ date, today, churchDay }: { date: Date; today: boolean; ch
         ›
       </a>
     </header>
+  )
+}
+
+/** Morning worship, evening worship, or the parts for the household. */
+function Office({ title, children, ref }: { title: string; children: ReactNode; ref?: React.Ref<HTMLElement> }) {
+  return (
+    <section className="office" ref={ref}>
+      <h2 className="office-title">{title}</h2>
+      {children}
+    </section>
   )
 }
 
@@ -167,17 +180,44 @@ function Out({ href, children, event }: { href?: string; children: ReactNode; ev
   )
 }
 
-/** The other psalms of the day in the 1662 order, closed. */
-function MorePsalms({ morning, evening }: { morning: PsalmReading[]; evening: PsalmReading[] }) {
-  const list = (ps: PsalmReading[]) => ps.map((p) => psalmLabel(p.portion)).join(', ')
-  const parts = [morning.length ? `${list(morning)} (morning)` : '', evening.length ? `${list(evening)} (evening)` : ''].filter(Boolean)
-  if (!parts.length) return null
+/** The psalms of one office in the 1662 order. Sing the first. The others are closed. */
+function PsalmSection({ when, psalms }: { when: string; psalms: PsalmReading[] }) {
+  if (!psalms.length) return null
+  const [first, ...rest] = psalms
   return (
-    <More summary={`More psalms for today: ${parts.join('; ')}`}>
-      {[...morning, ...evening].map((p) => (
-        <Psalm key={key(p.portion)} reading={p} />
-      ))}
-    </More>
+    <Section title="Psalms">
+      <Psalm reading={first} />
+      {rest.length > 0 && (
+        <More summary={`More psalms ${when}: ${rest.map((p) => psalmLabel(p.portion)).join(', ')}`}>
+          {rest.map((p) => (
+            <Psalm key={key(p.portion)} reading={p} />
+          ))}
+        </More>
+      )}
+    </Section>
+  )
+}
+
+function PrayerSection({ collect, prayer }: { collect?: LoadedDay['collect']; prayer?: { title?: string; text: Paragraph[]; source: Source } }) {
+  if (!collect?.collects && !prayer) return null
+  return (
+    <Section title="Prayer">
+      {collect?.collects && (
+        <>
+          <h3>The Collect</h3>
+          <p className="byline">{collect.title.replace(/\.$/, '')}</p>
+          <Paragraphs text={collect.collects} />
+          <p className="source">The Book of Common Prayer (1662)</p>
+        </>
+      )}
+      {prayer && (
+        <div className="reading">
+          {prayer.title && <h3>{prayer.title}</h3>}
+          <Paragraphs text={prayer.text} />
+          <SourceLine source={prayer.source} />
+        </div>
+      )}
+    </Section>
   )
 }
 
@@ -212,18 +252,10 @@ function Psalm({ reading }: { reading: PsalmReading }) {
   )
 }
 
-/** The reference of a lesson with several parts: "Genesis 19:1–3, 19:12–29". */
-const lessonTitle = (parts: PassageText[]) => parts.map((p) => formatPassageId(p.passage)).join('; ')
-
-function LessonSection({ title, morning, evening }: { title: string; morning?: LessonText; evening?: LessonText }) {
+function LessonSection({ title, lesson }: { title: string; lesson?: LessonText }) {
   return (
     <Section title={title}>
-      {morning ? <Lesson lesson={morning} /> : <p className="note">The 1922 table has no lesson for this day in the transcription.</p>}
-      {evening && (
-        <More summary={`Evening: ${evening.parts.length ? lessonTitle(evening.parts) : evening.apocrypha}`}>
-          <Lesson lesson={evening} />
-        </More>
-      )}
+      {lesson ? <Lesson lesson={lesson} /> : <p className="note">The 1922 table has no lesson for this day in the transcription.</p>}
     </Section>
   )
 }
@@ -252,11 +284,12 @@ function Lesson({ lesson }: { lesson: LessonText }) {
 
 function Passage({ text, label, note }: { text: PassageText; label?: string; note?: string }) {
   const id = text.passage
+  const bible = useContext(BibleContext)
   return (
     <div className="reading">
       <h3>
         {label && <span className="label">{label}</span>}
-        {formatPassageId(id)}
+        {passageTitle(id, bible.language)}
       </h3>
       <p className="scripture">
         {text.verses.map((v, i) => {
@@ -271,7 +304,7 @@ function Passage({ text, label, note }: { text: PassageText; label?: string; not
         })}
       </p>
       {note && <p className="note">{note}</p>}
-      <p className="source">King James Version</p>
+      <p className="source">{bible.name}</p>
       <Links>
         <Out href={readInHaddington(id)} event="Read in Haddington">
           {SIB_NOTES}

@@ -1,19 +1,23 @@
 import { router } from 'expo-router'
-import { useEffect, useState } from 'react'
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react'
+import { Pressable, ScrollView, StyleSheet, Text, View, type ScrollViewInstance } from 'react-native'
 import { addDays, isoDate, type LoadedDay } from '@daily-prayer/core/calendar'
 import { DOC_NAMES, DOC_SHORT, psalmLabel, psalmTitle, SIB_NOTES, unitLabel } from '@daily-prayer/core/labels'
 import { learnInHearers, memoriseInHearers, psalmPassage, readInHaddington, singPsalm } from '@daily-prayer/core/links'
-import { formatPassageId } from '@daily-prayer/core/passage'
+import { bibleById, DEFAULT_BIBLE, passageTitle, type Bible } from '@daily-prayer/core/bibles'
 import { calendarPath, dayPath } from '@daily-prayer/core/routes'
-import type { ConfessionDoc, ConfessionUnitText, Hymn, LessonText, PassageText, PsalmPortion, PsalmReading, Writing } from '@daily-prayer/core/types'
+import type { ConfessionDoc, ConfessionUnitText, Hymn, LessonText, Paragraph, PassageText, PsalmPortion, PsalmReading, Source, Writing } from '@daily-prayer/core/types'
 import { calendar } from '../lib/calendar.ts'
 import { usePrefs } from '../lib/prefs.tsx'
 import { SEASON_COLOURS, serif, useColors } from '../lib/theme.ts'
 import { Byline, Chip, H3, Links, More, Muted, Paragraphs, Reading, Section, SourceLine, SourceName, Stanzas } from './ui.tsx'
 import { Footer } from './Footer.tsx'
 
-type Load = { state: 'loading' } | { state: 'ready'; day: LoadedDay } | { state: 'error' }
+/** A day in one translation. The page shows "Loading" until the day is in the translation of the settings. */
+type Load = { state: 'loading' } | { state: 'ready'; day: LoadedDay; bible: string } | { state: 'error'; bible: string }
+
+/** The translation of the readings on this page. */
+const BibleContext = createContext<Bible>(bibleById(DEFAULT_BIBLE)!)
 
 /** One day. Give each date its own key, so that a new date starts from "Loading". */
 export function DayView({ date }: { date: Date }) {
@@ -22,22 +26,28 @@ export function DayView({ date }: { date: Date }) {
   const [load, setLoad] = useState<Load>({ state: 'loading' })
   useEffect(() => {
     let live = true
-    calendar.loadDay(date).then(
-      (day) => live && setLoad({ state: 'ready', day }),
-      () => live && setLoad({ state: 'error' }),
+    const bible = prefs.bible
+    calendar.loadDay(date, bible).then(
+      (day) => live && setLoad({ state: 'ready', day, bible }),
+      () => live && setLoad({ state: 'error', bible }),
     )
     return () => {
       live = false
     }
-  }, [date])
+  }, [date, prefs.bible])
 
-  const day = load.state === 'ready' ? load.day : undefined
+  const shown: Load = load.state !== 'loading' && load.bible !== prefs.bible ? { state: 'loading' } : load
+  const day = shown.state === 'ready' ? shown.day : undefined
   const person = prefs.commemoration ? day?.commemoration : undefined
   const dev = day?.devotions
   const today = isoDate(date) === isoDate(new Date())
+  const bible = bibleById(prefs.bible) ?? bibleById(DEFAULT_BIBLE)!
+  const scroll = useRef<ScrollViewInstance>(null)
+  const offices = useRef<{ morning?: number; evening?: number }>({})
+  const jump = (y?: number) => y !== undefined && scroll.current?.scrollTo({ y: y - 8, animated: true })
 
   return (
-    <ScrollView style={{ backgroundColor: c.bg }} contentContainerStyle={st.page} contentInsetAdjustmentBehavior="automatic">
+    <ScrollView ref={scroll} style={{ backgroundColor: c.bg }} contentContainerStyle={st.page} contentInsetAdjustmentBehavior="automatic">
       <DateHeader date={date} today={today} churchDay={day?.church.name} season={day?.church.season} />
       {day?.holyDayName && (
         <Text style={[st.commemoration, { color: c.ink }]}>
@@ -53,66 +63,55 @@ export function DayView({ date }: { date: Date }) {
           {person.title && <Text style={{ color: c.muted }}>, {person.title}</Text>}
         </Text>
       )}
-      {load.state === 'loading' && <Muted style={st.empty}>Loading…</Muted>}
-      {load.state === 'error' && <Muted style={st.empty}>The readings did not load.</Muted>}
+      {shown.state === 'loading' && <Muted style={st.empty}>Loading…</Muted>}
+      {shown.state === 'error' && <Muted style={st.empty}>The readings did not load.</Muted>}
       {day && (
-        <>
-          <Section title="Psalmody">
-            {/* The first psalm of Morning Prayer. The other psalms of the day are optional. */}
-            {day.psalter.morning[0] && <Psalm reading={day.psalter.morning[0]} />}
-            <MorePsalms morning={day.psalter.morning.slice(1)} evening={day.psalter.evening} />
-          </Section>
+        <BibleContext.Provider value={bible}>
+          <View style={st.offices}>
+            <OfficeButton onPress={() => jump(offices.current.morning)}>Morning</OfficeButton>
+            <OfficeButton onPress={() => jump(offices.current.evening)}>Evening</OfficeButton>
+          </View>
 
-          <LessonSection title="Old Testament" morning={day.lessons?.morning?.first} evening={day.lessons?.evening?.first} />
-          <LessonSection title="New Testament" morning={day.lessons?.morning?.second} evening={day.lessons?.evening?.second} />
+          <Office title="Morning worship" onY={(y) => (offices.current.morning = y)}>
+            <PsalmSection when="this morning" psalms={day.psalter.morning} />
+            <LessonSection title="Old Testament" lesson={day.lessons?.morning?.first} />
+            <LessonSection title="New Testament" lesson={day.lessons?.morning?.second} />
+            {day.propers && (day.propers.epistle || day.propers.gospel) && (
+              <Section title="Epistle and Gospel">
+                <Text style={[st.propersTitle, { color: c.muted }]}>{day.propers.title.replace(/\.$/, '')}</Text>
+                {day.propers.epistle && <Passage text={day.propers.epistle} label="The Epistle" />}
+                {day.propers.gospel && <Passage text={day.propers.gospel} label="The Gospel" first={!day.propers.epistle} />}
+              </Section>
+            )}
+            <PrayerSection collect={day.collect} prayer={dev?.prayer} />
+          </Office>
 
-          {day.propers && (day.propers.epistle || day.propers.gospel) && (
-            <Section title="Epistle and Gospel">
-              <Text style={[st.propersTitle, { color: c.muted }]}>{day.propers.title.replace(/\.$/, '')}</Text>
-              {day.propers.epistle && <Passage text={day.propers.epistle} label="The Epistle" />}
-              {day.propers.gospel && <Passage text={day.propers.gospel} label="The Gospel" first={!day.propers.epistle} />}
-            </Section>
-          )}
+          <Office title="Evening worship" onY={(y) => (offices.current.evening = y)}>
+            <PsalmSection when="this evening" psalms={day.psalter.evening} />
+            <LessonSection title="Old Testament" lesson={day.lessons?.evening?.first} />
+            <LessonSection title="New Testament" lesson={day.lessons?.evening?.second} />
+            <PrayerSection collect={day.collect} />
+          </Office>
 
-          {prefs.proverb && dev?.proverb && dev.texts.proverb && (
-            <Section title="Proverb">
-              <Passage text={dev.texts.proverb} note={dev.proverb.note} />
-            </Section>
-          )}
-
-          {dev?.writing && <WritingSection label="Writing" writing={dev.writing} />}
-
-          {dev?.hymn && <HymnSection hymn={dev.hymn} />}
-
-          {(day.collect?.collects || dev?.prayer) && (
-            <Section title="Prayer">
-              {day.collect?.collects && (
-                <>
-                  <H3>The Collect</H3>
-                  <Byline>{day.collect.title.replace(/\.$/, '')}</Byline>
-                  <Paragraphs text={day.collect.collects} />
-                  <SourceLine>The Book of Common Prayer (1662)</SourceLine>
-                </>
+          {((prefs.proverb && dev?.proverb) || dev?.writing || dev?.hymn || dev?.confession || person?.writing) && (
+            <Office title="For the household">
+              {prefs.proverb && dev?.proverb && dev.texts.proverb && (
+                <Section title="Proverb">
+                  <Passage text={dev.texts.proverb} note={dev.proverb.note} />
+                </Section>
               )}
-              {dev?.prayer && (
-                <Reading first={!day.collect?.collects}>
-                  {dev.prayer.title && <H3>{dev.prayer.title}</H3>}
-                  <Paragraphs text={dev.prayer.text} />
-                  <SourceLine source={dev.prayer.source} />
-                </Reading>
-              )}
-            </Section>
+              {dev?.writing && <WritingSection label="Writing" writing={dev.writing} />}
+              {dev?.hymn && <HymnSection hymn={dev.hymn} />}
+              {dev?.confession && dev.texts.confession && <ConfessionSection doc={dev.confession.doc} units={dev.texts.confession} />}
+              {person?.writing && <WritingSection label={`About ${person.name}`} writing={person.writing} />}
+            </Office>
           )}
-
-          {dev?.confession && dev.texts.confession && <ConfessionSection doc={dev.confession.doc} units={dev.texts.confession} />}
-
-          {person?.writing && <WritingSection label={`About ${person.name}`} writing={person.writing} />}
 
           <Text style={[st.lectionary, { color: c.muted }]}>
             Lessons: <SourceName source={day.sources.lessons} /> · Collect, Epistle and Gospel: the Book of Common Prayer
-            (1662) · Psalms: the 1662 order, sung from the 1650 Psalter
+            (1662) · Psalms: the 1662 order, sung from the 1650 Psalter · Bible: {bible.name}
           </Text>
-        </>
+        </BibleContext.Provider>
       )}
       <Footer />
     </ScrollView>
@@ -155,17 +154,66 @@ function DateHeader({ date, today, churchDay, season }: { date: Date; today: boo
 
 const key = (p: PsalmPortion) => `${p.psalm}${p.secondVersion ? 'b' : ''}${p.verses ? `:${p.verses[0]}` : ''}`
 
-/** The other psalms of the day in the 1662 order, closed. */
-function MorePsalms({ morning, evening }: { morning: PsalmReading[]; evening: PsalmReading[] }) {
-  const list = (ps: PsalmReading[]) => ps.map((p) => psalmLabel(p.portion)).join(', ')
-  const parts = [morning.length ? `${list(morning)} (morning)` : '', evening.length ? `${list(evening)} (evening)` : ''].filter(Boolean)
-  if (!parts.length) return null
+/** Morning worship, evening worship, or the parts for the household. */
+function Office({ title, children, onY }: { title: string; children: ReactNode; onY?: (y: number) => void }) {
+  const c = useColors()
   return (
-    <More summary={`More psalms for today: ${parts.join('; ')}`}>
-      {[...morning, ...evening].map((p, i) => (
-        <Psalm key={key(p.portion)} reading={p} first={i === 0} />
-      ))}
-    </More>
+    <View style={st.office} onLayout={onY && ((e) => onY(e.nativeEvent.layout.y))}>
+      <Text style={[st.officeTitle, { color: c.accent }]} accessibilityRole="header">
+        {title}
+      </Text>
+      {children}
+    </View>
+  )
+}
+
+function OfficeButton({ children, onPress }: { children: string; onPress: () => void }) {
+  const c = useColors()
+  return (
+    <Pressable onPress={onPress} accessibilityRole="button" style={[st.officeButton, { borderColor: c.line, backgroundColor: c.card }]}>
+      <Text style={{ color: c.accent, fontWeight: '600', fontSize: 14 }}>{children}</Text>
+    </Pressable>
+  )
+}
+
+/** The psalms of one office in the 1662 order. Sing the first. The others are closed. */
+function PsalmSection({ when, psalms }: { when: string; psalms: PsalmReading[] }) {
+  if (!psalms.length) return null
+  const [first, ...rest] = psalms
+  return (
+    <Section title="Psalms">
+      <Psalm reading={first} />
+      {rest.length > 0 && (
+        <More summary={`More psalms ${when}: ${rest.map((p) => psalmLabel(p.portion)).join(', ')}`}>
+          {rest.map((p, i) => (
+            <Psalm key={key(p.portion)} reading={p} first={i === 0} />
+          ))}
+        </More>
+      )}
+    </Section>
+  )
+}
+
+function PrayerSection({ collect, prayer }: { collect?: LoadedDay['collect']; prayer?: { title?: string; text: Paragraph[]; source: Source } }) {
+  if (!collect?.collects && !prayer) return null
+  return (
+    <Section title="Prayer">
+      {collect?.collects && (
+        <>
+          <H3>The Collect</H3>
+          <Byline>{collect.title.replace(/\.$/, '')}</Byline>
+          <Paragraphs text={collect.collects} />
+          <SourceLine>The Book of Common Prayer (1662)</SourceLine>
+        </>
+      )}
+      {prayer && (
+        <Reading first={!collect?.collects}>
+          {prayer.title && <H3>{prayer.title}</H3>}
+          <Paragraphs text={prayer.text} />
+          <SourceLine source={prayer.source} />
+        </Reading>
+      )}
+    </Section>
   )
 }
 
@@ -186,18 +234,10 @@ function Psalm({ reading, first = true }: { reading: PsalmReading; first?: boole
   )
 }
 
-/** The reference of a lesson with several parts: "Genesis 19:1–3; 19:12–29". */
-const lessonTitle = (parts: PassageText[]) => parts.map((p) => formatPassageId(p.passage)).join('; ')
-
-function LessonSection({ title, morning, evening }: { title: string; morning?: LessonText; evening?: LessonText }) {
+function LessonSection({ title, lesson }: { title: string; lesson?: LessonText }) {
   return (
     <Section title={title}>
-      {morning ? <Lesson lesson={morning} /> : <Muted>The 1922 table has no lesson for this day in the transcription.</Muted>}
-      {evening && (
-        <More summary={`Evening: ${evening.parts.length ? lessonTitle(evening.parts) : evening.apocrypha}`}>
-          <Lesson lesson={evening} />
-        </More>
-      )}
+      {lesson ? <Lesson lesson={lesson} /> : <Muted>The 1922 table has no lesson for this day in the transcription.</Muted>}
     </Section>
   )
 }
@@ -237,9 +277,10 @@ function chapters(text: PassageText) {
 function Passage({ text, label, note, first = true }: { text: PassageText; label?: string; note?: string; first?: boolean }) {
   const c = useColors()
   const id = text.passage
+  const bible = useContext(BibleContext)
   return (
     <Reading first={first}>
-      <H3 label={label}>{formatPassageId(id)}</H3>
+      <H3 label={label}>{passageTitle(id, bible.language)}</H3>
       {chapters(text).map((ch, i) => (
         <View key={ch.chapter}>
           {i > 0 && <Text style={[st.chapter, { color: c.muted }]}>CHAPTER {ch.chapter}</Text>}
@@ -254,7 +295,7 @@ function Passage({ text, label, note, first = true }: { text: PassageText; label
         </View>
       ))}
       {note && <Muted>{note}</Muted>}
-      <SourceLine>King James Version</SourceLine>
+      <SourceLine>{bible.name}</SourceLine>
       <Links>
         <Chip href={readInHaddington(id)}>{SIB_NOTES}</Chip>
         <Chip href={memoriseInHearers(id)}>Memorise in Hearers</Chip>
@@ -342,5 +383,9 @@ const st = StyleSheet.create({
   verseNum: { fontFamily: undefined, fontSize: 11, fontWeight: '600' },
   chapter: { fontSize: 12, fontWeight: '600', letterSpacing: 0.7, marginTop: 10, marginBottom: 4 },
   unitHead: { fontFamily: serif.semibold, fontSize: 17, lineHeight: 24 },
+  offices: { flexDirection: 'row', justifyContent: 'center', gap: 8, marginBottom: 4 },
+  officeButton: { borderWidth: 1, borderRadius: 999, paddingVertical: 6, paddingHorizontal: 16 },
+  office: { marginTop: 20 },
+  officeTitle: { fontFamily: serif.semibold, fontSize: 22, lineHeight: 28, marginBottom: 10 },
   lectionary: { fontSize: 13, lineHeight: 19, textAlign: 'center', marginTop: 24 },
 })

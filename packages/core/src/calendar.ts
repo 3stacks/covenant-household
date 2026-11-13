@@ -1,3 +1,4 @@
+import { bibleDir, DEFAULT_BIBLE, type BibleId } from './bibles.ts'
 import { churchDay, HOLY_DAYS, type ChurchDay } from './churchYear.ts'
 import type { CalendarIndex, CollectsFile, Commemoration, DateKey, DevotionsFile, LessonsFile, PsalterFile } from './types.ts'
 
@@ -46,7 +47,8 @@ export type CalendarLoader = (path: string) => Promise<unknown>
 
 export interface Calendar {
   loadIndex(): Promise<CalendarIndex>
-  loadDay(date: Date): Promise<LoadedDay>
+  /** The day, with its readings in the translation `bible` (the KJV by default). */
+  loadDay(date: Date, bible?: BibleId): Promise<LoadedDay>
   /** The commemorations of a month (0 to 11), by date key. */
   loadCommemorations(month: number): Promise<Record<DateKey, Commemoration>>
 }
@@ -66,11 +68,14 @@ export function createCalendar(load: CalendarLoader): Calendar {
 
   return { loadIndex, loadDay, loadCommemorations }
 
-  async function loadDay(date: Date): Promise<LoadedDay> {
+  async function loadDay(date: Date, bible: BibleId = DEFAULT_BIBLE): Promise<LoadedDay> {
     const church = churchDay(date)
     const index = await loadIndex()
+    // The lessons, the collects (with the Epistle and Gospel) and the devotions
+    // (with the proverb) have a copy in each translation.
+    const text = bibleDir(bible)
     const maybe = <T>(list: string[], id: string | undefined, dir: string) =>
-      id && list.includes(id) ? getJson<T>(`${dir}/${id}.json`) : Promise.resolve(undefined)
+      id && list.includes(id) ? getJson<T>(`${dir === 'commemorations' ? '' : text}${dir}/${id}.json`) : Promise.resolve(undefined)
     const [lessons, collect, propers, psalter, devotions, commemoration] = await Promise.all([
       maybe<LessonsFile>(index.lessons, church.id, 'lessons'),
       maybe<CollectsFile>(index.collects, church.collect, 'collects'),

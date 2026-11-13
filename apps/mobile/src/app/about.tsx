@@ -50,7 +50,11 @@ export default function About() {
       </Credit>
       <Credit term="Bible text">
         The King James Version, from the <A href="https://hearers.app">Hearers</A> data. Hearers takes it from{' '}
-        <A href="https://github.com/scrollmapper/bible_databases">scrollmapper/bible_databases</A>. Public domain.
+        <A href="https://github.com/scrollmapper/bible_databases">scrollmapper/bible_databases</A>. Public domain. Choose
+        another translation in Settings. The <A href="https://berean.bible">Berean Standard Bible</A>: its publishers
+        dedicated it to the public domain on 30 April 2023. The Statenvertaling (1637), in the text of the 1888 edition:
+        the transcription is by the <A href="https://github.com/Isidore-Guild/statenvertaling">Isidore Guild</A>, under
+        CC0. The app leaves out the notes.
       </Credit>
       <Credit term="Psalms">
         The Psalms of David in Metre (1650), from the <A href="https://precentor.app">Precentor</A> data. Precentor takes it
