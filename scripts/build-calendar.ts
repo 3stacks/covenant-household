@@ -24,6 +24,7 @@ import { resolveCollects, resolveDevotions, resolveLessons, resolvePsalter, type
 import type { CalendarIndex, Collects, Commemoration, Devotions, Lectionary, Psalter } from '../packages/core/src/types.ts'
 import { validateCommemoration, validateDevotions, type Problem } from '../packages/core/src/validate.ts'
 import { BIBLES, bibleDir } from '../packages/core/src/bibles.ts'
+import type { PrecentorPsalm } from '../packages/core/src/resolve.ts'
 import { bibleBook } from './bibles.ts'
 import { getJson, HEARERS_DATA, kjvBook, PRECENTOR_CORPUS } from './cache.ts'
 
@@ -41,6 +42,25 @@ const readJson = <T>(...path: string[]) => JSON.parse(readFileSync(join(root, ..
 const lectionary = readJson<Lectionary>('content/lectionary/1922.json')
 const collects = readJson<Collects>('content/lectionary/1662.json')
 const psalter = readJson<Psalter>('content/lectionary/psalter-1662.json')
+const psalter1773 = readJson<{ psalms: Record<string, { number: number; lines: string[] }[]> }>('content/psalter/1773.json')
+
+/**
+ * A psalm of 1773 in the shape of a Precentor psalm. Only Psalm 119 has Bible
+ * verses: each of its 88 stanzas sings two verses. The 1662 order divides no
+ * other psalm.
+ */
+function psalm1773(key: string): Promise<PrecentorPsalm> {
+  const n = parseInt(key, 10)
+  const stanzas = psalter1773.psalms[n]
+  if (!stanzas || key.endsWith('b')) return Promise.reject(new Error(`The 1773 psalter has no psalm ${key}`))
+  return Promise.resolve({
+    stanzas: stanzas.map((s) => ({
+      number: s.number,
+      biblical_verses: n === 119 ? [2 * s.number - 1, 2 * s.number] : [],
+      lines: s.lines.map((reading) => ({ text: { reading } })),
+    })),
+  })
+}
 
 let errors = 0
 let samples = 0
@@ -107,8 +127,10 @@ for (const bible of BIBLES) {
   for (const [id, day] of Object.entries(lectionary.days)) await add(`${dir}lessons/${id}.json`, () => resolveLessons(id, day, s))
   for (const [id, day] of Object.entries(collects.days)) await add(`${dir}collects/${id}.json`, () => resolveCollects(id, day, s))
   for (const [id, d] of devotions) await add(`${dir}devotions/${id}.json`, () => resolveDevotions(d, s))
+  // The metrical psalter of the language of the translation.
+  const sung: Sources = bible.language === 'nl' ? { ...sources, psalm: psalm1773 } : sources
+  for (const [day, psalms] of Object.entries(psalter.days)) await add(`${dir}psalter/${day}.json`, () => resolvePsalter(+day, psalms, sung))
 }
-for (const [day, psalms] of Object.entries(psalter.days)) await add(`psalter/${day}.json`, () => resolvePsalter(+day, psalms, sources))
 for (const [date, c] of commemorations) await add(`commemorations/${date}.json`, async () => c)
 
 if (errors) {

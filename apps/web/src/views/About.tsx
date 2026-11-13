@@ -65,6 +65,9 @@ export function About() {
           The Psalms of David in Metre (1650), from the <a href="https://precentor.app">Precentor</a> data. Precentor takes
           it from <a href="https://github.com/kadencartwright/open-1650">open-1650</a> by Kaden Cartwright. The text is public
           domain. The transcription is CC0.
+          With the Statenvertaling, the app sings the Psalmberijming van 1773, from the 1774 printing. The text is in the{' '}
+          <a href="https://www.dbnl.org/titels/titel.php?id=_boe008boek01">DBNL</a> (KB, national library). The text is
+          public domain.
         </dd>
         <dt>Confessions and catechisms</dt>
         <dd>

@@ -2,9 +2,9 @@ import { router } from 'expo-router'
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react'
 import { Pressable, ScrollView, StyleSheet, Text, View, type ScrollViewInstance } from 'react-native'
 import { addDays, isoDate, type LoadedDay } from '@daily-prayer/core/calendar'
-import { DOC_NAMES, DOC_SHORT, psalmLabel, psalmTitle, SIB_NOTES, unitLabel } from '@daily-prayer/core/labels'
+import { DOC_NAMES, DOC_SHORT, SIB_NOTES, unitLabel } from '@daily-prayer/core/labels'
 import { learnInHearers, memoriseInHearers, psalmPassage, readInHaddington, singPsalm } from '@daily-prayer/core/links'
-import { bibleById, DEFAULT_BIBLE, passageTitle, type Bible } from '@daily-prayer/core/bibles'
+import { bibleById, DEFAULT_BIBLE, passageTitle, psalmHeading, PSALTERS, psalmShortLabel, type Bible } from '@daily-prayer/core/bibles'
 import { calendarPath, dayPath } from '@daily-prayer/core/routes'
 import type { ConfessionDoc, ConfessionUnitText, Hymn, LessonText, Paragraph, PassageText, PsalmPortion, PsalmReading, Source, Writing } from '@daily-prayer/core/types'
 import { calendar } from '../lib/calendar.ts'
@@ -109,7 +109,7 @@ export function DayView({ date }: { date: Date }) {
 
           <Text style={[st.lectionary, { color: c.muted }]}>
             Lessons: <SourceName source={day.sources.lessons} /> · Collect, Epistle and Gospel: the Book of Common Prayer
-            (1662) · Psalms: the 1662 order, sung from the 1650 Psalter · Bible: {bible.name}
+            (1662) · Psalms: the 1662 order, sung from {PSALTERS[bible.language].name} · Bible: {bible.name}
           </Text>
         </BibleContext.Provider>
       )}
@@ -178,13 +178,14 @@ function OfficeButton({ children, onPress }: { children: string; onPress: () => 
 
 /** The psalms of one office in the 1662 order. Sing the first. The others are closed. */
 function PsalmSection({ when, psalms }: { when: string; psalms: PsalmReading[] }) {
+  const { language } = useContext(BibleContext)
   if (!psalms.length) return null
   const [first, ...rest] = psalms
   return (
     <Section title="Psalms">
       <Psalm reading={first} />
       {rest.length > 0 && (
-        <More summary={`More psalms ${when}: ${rest.map((p) => psalmLabel(p.portion)).join(', ')}`}>
+        <More summary={`More psalms ${when}: ${rest.map((p) => psalmShortLabel(p, language)).join(', ')}`}>
           {rest.map((p, i) => (
             <Psalm key={key(p.portion)} reading={p} first={i === 0} />
           ))}
@@ -220,13 +221,15 @@ function PrayerSection({ collect, prayer }: { collect?: LoadedDay['collect']; pr
 function Psalm({ reading, first = true }: { reading: PsalmReading; first?: boolean }) {
   const { portion, text } = reading
   const passage = psalmPassage(portion)
+  const { language } = useContext(BibleContext)
+  const psalter = PSALTERS[language]
   return (
     <Reading first={first}>
-      <H3>{psalmTitle(portion)}</H3>
+      <H3>{psalmHeading(reading, language)}</H3>
       <Stanzas stanzas={text.stanzas} />
-      <SourceLine>The Psalms of David in Metre (1650)</SourceLine>
+      <SourceLine>{psalter.name}</SourceLine>
       <Links>
-        <Chip href={singPsalm(portion)}>Sing in Precentor</Chip>
+        {psalter.precentor && <Chip href={singPsalm(portion)}>Sing in Precentor</Chip>}
         <Chip href={readInHaddington(passage)}>{SIB_NOTES}</Chip>
         <Chip href={memoriseInHearers(passage)}>Memorise in Hearers</Chip>
       </Links>
