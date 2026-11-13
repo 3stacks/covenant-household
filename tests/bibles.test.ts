@@ -51,3 +51,12 @@ describe('the parsers', () => {
     await expect(passageText('Gen.1.1-4', { book, doc: async () => ({ units: [] }), psalm: async () => ({ stanzas: [] }) })).rejects.toThrow('has 3 verses')
   })
 })
+
+describe('a selection of verses', () => {
+  it('gives a passage in either order, in one chapter or across two', async () => {
+    const { verseRange } = await import('../packages/core/src/passage.ts')
+    expect(verseRange('Ps', { chapter: 139, verse: 4 }, { chapter: 139, verse: 3 })).toBe('Ps.139.3-4')
+    expect(verseRange('John', { chapter: 3, verse: 16 }, { chapter: 3, verse: 16 })).toBe('John.3.16')
+    expect(verseRange('Gen', { chapter: 1, verse: 30 }, { chapter: 2, verse: 3 })).toBe('Gen.1.30-2.3')
+  })
+})
