@@ -5,6 +5,7 @@ import {
   useFonts,
 } from "@expo-google-fonts/eb-garamond";
 import { Stack } from "expo-router";
+import { SettingsButton } from "../components/SettingsButton.tsx";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
@@ -44,11 +45,15 @@ export default function Layout() {
         >
           <Stack.Screen
             name="index"
-            options={{ title: "Covenant Household" }}
+            options={{ title: "Covenant Household", headerRight: () => <SettingsButton /> }}
           />
           <Stack.Screen
             name="day/[date]"
-            options={{ title: "Covenant Household", animation: "fade" }}
+            options={{
+              title: "Covenant Household",
+              animation: "fade",
+              headerRight: () => <SettingsButton />,
+            }}
           />
           <Stack.Screen name="calendar/index" options={{ title: "Calendar" }} />
           <Stack.Screen
