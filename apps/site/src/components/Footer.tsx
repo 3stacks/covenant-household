@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import { GridPattern } from '@/components/GridPattern'
-import { APP_URL, HEARERS_URL, KOFI_URL, PRECENTOR_URL, SIB_URL } from '@/lib/site'
+import { APP_STORE_URL, APP_URL, HEARERS_URL, KOFI_URL, PRECENTOR_URL, SIB_URL } from '@/lib/site'
 
 export function Footer() {
   return (
@@ -16,6 +16,11 @@ export function Footer() {
           <Link href="/readings/">Readings</Link>
           <Link href="/#pricing">Pricing</Link>
           <Link href="/get/">Get the app</Link>
+          {APP_STORE_URL && (
+            <a href={APP_STORE_URL} data-event="Store" data-event-label="footer">
+              App Store
+            </a>
+          )}
           <Link href="/privacy/">Privacy</Link>
           <Link href={PRECENTOR_URL}>Precentor</Link>
           <Link href={HEARERS_URL}>Hearers</Link>
