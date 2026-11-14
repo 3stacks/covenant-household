@@ -1,0 +1,479 @@
+# Covenant Household: the demo for App Review (Guideline 2.1).
+#
+# The flow starts the app, then shows each main feature at a slow pace.
+# It ends on the page of today.
+#
+# Run on the iOS Simulator first. Install the app, then run this command
+# from apps/mobile:
+#   maestro test .maestro/review-demo.yaml
+#
+# Then run on the iPhone, with the maestro-ios-device patch:
+#   1. Install the TestFlight build on the iPhone.
+#   2. To show the welcome screen, delete the app and install it again.
+#   3. Start the device driver as the README of the patch tells you.
+#   4. Start the screen recording in QuickTime (File > New Movie Recording,
+#      then select the iPhone as the camera).
+#   5. Run the same "maestro test" command with the device UDID.
+#
+# The flow does not clear the app data. If the app shows the welcome screen,
+# the flow chooses English and the King James Version. The flow sets the
+# Bible back to the King James Version at the end.
+#
+# The flow selects each element by its text or its accessibility label in
+# the submitted build. It needs no change to the source.
+#
+# Some steps wait for an element that does not exist ("__pause__"). These
+# steps are optional. They only keep the screen still for the reviewer.
+appId: com.lukeboyle.covenanthousehold
+name: Covenant Household review demo
+---
+# 1. Launch the app.
+- stopApp
+- launchApp
+- waitForAnimationToEnd:
+    timeout: 5000
+
+# 2. The welcome screen. It shows only at the first launch.
+- runFlow:
+    label: Welcome (first launch only)
+    when:
+      visible: "Choose your language"
+    commands:
+      - extendedWaitUntil:
+          visible: "__pause__"
+          timeout: 2500
+          optional: true
+      - tapOn: "English"
+      - extendedWaitUntil:
+          visible: "Choose a Bible"
+          timeout: 10000
+      - tapOn:
+          text: "King James Version.*"
+      - extendedWaitUntil:
+          visible: "__pause__"
+          timeout: 2000
+          optional: true
+      - tapOn: "Start"
+
+# 3. Today: the date, the church day and morning worship.
+- extendedWaitUntil:
+    visible: "Morning worship"
+    timeout: 20000
+- assertVisible:
+    label: The gear (Settings) at the top right
+    text: "Settings"
+    above: "Open the calendar for this month"
+- waitForAnimationToEnd:
+    timeout: 5000
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 3000
+    optional: true
+
+# 4. Scroll slowly through morning worship.
+- scrollUntilVisible:
+    label: The psalm of the morning
+    element:
+      text: "PSALMS"
+    direction: DOWN
+    speed: 20
+    centerElement: true
+    timeout: 30000
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 2000
+    optional: true
+- swipe:
+    start: "50%, 75%"
+    end: "50%, 35%"
+    duration: 1500
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 1500
+    optional: true
+
+# 5. The link to Precentor opens in the in-app browser. Close the browser to
+#    come back to the app.
+- runFlow:
+    label: Sing the psalm in Precentor (in-app browser)
+    when:
+      visible: "Sing in Precentor"
+    commands:
+      - tapOn: "Sing in Precentor"
+      - extendedWaitUntil:
+          visible: "Done|Close"
+          timeout: 15000
+      - extendedWaitUntil:
+          visible: "__pause__"
+          timeout: 4000
+          optional: true
+      - tapOn: "Done|Close"
+      - extendedWaitUntil:
+          visible: "Morning worship|PSALMS"
+          timeout: 10000
+
+- scrollUntilVisible:
+    label: The Old Testament lesson
+    element:
+      text: "OLD TESTAMENT"
+    direction: DOWN
+    speed: 20
+    centerElement: true
+    timeout: 30000
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 2000
+    optional: true
+- scrollUntilVisible:
+    label: The New Testament lesson
+    element:
+      text: "NEW TESTAMENT"
+    direction: DOWN
+    speed: 20
+    centerElement: true
+    timeout: 60000
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 2000
+    optional: true
+- scrollUntilVisible:
+    label: The collect
+    element:
+      text: "The Collect"
+    direction: DOWN
+    speed: 20
+    centerElement: true
+    timeout: 60000
+    optional: true
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 3000
+    optional: true
+
+# 6. Evening worship and the part for the household.
+- scrollUntilVisible:
+    label: Evening worship
+    element:
+      text: "Evening worship"
+    direction: DOWN
+    speed: 30
+    centerElement: true
+    timeout: 60000
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 2000
+    optional: true
+- scrollUntilVisible:
+    label: For the household (proverb and confession)
+    element:
+      text: "For the household"
+    direction: DOWN
+    speed: 30
+    centerElement: true
+    timeout: 60000
+    optional: true
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 2000
+    optional: true
+- scrollUntilVisible:
+    label: The confession or the catechism
+    element:
+      text: "CONFESSION"
+    direction: DOWN
+    speed: 20
+    centerElement: true
+    timeout: 30000
+    optional: true
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 3000
+    optional: true
+
+# 7. Back to the top. The Morning and Evening buttons jump to each part.
+- scrollUntilVisible:
+    label: Back to the top of the page
+    element:
+      text: "Open the calendar for this month"
+    direction: UP
+    speed: 60
+    timeout: 60000
+- waitForAnimationToEnd:
+    timeout: 3000
+- tapOn:
+    label: Jump to evening worship
+    text: "Evening"
+- waitForAnimationToEnd:
+    timeout: 3000
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 2000
+    optional: true
+- scrollUntilVisible:
+    element:
+      text: "Open the calendar for this month"
+    direction: UP
+    speed: 60
+    timeout: 60000
+- waitForAnimationToEnd:
+    timeout: 3000
+
+# 8. Another day: the next day, then back to today.
+- tapOn: "Next day"
+- extendedWaitUntil:
+    visible: "Go to today"
+    timeout: 10000
+- extendedWaitUntil:
+    visible: "Morning worship"
+    timeout: 15000
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 2500
+    optional: true
+- tapOn: "Go to today"
+- extendedWaitUntil:
+    notVisible: "Go to today"
+    timeout: 10000
+- extendedWaitUntil:
+    visible: "Morning worship"
+    timeout: 15000
+- waitForAnimationToEnd:
+    timeout: 3000
+
+# 9. The calendar of the church year.
+- tapOn: "Open the calendar for this month"
+- extendedWaitUntil:
+    visible: "Next month"
+    timeout: 10000
+- waitForAnimationToEnd:
+    timeout: 5000
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 2500
+    optional: true
+- tapOn: "Next month"
+- waitForAnimationToEnd:
+    timeout: 5000
+- swipe:
+    start: "50%, 70%"
+    end: "50%, 40%"
+    duration: 1500
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 2000
+    optional: true
+- scrollUntilVisible:
+    element:
+      text: "Go to today"
+    direction: UP
+    speed: 60
+    timeout: 30000
+- tapOn: "Go to today"
+- extendedWaitUntil:
+    visible: "Morning worship"
+    timeout: 15000
+- waitForAnimationToEnd:
+    timeout: 3000
+
+# 10. Settings: the gear at the top right. Choose a Bible.
+- tapOn:
+    label: Open Settings (the gear at the top right)
+    text: "Settings"
+    above: "Open the calendar for this month"
+- extendedWaitUntil:
+    visible: "These settings stay on this device."
+    timeout: 10000
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 2500
+    optional: true
+- tapOn:
+    label: Choose the Berean Standard Bible
+    text: "Berean Standard Bible.*"
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 1500
+    optional: true
+- scrollUntilVisible:
+    label: The Dutch Bible and the parts of the page
+    element:
+      text: "Parts of the page"
+    direction: DOWN
+    speed: 20
+    centerElement: true
+    timeout: 20000
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 2500
+    optional: true
+- runFlow:
+    label: Back to today
+    commands:
+      - tapOn:
+          text: "Back|Covenant Household"
+          optional: true
+      - runFlow:
+          when:
+            visible: "Parts of the page"
+          commands:
+            - swipe:
+                start: "1%, 50%"
+                end: "85%, 50%"
+                duration: 400
+- extendedWaitUntil:
+    visible: "Morning worship"
+    timeout: 20000
+
+# 11. Today in the Berean Standard Bible.
+- scrollUntilVisible:
+    label: The Old Testament lesson in the BSB
+    element:
+      text: "OLD TESTAMENT"
+    direction: DOWN
+    speed: 30
+    centerElement: true
+    timeout: 60000
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 3000
+    optional: true
+
+# 12. Set the Bible back to the King James Version.
+- scrollUntilVisible:
+    label: Back to the top of the page
+    element:
+      text: "Open the calendar for this month"
+    direction: UP
+    speed: 60
+    timeout: 60000
+- tapOn:
+    label: Open Settings (the gear at the top right)
+    text: "Settings"
+    above: "Open the calendar for this month"
+- extendedWaitUntil:
+    visible: "These settings stay on this device."
+    timeout: 10000
+- tapOn:
+    label: Choose the King James Version
+    text: "King James Version.*"
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 1500
+    optional: true
+- runFlow:
+    label: Back to today
+    commands:
+      - tapOn:
+          text: "Back|Covenant Household"
+          optional: true
+      - runFlow:
+          when:
+            visible: "These settings stay on this device."
+          commands:
+            - swipe:
+                start: "1%, 50%"
+                end: "85%, 50%"
+                duration: 400
+- extendedWaitUntil:
+    visible: "Morning worship"
+    timeout: 20000
+
+# 13. The pages at the end of the day: How to use, and About.
+- scrollUntilVisible:
+    label: The links at the end of the page
+    element:
+      text: "How to use"
+    direction: DOWN
+    speed: 60
+    timeout: 90000
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 1500
+    optional: true
+- tapOn: "How to use"
+- extendedWaitUntil:
+    visible: "A short time of prayer"
+    timeout: 10000
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 3000
+    optional: true
+- runFlow:
+    label: Back to today
+    commands:
+      - tapOn:
+          text: "Back|Covenant Household"
+          optional: true
+      - runFlow:
+          when:
+            visible: "A short time of prayer"
+          commands:
+            - swipe:
+                start: "1%, 50%"
+                end: "85%, 50%"
+                duration: 400
+- extendedWaitUntil:
+    visible: "About"
+    timeout: 10000
+- tapOn: "About"
+- extendedWaitUntil:
+    visible: "Sources"
+    timeout: 10000
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 2500
+    optional: true
+- scrollUntilVisible:
+    label: The sources and licences of each text
+    element:
+      text: "Confessions and catechisms"
+    direction: DOWN
+    speed: 20
+    centerElement: true
+    timeout: 30000
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 2500
+    optional: true
+- scrollUntilVisible:
+    label: Free, with no advertisements
+    element:
+      text: "Support"
+    direction: DOWN
+    speed: 20
+    timeout: 30000
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 3000
+    optional: true
+- runFlow:
+    label: Back to today
+    commands:
+      - tapOn:
+          text: "Back|Covenant Household"
+          optional: true
+      - runFlow:
+          when:
+            visible: "Support"
+          commands:
+            - swipe:
+                start: "1%, 50%"
+                end: "85%, 50%"
+                duration: 400
+
+# 14. End on today.
+- scrollUntilVisible:
+    label: Back to the top of today
+    element:
+      text: "Open the calendar for this month"
+    direction: UP
+    speed: 60
+    timeout: 90000
+- assertVisible: "Morning worship"
+- assertVisible:
+    text: "Settings"
+    above: "Open the calendar for this month"
+- extendedWaitUntil:
+    visible: "__pause__"
+    timeout: 3000
+    optional: true
