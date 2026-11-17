@@ -30,7 +30,7 @@ export function open(url: string) {
       const store = sibling?.appStore
       if (Platform.OS === 'ios' && sibling && store) {
         const { name } = sibling
-        Alert.alert(`${name} is not on this iPhone`, `Get ${name} free from the App Store, or open the website.`, [
+        Alert.alert(`${name} is not on this ${Platform.isPad ? 'iPad' : 'iPhone'}`, `Get ${name} free from the App Store, or open the website.`, [
           { text: 'App Store', onPress: () => void Linking.openURL(store).catch(() => browse(url)) },
           { text: 'Website', onPress: () => void browse(url) },
           { text: 'Cancel', style: 'cancel' },
