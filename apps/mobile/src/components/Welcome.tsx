@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Image, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native'
 import { biblesIn, LANGUAGE_NAMES, LANGUAGES, WELCOME_TEXT, type Language } from '@daily-prayer/core/bibles'
 import { usePrefs } from '../lib/prefs.tsx'
 import { serif, useColors } from '../lib/theme.ts'
@@ -13,10 +13,11 @@ export function Welcome() {
   const [prefs, update] = usePrefs()
   const [language, setLanguage] = useState<Language>()
   const [bible, setBible] = useState(prefs.bible)
+  const page = [st.page, useWindowDimensions().width >= 600 && st.middle]
 
   if (!language) {
     return (
-      <ScrollView style={{ backgroundColor: c.bg }} contentContainerStyle={st.page}>
+      <ScrollView style={{ backgroundColor: c.bg }} contentContainerStyle={page}>
         <Image source={require('../../assets/icon.png')} style={st.icon} accessibilityIgnoresInvertColors />
         <Text style={[st.title, { color: c.ink }]} accessibilityRole="header">
           Covenant Household
@@ -42,7 +43,7 @@ export function Welcome() {
 
   const text = WELCOME_TEXT[language]
   return (
-    <ScrollView style={{ backgroundColor: c.bg }} contentContainerStyle={st.page}>
+    <ScrollView style={{ backgroundColor: c.bg }} contentContainerStyle={page}>
       <Text style={[st.title, { color: c.ink }]} accessibilityRole="header">
         {text.chooseBible}
       </Text>
@@ -77,6 +78,8 @@ export function Welcome() {
 
 const st = StyleSheet.create({
   page: { padding: 24, paddingTop: 72, maxWidth: 480, width: '100%', alignSelf: 'center' },
+  // On a wide screen (an iPad), the choices sit in the middle, not at the top.
+  middle: { flexGrow: 1, justifyContent: 'center', paddingBottom: 72 },
   icon: { width: 72, height: 72, borderRadius: 16, alignSelf: 'center' },
   title: { fontFamily: serif.semibold, fontSize: 28, lineHeight: 34, textAlign: 'center', marginTop: 12 },
   muted: { fontSize: 15, lineHeight: 22, textAlign: 'center', marginTop: 6 },

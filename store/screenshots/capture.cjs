@@ -1,12 +1,17 @@
-// Capture the raw Covenant Household screens from the web export of the mobile app, at the size of an iPhone.
-// The capture hides the Ko-fi link, because the iOS app does not show it.
-// node capture.cjs <outDir> [baseUrl]
+// Capture the raw Covenant Household screens from the web export of the mobile app, at the size of an iPhone
+// or of a 13-inch iPad. The capture hides the Ko-fi link, because the iOS app does not show it.
+// node capture.cjs <outDir> [baseUrl] [--ipad]
 const { chromium } = require('playwright')
-const OUT = process.argv[2]
-const B = process.argv[3] ?? 'http://localhost:18186'
+const args = process.argv.slice(2).filter((a) => a !== '--ipad')
+const IPAD = process.argv.includes('--ipad')
+const OUT = args[0]
+const B = args[1] ?? 'http://localhost:18186'
+const DEVICE = IPAD
+  ? { viewport: { width: 1032, height: 1376 }, deviceScaleFactor: 2 }
+  : { viewport: { width: 440, height: 956 }, deviceScaleFactor: 3 }
 ;(async () => {
   const b = await chromium.launch()
-  const ctx = await b.newContext({ viewport: { width: 440, height: 956 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true, serviceWorkers: 'block' })
+  const ctx = await b.newContext({ ...DEVICE, isMobile: true, hasTouch: true, serviceWorkers: 'block' })
   const p = await ctx.newPage()
   const shot = async (n) => {
     await p.addStyleTag({ content: 'a[href*="ko-fi"]{display:none!important}' })

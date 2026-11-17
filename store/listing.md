@@ -23,7 +23,7 @@ brackets.
 | Primary category | Reference |
 | Secondary category | Lifestyle |
 | Age rating | 4+. Answer "None" to each question. |
-| Devices | iPhone only for version 1 |
+| Devices | iPhone and iPad, from version 1.1.0 |
 
 **Keywords (100):**
 
@@ -104,6 +104,7 @@ No account is needed. Open the app, choose a language and a Bible, and the readi
 | Image | Size | Notes |
 | --- | --- | --- |
 | iPhone screenshots | 1320 × 2868 (6.9-inch display), 3 to 10 | Required |
+| iPad screenshots | 2064 × 2752 (13-inch display), 3 to 10 | Required. `store/screenshots/ipad/` |
 | Play phone screenshots | 1080 × 1920 or larger, 2 to 8 | Required |
 | Play feature graphic | 1024 × 500 | Required. `store/feature-graphic.png` |
 | Play icon | 512 × 512 | Required. `store/play-icon.png` |

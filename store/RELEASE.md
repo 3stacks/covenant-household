@@ -43,7 +43,8 @@ the Google Play developer account. `store/listing.md` has the text of each store
    ```
 
 6. Wait for Apple to process the build. This takes 5 to 30 minutes. Then install it from TestFlight
-   on your iPhone and test it.
+   on your iPhone and on your iPad, and test it. On the iPad, turn the device to landscape and back.
+   Then open the app in Split View.
 
 7. In App Store Connect, complete the version page:
    - Copy each field from `store/listing.md`.
@@ -80,7 +81,7 @@ the Google Play developer account. `store/listing.md` has the text of each store
 
 The screenshots are in `store/screenshots/`. Upload `ios/` to App Store Connect and `play/` to
 Google Play, in the order of the file names. If App Store Connect asks for the 6.3-inch display, use
-`ios-6.3/`. `store/screenshots/README.md` tells how to make them again.
+`ios-6.3/`. The app runs on the iPad from version 1.1.0. For the 13-inch iPad display, upload `ipad/`. `store/screenshots/README.md` tells how to make them again.
 
 ## Each later release
 
@@ -89,4 +90,4 @@ npx eas-cli@latest build --profile production --auto-submit
 ```
 
 EAS increases the build number of each build. Change `version` in `app.json` for each new release
-to the stores.
+to the stores. Version 1.1.0 adds the iPad. App Store Connect then asks for the iPad screenshots.

@@ -10,6 +10,9 @@ Before you copy the text, put the link to the video in place of `[video link]`.
 
 The video shows the app on an iPhone. The video starts at the launch of the app: [video link]
 
+The app also runs on the iPad. On the iPad, it shows the same screens in a centred column. It
+turns to landscape, and it works in Split View.
+
 The app has no account and no login. It has no content from users. It has no paid content. The reader
 cannot buy anything in the app.
 
