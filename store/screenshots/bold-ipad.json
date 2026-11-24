@@ -1,0 +1,137 @@
+{
+  "raw": "raw-ipad",
+  "landscape": false,
+  "palette": {
+    "loud": "#f59a2c",
+    "loudInk": "#2a1d0c",
+    "mid": "#6b4a22",
+    "dark": "#2a1d0c",
+    "pop": "#f7cf8a"
+  },
+  "cards": [
+    {
+      "shot": "today.png",
+      "tilt": 4,
+      "dx": -30,
+      "lines": [
+        {
+          "t": "Morning and",
+          "size": 150
+        },
+        {
+          "t": "evening",
+          "size": 320,
+          "key": true
+        }
+      ],
+      "pops": [
+        {
+          "crop": [
+            336,
+            135,
+            1392,
+            300
+          ],
+          "w": 1250,
+          "x": 430,
+          "y": 520,
+          "rot": -3
+        }
+      ],
+      "pills": []
+    },
+    {
+      "shot": "household.png",
+      "tilt": -4,
+      "dx": 30,
+      "lines": [
+        {
+          "t": "Catechise the",
+          "size": 140
+        },
+        {
+          "t": "household",
+          "size": 250,
+          "key": true
+        }
+      ],
+      "pops": [
+        {
+          "crop": [
+            336,
+            1470,
+            1392,
+            330
+          ],
+          "w": 1300,
+          "x": 80,
+          "y": 760,
+          "rot": 3
+        }
+      ],
+      "pills": []
+    },
+    {
+      "shot": "calendar.png",
+      "tilt": 3,
+      "dx": -20,
+      "lines": [
+        {
+          "t": "Keep the",
+          "size": 160
+        },
+        {
+          "t": "church year",
+          "size": 212,
+          "key": true
+        }
+      ],
+      "pops": [
+        {
+          "crop": [
+            336,
+            822,
+            1392,
+            397
+          ],
+          "w": 1250,
+          "x": 430,
+          "y": 560,
+          "rot": -3
+        }
+      ],
+      "pills": []
+    },
+    {
+      "shot": "bible.png",
+      "tilt": -4,
+      "dx": 30,
+      "lines": [
+        {
+          "t": "Choose your",
+          "size": 150
+        },
+        {
+          "t": "Bible",
+          "size": 420,
+          "key": true
+        }
+      ],
+      "pops": [
+        {
+          "crop": [
+            590,
+            1105,
+            884,
+            250
+          ],
+          "w": 1250,
+          "x": 90,
+          "y": 620,
+          "rot": 3
+        }
+      ],
+      "pills": []
+    }
+  ]
+}
