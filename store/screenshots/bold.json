@@ -1,0 +1,138 @@
+{
+  "raw": "raw",
+  "statusBar": false,
+  "play": true,
+  "palette": {
+    "loud": "#f59a2c",
+    "loudInk": "#2a1d0c",
+    "mid": "#6b4a22",
+    "dark": "#2a1d0c",
+    "pop": "#f7cf8a"
+  },
+  "cards": [
+    {
+      "shot": "today.png",
+      "tilt": 5,
+      "dx": -40,
+      "lines": [
+        {
+          "t": "Morning and",
+          "size": 150
+        },
+        {
+          "t": "evening",
+          "size": 320,
+          "key": true
+        }
+      ],
+      "pops": [
+        {
+          "crop": [
+            64,
+            914,
+            1226,
+            540
+          ],
+          "w": 1000,
+          "x": 280,
+          "y": 900,
+          "rot": -4
+        }
+      ],
+      "pills": []
+    },
+    {
+      "shot": "household.png",
+      "tilt": -5,
+      "dx": 30,
+      "lines": [
+        {
+          "t": "Catechise the",
+          "size": 140
+        },
+        {
+          "t": "household",
+          "size": 250,
+          "key": true
+        }
+      ],
+      "pops": [
+        {
+          "crop": [
+            64,
+            474,
+            1226,
+            380
+          ],
+          "w": 1060,
+          "x": 200,
+          "y": 760,
+          "rot": 4
+        }
+      ],
+      "pills": []
+    },
+    {
+      "shot": "calendar.png",
+      "tilt": 4,
+      "dx": -30,
+      "lines": [
+        {
+          "t": "Keep the",
+          "size": 160
+        },
+        {
+          "t": "church year",
+          "size": 212,
+          "key": true
+        }
+      ],
+      "pops": [
+        {
+          "crop": [
+            64,
+            315,
+            1226,
+            565
+          ],
+          "w": 1000,
+          "x": 290,
+          "y": 640,
+          "rot": -3
+        }
+      ],
+      "pills": []
+    },
+    {
+      "shot": "bible.png",
+      "tilt": -5,
+      "dx": 40,
+      "lines": [
+        {
+          "t": "Choose your",
+          "size": 150
+        },
+        {
+          "t": "Bible",
+          "size": 420,
+          "key": true
+        }
+      ],
+      "pops": [
+        {
+          "crop": [
+            88,
+            413,
+            1178,
+            345
+          ],
+          "w": 1060,
+          "x": 60,
+          "y": 820,
+          "rot": 4
+        }
+      ],
+      "pills": []
+    }
+  ]
+}
