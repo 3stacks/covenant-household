@@ -22,6 +22,7 @@ export function Footer() {
             </a>
           )}
           <Link href="/privacy/">Privacy</Link>
+          <Link href="/terms/">Terms</Link>
           <Link href={PRECENTOR_URL}>Precentor</Link>
           <Link href={HEARERS_URL}>Hearers</Link>
           <Link href={SIB_URL}>Self-Interpreting Bible</Link>

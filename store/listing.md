@@ -12,6 +12,7 @@ brackets.
 | Support URL | https://github.com/3stacks/daily-prayer/issues |
 | Marketing URL | https://covenanthousehold.app |
 | Privacy policy URL | https://covenanthousehold.app/privacy/ |
+| Terms of service URL | https://covenanthousehold.app/terms/ |
 | Copyright | 2026 Luke Boyle |
 | Price | Free |
 
